@@ -1,4 +1,11 @@
-import { BoxContent, CopyButton, CopyContainer, SeeMoreText, StyledColorBox } from './ColorBox.styled';
+import {
+  BoxContent,
+  ColorBoxContainer,
+  ColorBoxContent,
+  CopyButton,
+  CopyContainer,
+  SeeMoreText
+} from './ColorBox.styled';
 import React from 'react';
 
 type Props = {
@@ -14,21 +21,23 @@ type Props = {
 
 const ColorBox = ({ backgroundColor, colorName }: Props) => {
   return (
-    <StyledColorBox backgroundColor={backgroundColor}>
-      <CopyContainer>
-        <BoxContent>
-          <span>{colorName}</span>
-        </BoxContent>
+    <ColorBoxContainer backgroundColor={backgroundColor}>
+      <ColorBoxContent>
+        <CopyContainer>
+          <BoxContent>
+            <span>{colorName}</span>
+          </BoxContent>
 
-        <CopyButton>
-          Copy
-        </CopyButton>
-      </CopyContainer>
+          <CopyButton>
+            Copy
+          </CopyButton>
+        </CopyContainer>
 
-      <SeeMoreText>
-        More
-      </SeeMoreText>
-    </StyledColorBox>
+        <SeeMoreText>
+          More
+        </SeeMoreText>
+      </ColorBoxContent>
+    </ColorBoxContainer>
   );
 };
 

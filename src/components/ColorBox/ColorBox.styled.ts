@@ -1,15 +1,15 @@
 import { styled } from '@mui/system';
 
-type StyledColorBoxProps = {
+type ColorBoxContainerProps = {
   /**
    * The color of the box.
    */
   backgroundColor: string;
 }
 
-export const StyledColorBox = styled('div',
+export const ColorBoxContainer = styled('div',
   { shouldForwardProp: (prop) => prop !== 'backgroundColor' }
-)<StyledColorBoxProps>(({ backgroundColor }) => ({
+)<ColorBoxContainerProps>(({ backgroundColor }) => ({
   backgroundColor,
   cursor: 'pointer',
   display: 'inline-block',
@@ -26,7 +26,23 @@ export const StyledColorBox = styled('div',
 
 export const CopyContainer = styled('div')(() => ({}));
 
-export const BoxContent = styled('div')(() => ({}));
+export const ColorBoxContent = styled('div')(() => ({
+  alignContent: 'flex-end',
+  alignItems: 'flex-end',
+  display: 'flex',
+  height: '100%',
+  justifyContent: 'space-between',
+  marginTop: 'auto',
+}));
+
+export const BoxContent = styled('div')(() => ({
+  padding: '0.6rem',
+  width: '100%',
+  color: '#000',
+  letterSpacing: '1px',
+  textTransform: 'uppercase',
+  fontSize: '0.8rem',
+}));
 
 export const CopyButton = styled('button')(() => ({
   background: 'rgba(255, 255, 255, 0.3)',
@@ -48,5 +64,13 @@ export const CopyButton = styled('button')(() => ({
 }));
 
 export const SeeMoreText = styled('span')(() => ({
+  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  color: '#fff',
+  fontSize: '0.8rem',
+  height: '2rem',
+  lineHeight: '1rem',
+  padding: '0.5rem',
+  textAlign: 'center',
   textTransform: 'uppercase',
+  width: '5rem',
 }));
