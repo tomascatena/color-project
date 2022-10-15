@@ -4,6 +4,9 @@ import ColorBox from '../ColorBox/ColorBox';
 import React from 'react';
 
 type Props = {
+  /**
+   * Palette data, includes palette name, id, emoji, and colors
+   */
   palette: ColorPalette;
 };
 
