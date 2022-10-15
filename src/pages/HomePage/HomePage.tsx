@@ -1,12 +1,13 @@
-import { PageTitle } from '@/components/common-styled-components/PageTitle';
+import Palette from '@/components/Palette/Palette';
 import React from 'react';
+import seedPalettes from '@/data/seedPalettes';
 
 const HomePage = () => {
+  console.log(seedPalettes);
+
   return (
     <div>
-      <PageTitle variant="h4">
-        Home Page
-      </PageTitle>
+      <Palette palette={seedPalettes[5]} />
     </div>
   );
 };
