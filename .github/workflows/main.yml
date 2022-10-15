@@ -1,0 +1,27 @@
+name: deploy-app
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'public/**'
+      - 'package.json'
+      - '.github/workflows/**'
+      - '.husky/**'
+
+defaults:
+  run:
+    working-directory: src
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm run lint
+      - run: npm run build
