@@ -79,3 +79,9 @@ src\
  |--App.js          # React app
  |--index.js        # App entry point
 ```
+
+## Inspirations
+
+- [React Colors Project by Colt Steele](https://github.com/Colt/react-colors)
+- [Flat UI Colors](https://flatuicolors.com/palette/defo)
+- [Material UI Colors](https://materialuicolors.co/?utm_source=launchers)
