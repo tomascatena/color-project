@@ -7,7 +7,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <Palette palette={seedPalettes[5]} />
+      <Palette palette={seedPalettes[2]} />
     </div>
   );
 };

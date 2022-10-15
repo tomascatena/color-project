@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Container } from '@mui/system';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
@@ -15,23 +14,21 @@ const App = () => {
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
 
-        <Container maxWidth="xl">
-          <React.Suspense
-            fallback={
-              <CustomBackdrop
-                isOpen
-                message='Loading...'
-              />
-            }
-          >
-            <Routes>
-              <Route
-                path="/"
-                element={<HomePageAsync />}
-              />
-            </Routes>
-          </React.Suspense>
-        </Container>
+        <React.Suspense
+          fallback={
+            <CustomBackdrop
+              isOpen
+              message='Loading...'
+            />
+          }
+        >
+          <Routes>
+            <Route
+              path="/"
+              element={<HomePageAsync />}
+            />
+          </Routes>
+        </React.Suspense>
       </ThemeProvider>
     </BrowserRouter >
   );
