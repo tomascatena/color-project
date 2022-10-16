@@ -36,7 +36,7 @@ export const ColorBoxContent = styled('div')(() => ({
 }));
 
 export const BoxContent = styled('div')(() => ({
-  padding: '0.6rem',
+  padding: '0.5rem',
   width: '100%',
   color: '#000',
   letterSpacing: '1px',
@@ -65,11 +65,14 @@ export const CopyButton = styled('button')(() => ({
 
 export const SeeMoreText = styled('span')(() => ({
   backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  bottom: '0',
   color: '#fff',
   fontSize: '0.8rem',
   height: '2rem',
   lineHeight: '1rem',
   padding: '0.5rem',
+  position: 'absolute',
+  right: '0',
   textAlign: 'center',
   textTransform: 'uppercase',
   width: '5rem',

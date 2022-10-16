@@ -6,6 +6,7 @@ import {
   CopyContainer,
   SeeMoreText
 } from './ColorBox.styled';
+import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
 import React from 'react';
 
 type Props = {
@@ -20,6 +21,8 @@ type Props = {
 };
 
 const ColorBox = ({ backgroundColor, colorName }: Props) => {
+  const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
+
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
       <ColorBoxContent>
@@ -28,14 +31,12 @@ const ColorBox = ({ backgroundColor, colorName }: Props) => {
             <span>{colorName}</span>
           </BoxContent>
 
-          <CopyButton>
+          <CopyButton onClick={() => copyTextToClipboard(backgroundColor)} >
             Copy
           </CopyButton>
         </CopyContainer>
 
-        <SeeMoreText>
-          More
-        </SeeMoreText>
+        <SeeMoreText>More</SeeMoreText>
       </ColorBoxContent>
     </ColorBoxContainer>
   );
