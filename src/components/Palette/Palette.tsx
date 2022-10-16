@@ -1,3 +1,4 @@
+import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
 import { ColorPaletteWithShades } from '@/typings/typings';
 import { PaletteColors, StyledPalette } from './Palette.styled';
 import ColorBox from '../ColorBox/ColorBox';
@@ -14,11 +15,12 @@ type Props = {
 
 const Palette = ({ palette }: Props) => {
   const [level, setLevel] = React.useState(500);
+  const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
 
   const colorBoxes = palette.colors[level].map((colorData) => (
     <ColorBox
       key={colorData.name}
-      backgroundColor={colorData.hex}
+      backgroundColor={colorData[colorFormat]}
       colorName={colorData.name}
     />
   ));
@@ -28,6 +30,8 @@ const Palette = ({ palette }: Props) => {
       <Navbar
         level={level}
         setLevel={setLevel}
+        colorFormat={colorFormat}
+        setColorFormat={setColorFormat}
       />
 
       <PaletteColors>{colorBoxes}</PaletteColors>

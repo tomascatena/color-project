@@ -1,48 +1,4 @@
-# React Typescript App Boilerplate
-
-A boilerplate/starter project for quickly building React projects using Typescript, Material UI, React Router and more.
-
-By running a single command, you will get a production-ready React App installed and fully configured on your machine.
-
-## Quick Start
-
-To create a project, simply run:
-
-```bash
-npx @pelusa/create-react-ts-boilerplate <project-name>
-```
-
-Or
-
-```bash
-npm init nodejs-express-app <project-name>
-```
-
-## Manual Installation
-
-If you would still prefer to do the installation manually, follow these steps:
-
-Clone the repo:
-
-```bash
-git clone --depth 1 https://github.com/tomascatena/react-boilerplate
-cd react-boilerplate
-npx rimraf ./.git
-```
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-Set the environment variables:
-
-```bash
-cp .env.example .env
-
-# open .env and modify the environment variables (if needed)
-```
+# Color Palettes
 
 ## Available Scripts
 
