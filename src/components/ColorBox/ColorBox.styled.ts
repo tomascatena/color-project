@@ -11,7 +11,6 @@ export const ColorBoxContainer = styled('div',
   { shouldForwardProp: (prop) => prop !== 'backgroundColor' }
 )<ColorBoxContainerProps>(({ backgroundColor }) => ({
   backgroundColor,
-  cursor: 'pointer',
   display: 'inline-block',
   height: '25%',
   margin: '0 auto',
@@ -61,6 +60,7 @@ export const CopyButton = styled('button')(() => ({
   transform: 'translate(-50%, -50%)',
   width: '8rem',
   opacity: 0,
+  cursor: 'pointer',
 }));
 
 export const SeeMoreText = styled('span')(() => ({
@@ -69,6 +69,7 @@ export const SeeMoreText = styled('span')(() => ({
   color: '#fff',
   fontSize: '0.8rem',
   height: '2rem',
+  letterSpacing: '1.5px',
   lineHeight: '1rem',
   padding: '0.5rem',
   position: 'absolute',
@@ -76,4 +77,31 @@ export const SeeMoreText = styled('span')(() => ({
   textAlign: 'center',
   textTransform: 'uppercase',
   width: '5rem',
+}));
+
+type CopyOverlayProps = {
+  /**
+   * The color of the box.
+   */
+  backgroundColor: string;
+}
+
+export const CopyOverlay = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'backgroundColor',
+})<CopyOverlayProps>(({ backgroundColor }) => ({
+  backgroundColor,
+  height: '100%',
+  opacity: 0,
+  position: 'absolute',
+  transform: 'scale(0.1)',
+  width: '100%',
+  zIndex: 0,
+
+  '&.show': {
+    opacity: 1,
+    overflow: 'hidden',
+    transform: 'scale(50)',
+    transition: 'transform 0.6s ease-in-out',
+    zIndex: 10,
+  },
 }));

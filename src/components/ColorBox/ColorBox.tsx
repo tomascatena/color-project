@@ -4,6 +4,7 @@ import {
   ColorBoxContent,
   CopyButton,
   CopyContainer,
+  CopyOverlay,
   SeeMoreText
 } from './ColorBox.styled';
 import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
@@ -23,15 +24,28 @@ type Props = {
 const ColorBox = ({ backgroundColor, colorName }: Props) => {
   const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
 
+  const handleCopy = () => {
+    copyTextToClipboard(backgroundColor);
+  };
+
+  React.useEffect(() => {
+    document.body.style.overflow = isCopied ? 'hidden' : 'auto';
+  }, [isCopied]);
+
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
+      <CopyOverlay
+        backgroundColor={backgroundColor}
+        className={`${isCopied ? 'show' : ''}`}
+      />
+
       <ColorBoxContent>
         <CopyContainer>
           <BoxContent>
             <span>{colorName}</span>
           </BoxContent>
 
-          <CopyButton onClick={() => copyTextToClipboard(backgroundColor)} >
+          <CopyButton onClick={handleCopy} >
             Copy
           </CopyButton>
         </CopyContainer>
