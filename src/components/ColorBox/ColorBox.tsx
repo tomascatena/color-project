@@ -4,6 +4,7 @@ import {
   ColorBoxContent,
   CopyButton,
   CopyContainer,
+  CopyMessage,
   CopyOverlay,
   SeeMoreText
 } from './ColorBox.styled';
@@ -22,6 +23,8 @@ type Props = {
 };
 
 const ColorBox = ({ backgroundColor, colorName }: Props) => {
+  const COPY_MESSAGES = ['Copied!', 'Right One!', 'Paste Me!', 'It\'ll Rock!'];
+
   const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
 
   const handleCopy = () => {
@@ -36,8 +39,14 @@ const ColorBox = ({ backgroundColor, colorName }: Props) => {
     <ColorBoxContainer backgroundColor={backgroundColor}>
       <CopyOverlay
         backgroundColor={backgroundColor}
-        className={`${isCopied ? 'show' : ''}`}
+        className={`${isCopied ? 'showCopyOverlay' : ''}`}
       />
+
+      <CopyMessage className={`${isCopied ? 'showCopyMessage' : ''}`}>
+        <h1>{COPY_MESSAGES[Math.floor(Math.random() * COPY_MESSAGES.length)]}</h1>
+
+        <p>{backgroundColor}</p>
+      </CopyMessage>
 
       <ColorBoxContent>
         <CopyContainer>

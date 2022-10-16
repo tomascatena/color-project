@@ -81,7 +81,7 @@ export const SeeMoreText = styled('span')(() => ({
 
 type CopyOverlayProps = {
   /**
-   * The color of the box.
+   * The background color of the overlay.
    */
   backgroundColor: string;
 }
@@ -97,11 +97,38 @@ export const CopyOverlay = styled('div', {
   width: '100%',
   zIndex: 0,
 
-  '&.show': {
+  '&.showCopyOverlay': {
     opacity: 1,
     overflow: 'hidden',
     transform: 'scale(50)',
-    transition: 'transform 0.6s ease-in-out',
-    zIndex: 10,
+    transition: 'transform 1s ease-in-out',
+    zIndex: 1,
   },
+}));
+
+export const CopyMessage = styled('div')(() => ({
+  color: '#fff',
+  fontSize: '3rem',
+  left: '50%',
+  opacity: 0,
+  position: 'fixed',
+  textAlign: 'center',
+  textTransform: 'uppercase',
+  top: '50%',
+  transform: 'translate(-50%, -50%) scale(0.1)',
+  width: '100%',
+  zIndex: 2,
+
+  '&.showCopyMessage': {
+    opacity: 1,
+    transform: 'translate(-50%, -50%) scale(1)',
+    transition: 'all 0.4s ease-in-out 0.3s',
+  },
+
+  '& h1': {
+    background: 'rgba(255, 255, 255, 0.3)',
+    fontWeight: 500,
+    textShadow: '1px 2px black',
+    width: '100%',
+  }
 }));
