@@ -3,9 +3,8 @@ import {
   ColorPalette,
   ColorPaletteWithShades
 } from '@/typings/typings';
+import { LEVELS } from '@/constants/colors';
 import chroma from 'chroma-js';
-
-const LEVELS = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 
 const getRange = (hexColor: string, end: string = '#fff') => {
   return [

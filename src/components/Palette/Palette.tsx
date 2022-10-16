@@ -1,34 +1,38 @@
-import { ColorPalette } from '@/typings/typings';
+import { ColorPaletteWithShades } from '@/typings/typings';
 import { PaletteColors, StyledPalette } from './Palette.styled';
 import ColorBox from '../ColorBox/ColorBox';
+import Footer from '@/components/Footer/Footer';
+import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
 
 type Props = {
   /**
    * Palette data, includes palette name, id, emoji, and colors
    */
-  palette: ColorPalette;
+  palette: ColorPaletteWithShades;
 };
 
 const Palette = ({ palette }: Props) => {
-  const colorBoxes = palette.colors.map((colorData) => (
+  const [level, setLevel] = React.useState(500);
+
+  const colorBoxes = palette.colors[level].map((colorData) => (
     <ColorBox
       key={colorData.name}
-      backgroundColor={colorData.color}
+      backgroundColor={colorData.hex}
       colorName={colorData.name}
     />
   ));
 
   return (
     <StyledPalette>
-      {/* Navbar goes here */}
+      <Navbar
+        level={level}
+        setLevel={setLevel}
+      />
 
-      <PaletteColors>
-        {/* Bunch of color boxes */}
-        {colorBoxes}
-      </PaletteColors>
+      <PaletteColors>{colorBoxes}</PaletteColors>
 
-      {/* Footer goes here */}
+      <Footer />
     </StyledPalette>
   );
 };

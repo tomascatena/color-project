@@ -29,11 +29,13 @@ export const ColorBoxContent = styled('div')(() => ({}));
 
 export const BoxContent = styled('div')(() => ({
   color: '#fff',
+  display: 'flex',
   fontSize: '1rem',
   fontWeight: 600,
+  overflow: 'hidden',
+  overflowWrap: 'break-word',
   padding: '0.5rem',
   textTransform: 'uppercase',
-  width: '100%',
 }));
 
 export const CopyButton = styled('button')(() => ({
