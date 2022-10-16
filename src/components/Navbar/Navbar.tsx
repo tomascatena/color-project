@@ -30,7 +30,7 @@ const Navbar = ({
   colorFormat,
   setColorFormat
 }: Props) => {
-  const [openSnackbar, setOpenSnackbar] = React.useState(false);
+  const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
 
   return (
     <NavbarContainer>
@@ -46,14 +46,14 @@ const Navbar = ({
       <ColorFormatSelect
         colorFormat={colorFormat}
         setColorFormat={setColorFormat}
-        setOpenSnackbar={setOpenSnackbar}
+        setIsSnackbarOpen={setIsSnackbarOpen}
       />
 
       <CustomSnackbar
-        openSnackbar={openSnackbar}
-        setOpenSnackbar={setOpenSnackbar}
+        isSnackbarOpen={isSnackbarOpen}
+        setIsSnackbarOpen={setIsSnackbarOpen}
       >
-        Format Changed To {colorFormat.toUpperCase()}
+        Format Changed To {colorFormat.toUpperCase()}!
       </CustomSnackbar>
     </NavbarContainer >
   );
