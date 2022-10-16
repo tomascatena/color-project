@@ -23,10 +23,6 @@ export const ColorBoxContainer = styled('div',
   },
 }));
 
-export const CopyContainer = styled('div')(() => ({}));
-
-export const ColorBoxContent = styled('div')(() => ({}));
-
 export const BoxContent = styled('div')(() => ({
   color: '#fff',
   display: 'flex',

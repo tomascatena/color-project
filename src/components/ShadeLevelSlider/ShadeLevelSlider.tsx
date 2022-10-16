@@ -1,6 +1,6 @@
 import { LEVELS } from '@/constants/colors';
+import { LevelText, SliderContainer } from './ShadeLevelSlider.styled';
 import { Slider } from '@mui/material';
-import { SliderContainer } from './ShadeLevelSlider.styled';
 import React from 'react';
 
 type Props = {
@@ -22,8 +22,12 @@ const ShadeLevelSlider = ({ setLevel, level }: Props) => {
 
   return (
     <SliderContainer>
+      <LevelText>
+        Level: {level}
+      </LevelText>
+
       <Slider
-        sx={{ marginTop: 'auto' }}
+        sx={{ flex: 1 }}
         aria-label="Color Shade Level"
         defaultValue={defaultValue}
         valueLabelDisplay="off"
@@ -31,10 +35,7 @@ const ShadeLevelSlider = ({ setLevel, level }: Props) => {
         step={step}
         min={minValue}
         max={maxValue}
-        size="small"
       />
-
-      {level}
     </SliderContainer>
   );
 };

@@ -1,11 +1,11 @@
 import { styled } from '@mui/system';
 
-export const StyledPalette = styled('div')(() => ({
+export const StyledPalette = styled('main')(() => ({
   height: '100vh',
   display: 'flex',
   flexDirection: 'column',
 }));
 
-export const PaletteColors = styled('div')(() => ({
+export const PaletteColors = styled('section')(() => ({
   flex: 1,
 }));

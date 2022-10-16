@@ -1,9 +1,7 @@
 import {
   BoxContent,
   ColorBoxContainer,
-  ColorBoxContent,
   CopyButton,
-  CopyContainer,
   CopyMessage,
   CopyOverlay,
   SeeMoreText
@@ -48,8 +46,8 @@ const ColorBox = ({ backgroundColor, colorName }: Props) => {
         <p>{backgroundColor}</p>
       </CopyMessage>
 
-      <ColorBoxContent>
-        <CopyContainer>
+      <article>
+        <div>
           <BoxContent>
             <span>{colorName}</span>
           </BoxContent>
@@ -57,10 +55,10 @@ const ColorBox = ({ backgroundColor, colorName }: Props) => {
           <CopyButton onClick={handleCopy} >
             Copy
           </CopyButton>
-        </CopyContainer>
+        </div>
 
         <SeeMoreText>More</SeeMoreText>
-      </ColorBoxContent>
+      </article>
     </ColorBoxContainer>
   );
 };

@@ -1,3 +1,4 @@
+import { NavbarContainer, StyledLink } from './Navbar.styled';
 import React from 'react';
 import ShadeLevelSlider from '@/components/ShadeLevelSlider/ShadeLevelSlider';
 
@@ -14,12 +15,16 @@ type Props = {
 
 const Navbar = ({ level, setLevel }: Props) => {
   return (
-    <nav>
+    <NavbarContainer>
+      <StyledLink to="/">
+        Back To Palettes
+      </StyledLink>
+
       <ShadeLevelSlider
         level={level}
         setLevel={setLevel}
       />
-    </nav>
+    </NavbarContainer>
   );
 };
 
