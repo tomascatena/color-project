@@ -27,7 +27,7 @@ export const CopyContainer = styled('div')(() => ({}));
 
 export const ColorBoxContent = styled('div')(() => ({
   alignContent: 'flex-end',
-  alignItems: 'flex-end',
+  alignItems: 'flex-start',
   display: 'flex',
   height: '100%',
   justifyContent: 'space-between',
@@ -35,32 +35,33 @@ export const ColorBoxContent = styled('div')(() => ({
 }));
 
 export const BoxContent = styled('div')(() => ({
+  color: '#fff',
+  fontSize: '1rem',
+  fontWeight: 600,
   padding: '0.5rem',
-  width: '100%',
-  color: '#000',
-  letterSpacing: '1px',
   textTransform: 'uppercase',
-  fontSize: '0.8rem',
+  width: '100%',
 }));
 
 export const CopyButton = styled('button')(() => ({
-  background: 'rgba(255, 255, 255, 0.3)',
-  border: 'none',
+  background: 'transparent',
+  border: '2px solid rgba(255, 255, 255, 0.3)',
+  borderRadius: '0.5rem',
   color: 'white',
+  cursor: 'pointer',
   display: 'inline-block',
-  fontSize: '1rem',
-  height: '2rem',
+  fontWeight: 600,
+  fontSize: '1.2rem',
   left: '50%',
-  lineHeight: '2rem',
+  opacity: 0,
   outline: 'none',
   position: 'absolute',
+  padding: '0.5rem 1rem',
   textAlign: 'center',
   textTransform: 'uppercase',
   top: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '8rem',
-  opacity: 0,
-  cursor: 'pointer',
+  width: '40%',
 }));
 
 export const SeeMoreText = styled('span')(() => ({
@@ -101,7 +102,7 @@ export const CopyOverlay = styled('div', {
     opacity: 1,
     overflow: 'hidden',
     transform: 'scale(50)',
-    transition: 'transform 1s ease-in-out',
+    transition: 'transform .8s ease-in-out',
     zIndex: 1,
   },
 }));
