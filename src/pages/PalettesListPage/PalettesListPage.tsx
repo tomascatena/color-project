@@ -1,5 +1,8 @@
 import { ColorPalette } from '@/typings/typings';
-import { Link } from 'react-router-dom';
+import { Container } from '@mui/system';
+import { PalettesList } from './PalettesListPage.styled';
+import { StyledLink } from '@/components/MiniPalettes/MiniPalette.styled';
+import MiniPalette from '@/components/MiniPalettes/MiniPalette';
 import React from 'react';
 
 type Props = {
@@ -11,18 +14,23 @@ type Props = {
 
 const PalettesListPage = ({ palettes }: Props) => {
   return (
-    <div>
+    <Container>
       <h1>Palettes Page</h1>
 
-      {palettes.map((palette) => (
-        <Link
-          key={palette.id}
-          to={`/palettes/${palette.id}`}
-        >
-          <p>{palette.paletteName}</p>
-        </Link>
-      ))}
-    </div >
+      <PalettesList>
+        {
+          palettes.map((palette) => (
+            <StyledLink
+              style={{ textDecoration: 'none' }}
+              key={palette.id}
+              to={`/palettes/${palette.id}`}
+            >
+              <MiniPalette palette={palette} />
+            </StyledLink>
+          ))
+        }
+      </PalettesList>
+    </Container >
   );
 };
 
