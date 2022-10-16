@@ -6,6 +6,7 @@ import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
 import PalettePageRoute from '@/routes/PalettePageRoute';
 import React from 'react';
 import lightTheme from '@/themes/lightTheme';
+import seedPalettes from '@/data/seedPalettes';
 
 // Lazy load Pages
 const PalettesListPageAsync = React.lazy(() => import('@/pages/PalettesListPage/PalettesListPage'));
@@ -27,7 +28,7 @@ const App = () => {
           <Routes>
             <Route
               path="/"
-              element={<PalettesListPageAsync />}
+              element={<PalettesListPageAsync palettes={seedPalettes} />}
             />
 
             <Route
