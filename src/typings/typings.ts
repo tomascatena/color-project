@@ -1,6 +1,27 @@
+export type ColorDefinition = {
+  color: string;
+  name: string;
+};
+
 export interface ColorPalette {
-  paletteName: string;
-  id: string;
+  colors: ColorDefinition[];
   emoji: string;
-  colors: { name: string; color: string }[];
+  id: string;
+  paletteName: string;
+}
+
+type ColorShades = {
+  hex: string;
+  id: string;
+  level: number;
+  name: string;
+  rgb: string;
+  rgba: string;
+};
+
+export interface ColorPaletteWithShades {
+  colors: { [key: number]: ColorShades[] };
+  emoji: string;
+  id: string;
+  paletteName: string;
 }

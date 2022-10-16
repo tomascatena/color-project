@@ -25,14 +25,7 @@ export const ColorBoxContainer = styled('div',
 
 export const CopyContainer = styled('div')(() => ({}));
 
-export const ColorBoxContent = styled('div')(() => ({
-  alignContent: 'flex-end',
-  alignItems: 'flex-start',
-  display: 'flex',
-  height: '100%',
-  justifyContent: 'space-between',
-  marginTop: 'auto',
-}));
+export const ColorBoxContent = styled('div')(() => ({}));
 
 export const BoxContent = styled('div')(() => ({
   color: '#fff',
@@ -44,9 +37,8 @@ export const BoxContent = styled('div')(() => ({
 }));
 
 export const CopyButton = styled('button')(() => ({
-  background: 'transparent',
-  border: '2px solid rgba(255, 255, 255, 0.3)',
-  borderRadius: '0.5rem',
+  background: 'rgba(255, 255, 255, 0.3)',
+  border: 'none',
   color: 'white',
   cursor: 'pointer',
   display: 'inline-block',
