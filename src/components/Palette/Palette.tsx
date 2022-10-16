@@ -36,7 +36,7 @@ const Palette = ({ palette }: Props) => {
 
       <PaletteColors>{colorBoxes}</PaletteColors>
 
-      <Footer />
+      <Footer palette={palette} />
     </StyledPalette>
   );
 };
