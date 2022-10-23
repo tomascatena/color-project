@@ -17,10 +17,16 @@ const SingleColorPageRoute = () => {
     return <Navigate to="/" />;
   }
 
+  const isColorInPalette = palette.colors.some((color) => color.name.toLowerCase() === colorId);
+
+  if (!isColorInPalette) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <SingleColorPageAsync
-      paletteId={paletteId}
       colorId={colorId}
+      palette={palette}
     />
   );
 };

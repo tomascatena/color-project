@@ -1,3 +1,10 @@
+import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
+import { ColorPalette } from '@/typings/typings';
+import { ColorShades, SingleColorPageContainer } from './SingleColorPage.styled';
+import { getColorShades } from '@/utils/getColorShades';
+import ColorBox from '@/components/ColorBox/ColorBox';
+import Footer from '@/components/Footer/Footer';
+import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
 
 type Props = {
@@ -6,18 +13,45 @@ type Props = {
    */
   colorId: string;
   /**
-   * Id of the palette
+   * Palette data, includes palette name, id, emoji, and colors
    */
-  paletteId: string;
+  palette: ColorPalette;
 };
 
-const ColorShadesPage = ({ colorId, paletteId }: Props) => {
+const ColorShadesPage = ({
+  colorId,
+  palette
+}: Props) => {
+  const colorShades = getColorShades(palette, colorId);
+  const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
+  const [level, setLevel] = React.useState(500);
+
+  const colorBoxes = colorShades.map((color) => (
+    <ColorBox
+      key={color.name}
+      backgroundColor={color[colorFormat]}
+      colorId={color.id}
+      colorName={color.name}
+      paletteId={palette.id}
+      isColorShade
+    />
+  ));
+
   return (
-    <div>
-      <h1>Single color page</h1>
-      <h2>ColorId: {colorId}</h2>
-      <h2>PaletteId: {paletteId}</h2>
-    </div>
+    <SingleColorPageContainer>
+      <Navbar
+        colorFormat={colorFormat}
+        level={level}
+        setColorFormat={setColorFormat}
+        setLevel={setLevel}
+      />
+
+      <ColorShades>
+        {colorBoxes}
+      </ColorShades>
+
+      <Footer palette={palette} />
+    </SingleColorPageContainer>
   );
 };
 

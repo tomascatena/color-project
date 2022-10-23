@@ -25,11 +25,21 @@ type Props = {
   paletteId: string;
   /**
    * Id of the color
-  */
+   */
   colorId: string;
+  /**
+   * Whether the box is used to display a color shade.
+   */
+  isColorShade?: boolean;
 };
 
-const ColorBox = ({ backgroundColor, colorName, paletteId, colorId }: Props) => {
+const ColorBox = ({
+  backgroundColor,
+  colorName,
+  paletteId,
+  colorId,
+  isColorShade = false
+}: Props) => {
   const COPY_MESSAGES = ['Copied!', 'Right One!', 'Paste Me!', 'It\'ll Rock!'];
 
   const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
@@ -45,7 +55,10 @@ const ColorBox = ({ backgroundColor, colorName, paletteId, colorId }: Props) => 
   const navigate = useNavigate();
 
   return (
-    <ColorBoxContainer backgroundColor={backgroundColor}>
+    <ColorBoxContainer
+      backgroundColor={backgroundColor}
+      isColorShade={isColorShade}
+    >
       <CopyOverlay
         backgroundColor={backgroundColor}
         className={`${isCopied ? 'showCopyOverlay' : ''}`}
@@ -68,9 +81,13 @@ const ColorBox = ({ backgroundColor, colorName, paletteId, colorId }: Props) => 
           </CopyButton>
         </div>
 
-        <SeeMoreText onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}>
-          More
-        </SeeMoreText>
+        {
+          !isColorShade && (
+            <SeeMoreText onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}>
+              More
+            </SeeMoreText>
+          )
+        }
       </div>
     </ColorBoxContainer>
   );

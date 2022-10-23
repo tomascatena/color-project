@@ -1,4 +1,4 @@
-import { ColorPaletteWithShades } from '@/typings/typings';
+import { ColorPalette } from '@/typings/typings';
 import { FooterContainer } from './Footer.styled';
 import React from 'react';
 
@@ -6,7 +6,7 @@ type Props = {
   /**
    * Palette data, includes palette name, id, emoji, and colors
    */
-  palette: ColorPaletteWithShades;
+  palette: ColorPalette;
 };
 
 const Footer = ({ palette }: Props) => {

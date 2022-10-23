@@ -5,14 +5,21 @@ type ColorBoxContainerProps = {
    * The color of the box.
    */
   backgroundColor: string;
+  /**
+   * Whether the box is used to display a color shade.
+   */
+  isColorShade?: boolean;
 }
 
 export const ColorBoxContainer = styled('div',
   { shouldForwardProp: (prop) => prop !== 'backgroundColor' }
-)<ColorBoxContainerProps>(({ backgroundColor }) => ({
+)<ColorBoxContainerProps>(({
+  backgroundColor,
+  isColorShade
+}) => ({
   backgroundColor,
   display: 'inline-block',
-  height: '25%',
+  height: isColorShade ? '50%' : '25%',
   margin: '0 auto',
   position: 'relative',
   width: '20%',
@@ -74,7 +81,7 @@ export const SeeMoreText = styled('span')(() => ({
 type CopyOverlayProps = {
   /**
    * The background color of the overlay.
-  */
+   */
   backgroundColor: string;
 }
 
