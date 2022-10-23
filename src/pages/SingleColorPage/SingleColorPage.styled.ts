@@ -5,7 +5,3 @@ export const SingleColorPageContainer = styled('main')(() => ({
   display: 'flex',
   flexDirection: 'column',
 }));
-
-export const ColorShades = styled('section')(() => ({
-  flex: 1,
-}));

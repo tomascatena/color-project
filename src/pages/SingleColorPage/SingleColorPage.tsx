@@ -1,11 +1,10 @@
 import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
 import { ColorPalette } from '@/typings/typings';
-import { ColorShades, SingleColorPageContainer } from './SingleColorPage.styled';
-import { getColorShades } from '@/utils/getColorShades';
-import ColorBox from '@/components/ColorBox/ColorBox';
+import { SingleColorPageContainer } from './SingleColorPage.styled';
 import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
+import SingleColorShades from '@/components/SingleColorShades/SingleColorShades';
 
 type Props = {
   /**
@@ -22,19 +21,7 @@ const ColorShadesPage = ({
   colorId,
   palette
 }: Props) => {
-  const colorShades = getColorShades(palette, colorId);
   const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
-
-  const colorBoxes = colorShades.map((color) => (
-    <ColorBox
-      key={color.name}
-      backgroundColor={color[colorFormat]}
-      colorId={color.id}
-      colorName={color.name}
-      paletteId={palette.id}
-      isColorShade
-    />
-  ));
 
   return (
     <SingleColorPageContainer>
@@ -44,9 +31,11 @@ const ColorShadesPage = ({
         hasSlider={false}
       />
 
-      <ColorShades>
-        {colorBoxes}
-      </ColorShades>
+      <SingleColorShades
+        palette={palette}
+        colorId={colorId}
+        colorFormat={colorFormat}
+      />
 
       <Footer palette={palette} />
     </SingleColorPageContainer>
