@@ -10,6 +10,7 @@ import seedPalettes from '@/data/seedPalettes';
 
 // Lazy load Pages
 const PalettesListPageAsync = React.lazy(() => import('@/pages/PalettesListPage/PalettesListPage'));
+const NewPalettePageAsync = React.lazy(() => import('@/pages/NewPalettePage/NewPalettePage'));
 
 const App = () => {
   return (
@@ -34,6 +35,11 @@ const App = () => {
             <Route
               path="/palettes/:paletteId"
               element={<PalettePageRoute />}
+            />
+
+            <Route
+              path="/new-palette"
+              element={<NewPalettePageAsync />}
             />
           </Routes>
         </React.Suspense>
