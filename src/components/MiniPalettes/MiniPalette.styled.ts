@@ -1,9 +1,4 @@
-import { Link } from 'react-router-dom';
 import { styled } from '@mui/system';
-
-export const StyledLink = styled(Link)(() => ({
-  textDecoration: 'none',
-}));
 
 export const MiniPaletteContainer = styled('div')(() => ({
   backgroundColor: '#fff',
@@ -21,8 +16,8 @@ export const MiniPaletteContainer = styled('div')(() => ({
 }));
 
 export const MiniPaletteColors = styled('div')(() => ({
-  border: '1px solid transparent',
   backgroundColor: '#dae1e4',
+  border: '1px solid transparent',
   borderRadius: '.5rem',
   display: 'grid',
   gridTemplateColumns: 'repeat(5, 1fr)',

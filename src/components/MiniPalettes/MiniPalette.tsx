@@ -7,12 +7,19 @@ import {
 import React from 'react';
 
 type Props = {
+  /**
+   * Palette object
+   */
   palette: ColorPalette;
+  /**
+   * Function to handle click event
+   */
+  handleClick?: () => void;
 };
 
-const MiniPalette = ({ palette }: Props) => {
+const MiniPalette = ({ palette, handleClick }: Props) => {
   return (
-    <MiniPaletteContainer>
+    <MiniPaletteContainer onClick={handleClick}>
       <MiniPaletteColors>
         {palette.colors.map((color) => (
           <div

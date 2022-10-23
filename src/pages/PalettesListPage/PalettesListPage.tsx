@@ -1,12 +1,11 @@
 import { Box } from '@mui/material';
 import { ColorPalette } from '@/typings/typings';
 import { Container } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   PalettesList,
   PalettesListHeader
 } from './PalettesListPage.styled';
-import { StyledLink } from '@/components/MiniPalettes/MiniPalette.styled';
 import MiniPalette from '@/components/MiniPalettes/MiniPalette';
 import React from 'react';
 
@@ -18,6 +17,8 @@ type Props = {
 };
 
 const PalettesListPage = ({ palettes }: Props) => {
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ backgroundColor: 'steelblue', minHeight: '100vh' }}>
       <Container maxWidth='md'>
@@ -32,13 +33,11 @@ const PalettesListPage = ({ palettes }: Props) => {
         <PalettesList>
           {
             palettes.map((palette) => (
-              <StyledLink
-                style={{ textDecoration: 'none' }}
+              <MiniPalette
                 key={palette.id}
-                to={`/palettes/${palette.id}`}
-              >
-                <MiniPalette palette={palette} />
-              </StyledLink>
+                palette={palette}
+                handleClick={() => navigate(`/palettes/${palette.id}`)}
+              />
             ))
           }
         </PalettesList>
