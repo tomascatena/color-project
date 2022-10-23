@@ -9,11 +9,11 @@ type Props = {
   /**
    * Function to set the shade level
    */
-  setLevel: (level: number) => void;
+  setLevel?: (level: number) => void;
   /**
    * Current shade level
    */
-  level: number;
+  level?: number;
   /**
    * Current color format (hex, rgb, rgba)
    */
@@ -22,13 +22,18 @@ type Props = {
    * Function to set the color format
    */
   setColorFormat: (colorFormat: ColorFormat) => void;
+  /**
+   * Weather to show the slider or not
+   */
+  hasSlider?: boolean;
 };
 
 const Navbar = ({
   level,
   setLevel,
   colorFormat,
-  setColorFormat
+  setColorFormat,
+  hasSlider = true,
 }: Props) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
 
@@ -38,10 +43,14 @@ const Navbar = ({
         Back To Palettes
       </StyledLink>
 
-      <ShadeLevelSlider
-        level={level}
-        setLevel={setLevel}
-      />
+      {
+        hasSlider && level && setLevel && (
+          <ShadeLevelSlider
+            level={level}
+            setLevel={setLevel}
+          />
+        )
+      }
 
       <ColorFormatSelect
         colorFormat={colorFormat}

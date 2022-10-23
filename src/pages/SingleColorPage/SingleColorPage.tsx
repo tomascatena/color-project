@@ -24,7 +24,6 @@ const ColorShadesPage = ({
 }: Props) => {
   const colorShades = getColorShades(palette, colorId);
   const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
-  const [level, setLevel] = React.useState(500);
 
   const colorBoxes = colorShades.map((color) => (
     <ColorBox
@@ -41,9 +40,8 @@ const ColorShadesPage = ({
     <SingleColorPageContainer>
       <Navbar
         colorFormat={colorFormat}
-        level={level}
         setColorFormat={setColorFormat}
-        setLevel={setLevel}
+        hasSlider={false}
       />
 
       <ColorShades>
