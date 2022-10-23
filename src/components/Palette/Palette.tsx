@@ -21,17 +21,19 @@ const Palette = ({ palette }: Props) => {
     <ColorBox
       key={colorData.name}
       backgroundColor={colorData[colorFormat]}
+      colorId={colorData.id}
       colorName={colorData.name}
+      paletteId={palette.id}
     />
   ));
 
   return (
     <StyledPalette>
       <Navbar
-        level={level}
-        setLevel={setLevel}
         colorFormat={colorFormat}
+        level={level}
         setColorFormat={setColorFormat}
+        setLevel={setLevel}
       />
 
       <PaletteColors>{colorBoxes}</PaletteColors>

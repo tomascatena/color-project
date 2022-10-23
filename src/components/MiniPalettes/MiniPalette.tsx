@@ -21,13 +21,15 @@ const MiniPalette = ({ palette, handleClick }: Props) => {
   return (
     <MiniPaletteContainer onClick={handleClick}>
       <MiniPaletteColors>
-        {palette.colors.map((color) => (
-          <div
-            key={color.name}
-            style={{ backgroundColor: color.color }}
-          >
-          </div>
-        ))}
+        {
+          palette.colors.map((color) => (
+            <div
+              key={color.name}
+              style={{ backgroundColor: color.color }}
+            >
+            </div>
+          ))
+        }
       </MiniPaletteColors>
 
       <MiniPaletteFooter>

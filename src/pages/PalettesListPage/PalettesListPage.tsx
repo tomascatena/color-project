@@ -41,7 +41,7 @@ const PalettesListPage = ({ palettes }: Props) => {
             ))
           }
         </PalettesList>
-      </Container >
+      </Container>
     </Box>
   );
 };

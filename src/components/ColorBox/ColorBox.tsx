@@ -7,6 +7,7 @@ import {
   SeeMoreText
 } from './ColorBox.styled';
 import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 
 type Props = {
@@ -18,9 +19,17 @@ type Props = {
    * Name of the color
    */
   colorName: string;
+  /**
+   * Id of the palette
+   */
+  paletteId: string;
+  /**
+   * Id of the color
+  */
+  colorId: string;
 };
 
-const ColorBox = ({ backgroundColor, colorName }: Props) => {
+const ColorBox = ({ backgroundColor, colorName, paletteId, colorId }: Props) => {
   const COPY_MESSAGES = ['Copied!', 'Right One!', 'Paste Me!', 'It\'ll Rock!'];
 
   const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
@@ -32,6 +41,8 @@ const ColorBox = ({ backgroundColor, colorName }: Props) => {
   React.useEffect(() => {
     document.body.style.overflow = isCopied ? 'hidden' : 'auto';
   }, [isCopied]);
+
+  const navigate = useNavigate();
 
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
@@ -46,19 +57,21 @@ const ColorBox = ({ backgroundColor, colorName }: Props) => {
         <p>{backgroundColor}</p>
       </CopyMessage>
 
-      <article>
+      <div>
         <div>
           <BoxContent>
             <span>{colorName}</span>
           </BoxContent>
 
-          <CopyButton onClick={handleCopy} >
+          <CopyButton onClick={handleCopy}>
             Copy
           </CopyButton>
         </div>
 
-        <SeeMoreText>More</SeeMoreText>
-      </article>
+        <SeeMoreText onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}>
+          More
+        </SeeMoreText>
+      </div>
     </ColorBoxContainer>
   );
 };

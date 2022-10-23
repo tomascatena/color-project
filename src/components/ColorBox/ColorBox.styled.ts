@@ -68,12 +68,13 @@ export const SeeMoreText = styled('span')(() => ({
   textAlign: 'center',
   textTransform: 'uppercase',
   width: '5rem',
+  cursor: 'pointer',
 }));
 
 type CopyOverlayProps = {
   /**
    * The background color of the overlay.
-   */
+  */
   backgroundColor: string;
 }
 

@@ -5,6 +5,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
 import PalettePageRoute from '@/routes/PalettePageRoute';
 import React from 'react';
+import SingleColorPageRoute from '@/routes/SingleColorPageRoute';
 import lightTheme from '@/themes/lightTheme';
 import seedPalettes from '@/data/seedPalettes';
 
@@ -35,6 +36,11 @@ const App = () => {
             <Route
               path="/palettes/:paletteId"
               element={<PalettePageRoute />}
+            />
+
+            <Route
+              path="/palettes/:paletteId/:colorId"
+              element={<SingleColorPageRoute />}
             />
 
             <Route

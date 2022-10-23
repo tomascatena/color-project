@@ -10,7 +10,7 @@ export interface ColorPalette {
   paletteName: string;
 }
 
-type ColorShades = {
+export type ColorShades = {
   hex: string;
   id: string;
   level: number;
