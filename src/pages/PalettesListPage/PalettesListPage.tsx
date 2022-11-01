@@ -1,10 +1,13 @@
 import { Box } from '@mui/material';
 import { ColorPalette } from '@/typings/typings';
 import { Container } from '@mui/system';
-import { Link, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  useNavigate
+} from 'react-router-dom';
 import {
   PalettesList,
-  PalettesListHeader
+  PalettesListHeader,
 } from './PalettesListPage.styled';
 import MiniPalette from '@/components/MiniPalettes/MiniPalette';
 import React from 'react';

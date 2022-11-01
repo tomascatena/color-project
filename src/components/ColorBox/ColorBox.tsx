@@ -63,7 +63,7 @@ const ColorBox = ({
       />
 
       <CopyMessage
-        isDarkColor={chroma(backgroundColor).luminance() <= 0.3}
+        isDarkColor={chroma(backgroundColor).luminance() <= 0.5}
         className={`${isCopied ? 'showCopyMessage' : ''}`}
       >
         <h1>{COPY_MESSAGES[Math.floor(Math.random() * COPY_MESSAGES.length)]}</h1>
@@ -73,7 +73,7 @@ const ColorBox = ({
 
       <div>
         <div>
-          <BoxContent isDarkColor={chroma(backgroundColor).luminance() <= 0.3}>
+          <BoxContent isDarkColor={chroma(backgroundColor).luminance() <= 0.35}>
             <span>{colorName}</span>
           </BoxContent>
 

@@ -12,4 +12,9 @@ export const PalettesListHeader = styled('header')(() => ({
   display: 'flex',
   justifyContent: 'space-between',
   padding: '1.5rem 0',
+
+  '& a': {
+    color: 'white',
+    textDecoration: 'underline',
+  }
 }));
