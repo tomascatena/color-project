@@ -1,6 +1,6 @@
 import {
   ColorBoxContainer,
-  CopyButton,
+  GoBackButton,
 } from './GoBackBox.styled';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
@@ -24,9 +24,9 @@ const GoBackBox = ({
 
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
-      <CopyButton onClick={() => navigate(`/palettes/${paletteId}`)}>
+      <GoBackButton onClick={() => navigate(`/palettes/${paletteId}`)}>
         Go Back
-      </CopyButton>
+      </GoBackButton>
     </ColorBoxContainer>
   );
 };

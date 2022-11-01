@@ -10,8 +10,6 @@ export const MiniPaletteContainer = styled('div')(() => ({
 
   '&:hover': {
     cursor: 'pointer',
-    boxShadow: '10px 10px 5px rgba(0, 0, 0, 0.2)',
-    transform: 'scale(1.02)',
   },
 }));
 

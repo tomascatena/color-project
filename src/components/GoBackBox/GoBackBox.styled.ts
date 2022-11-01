@@ -19,7 +19,7 @@ export const ColorBoxContainer = styled('div',
   height: '100%',
 }));
 
-export const CopyButton = styled('button')(() => ({
+export const GoBackButton = styled('button')(() => ({
   background: 'rgba(255, 255, 255, 0.3)',
   border: 'none',
   color: 'white',
