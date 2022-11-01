@@ -1,4 +1,3 @@
-import { DRAWER_WIDTH } from '@/constants/drawer';
 import { Theme } from '@mui/material';
 import { styled } from '@mui/system';
 import Drawer from '@mui/material/Drawer';
@@ -9,18 +8,22 @@ interface AppBarProps extends MuiAppBarProps {
    * State of the drawer
    */
   isDrawerOpen?: boolean;
+  /**
+   * Width of the drawer
+   */
+  drawerWidth: number;
 }
 
 export const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'isDrawerOpen',
-})<AppBarProps>(({ theme, isDrawerOpen }) => ({
+  shouldForwardProp: (prop) => prop !== 'isDrawerOpen' && prop !== 'drawerWidth',
+})<AppBarProps>(({ theme, isDrawerOpen, drawerWidth }) => ({
   transition: (theme as Theme).transitions.create(['margin', 'width'], {
     easing: (theme as Theme).transitions.easing.sharp,
     duration: (theme as Theme).transitions.duration.leavingScreen,
   }),
   ...(isDrawerOpen && {
-    width: `calc(100% - ${DRAWER_WIDTH}px)`,
-    marginLeft: `${DRAWER_WIDTH}px`,
+    width: `calc(100% - ${drawerWidth}px)`,
+    marginLeft: `${drawerWidth}px`,
     transition: (theme as Theme).transitions.create(['margin', 'width'], {
       easing: (theme as Theme).transitions.easing.easeOut,
       duration: (theme as Theme).transitions.duration.enteringScreen,
@@ -37,11 +40,24 @@ export const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export const StyledDrawer = styled(Drawer,)(() => ({
-  width: DRAWER_WIDTH,
+interface StyledDrawerProps extends MuiAppBarProps {
+  /**
+   * State of the drawer
+   */
+  isDrawerOpen?: boolean;
+  /**
+   * Width of the drawer
+   */
+  drawerWidth: number;
+}
+
+export const StyledDrawer = styled(Drawer, {
+  shouldForwardProp: (prop) => prop !== 'drawerWidth',
+})<StyledDrawerProps>(({ drawerWidth }) => ({
+  width: drawerWidth,
   flexShrink: 0,
   '& .MuiDrawer-paper': {
-    width: DRAWER_WIDTH,
+    width: drawerWidth,
     boxSizing: 'border-box',
   },
 }));
