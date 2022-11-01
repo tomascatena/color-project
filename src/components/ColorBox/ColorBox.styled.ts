@@ -5,24 +5,19 @@ type ColorBoxContainerProps = {
    * The color of the box.
    */
   backgroundColor: string;
-  /**
-   * Whether the box is used to display a color shade.
-   */
-  isColorShade?: boolean;
 }
 
 export const ColorBoxContainer = styled('div',
   { shouldForwardProp: (prop) => prop !== 'backgroundColor' }
 )<ColorBoxContainerProps>(({
   backgroundColor,
-  isColorShade
 }) => ({
   backgroundColor,
   display: 'inline-block',
-  height: isColorShade ? '50%' : '25%',
+  height: '100%',
   margin: '0 auto',
   position: 'relative',
-  width: '20%',
+  width: '100%',
 
   '&:hover button': {
     opacity: 1,

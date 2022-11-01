@@ -38,7 +38,7 @@ const ColorBox = ({
   colorName,
   paletteId,
   colorId,
-  isColorShade = false
+  isColorShade = false,
 }: Props) => {
   const COPY_MESSAGES = ['Copied!', 'Right One!', 'Paste Me!', 'It\'ll Rock!'];
 
@@ -55,10 +55,7 @@ const ColorBox = ({
   const navigate = useNavigate();
 
   return (
-    <ColorBoxContainer
-      backgroundColor={backgroundColor}
-      isColorShade={isColorShade}
-    >
+    <ColorBoxContainer backgroundColor={backgroundColor}>
       <CopyOverlay
         backgroundColor={backgroundColor}
         className={`${isCopied ? 'showCopyOverlay' : ''}`}
