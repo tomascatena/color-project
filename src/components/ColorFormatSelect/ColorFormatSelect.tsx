@@ -21,7 +21,11 @@ type Props = {
 
 type ColorFormat = keyof typeof COLOR_FORMATS;
 
-const ColorFormatSelect = ({ colorFormat, setColorFormat, setIsSnackbarOpen }: Props) => {
+const ColorFormatSelect = ({
+  colorFormat,
+  setColorFormat,
+  setIsSnackbarOpen
+}: Props) => {
   const handleColorFormatChange = (event: SelectChangeEvent) => {
     setColorFormat(event.target.value as ColorFormat);
     setIsSnackbarOpen(true);

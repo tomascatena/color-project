@@ -19,7 +19,11 @@ type Props = {
   colorFormat: ColorFormat;
 };
 
-const Palette = ({ palette, level, colorFormat }: Props) => {
+const Palette = ({
+  palette,
+  level,
+  colorFormat
+}: Props) => {
   return (
     <PaletteColors>
       {

@@ -17,7 +17,10 @@ type Props = {
   handleClick?: () => void;
 };
 
-const MiniPalette = ({ palette, handleClick }: Props) => {
+const MiniPalette = ({
+  palette,
+  handleClick
+}: Props) => {
   return (
     <MiniPaletteContainer onClick={handleClick}>
       <MiniPaletteColors>

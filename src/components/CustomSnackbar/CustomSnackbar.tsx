@@ -4,6 +4,10 @@ import Snackbar from '@mui/material/Snackbar';
 
 type Props = {
   /**
+   * Children to be rendered inside the snackbar
+   */
+  children: React.ReactNode;
+  /**
    * Whether the snackbar is open or not
    */
   isSnackbarOpen: boolean;
@@ -11,16 +15,12 @@ type Props = {
    * Function to set the snackbar open state
    */
   setIsSnackbarOpen: (isSnackbarOpen: boolean) => void;
-  /**
-   * Children to be rendered inside the snackbar
-   */
-  children: React.ReactNode;
 };
 
 const CustomSnackbar = ({
+  children,
   isSnackbarOpen,
   setIsSnackbarOpen,
-  children,
 }: Props) => {
   const handleCloseSnackbar = (
     event?: React.SyntheticEvent | Event,

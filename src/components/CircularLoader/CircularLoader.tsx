@@ -5,31 +5,37 @@ import React from 'react';
 
 type Props = {
   /**
+   * Duration of the animation in milliseconds
+   *
+   * @default 800
+   */
+  duration?: number;
+  /**
    * The size of the loader
+   *
+   * @default 40
    */
   size?: number;
-  /**
-   * The thickness of the loader
-   */
-  thickness?: number;
   /**
    * The styles for the loader
    */
   sx?: SxProps<Theme> | undefined;
   /**
-   * Duration of the animation in milliseconds
+   * The thickness of the loader
+   *
+   * @default 4
    */
-  duration?: number;
+  thickness?: number;
 };
 
 /**
  * A circular loader
  */
 const CircularLoader = ({
-  size = 40,
-  thickness = 4,
   duration = 800,
-  sx
+  size = 40,
+  sx,
+  thickness = 4,
 }: Props) => {
   return (
     <Box sx={{ position: 'relative', ...sx }}>

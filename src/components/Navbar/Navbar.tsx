@@ -7,33 +7,35 @@ import ShadeLevelSlider from '@/components/ShadeLevelSlider/ShadeLevelSlider';
 
 type Props = {
   /**
-   * Function to set the shade level
+   * Current color format (hex, rgb, rgba)
    */
-  setLevel?: (level: number) => void;
+  colorFormat: ColorFormat;
+  /**
+   * Weather to show the slider or not
+   *
+   * @default true
+   */
+  hasSlider?: boolean;
   /**
    * Current shade level
    */
   level?: number;
   /**
-   * Current color format (hex, rgb, rgba)
-   */
-  colorFormat: ColorFormat;
-  /**
    * Function to set the color format
    */
   setColorFormat: (colorFormat: ColorFormat) => void;
   /**
-   * Weather to show the slider or not
+   * Function to set the shade level
    */
-  hasSlider?: boolean;
+  setLevel?: (level: number) => void;
 };
 
 const Navbar = ({
-  level,
-  setLevel,
   colorFormat,
-  setColorFormat,
   hasSlider = true,
+  level,
+  setColorFormat,
+  setLevel,
 }: Props) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
 
