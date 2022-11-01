@@ -17,11 +17,21 @@ import NewPaletteForm from '@/components/NewPaletteForm/NewPaletteForm';
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 
+type Color = {
+  color: string;
+  name: string;
+};
+
 const NewPalettePage = () => {
   const DRAWER_WIDTH = 360;
 
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
-  const [colors, setColors] = React.useState<string[]>(['purple', '#e15764']);
+  const [colors, setColors] = React.useState<Color[]>([
+    { color: '#0000ff', name: 'Blue' },
+    { color: '#ff0000', name: 'Red' },
+    { color: '#00ff00', name: 'Green' },
+    { color: '#ffff00', name: 'Yellow' },
+  ]);
 
   const handleDrawerOpen = () => {
     setIsDrawerOpen(true);
@@ -102,7 +112,7 @@ const NewPalettePage = () => {
         {
           colors.map((color) => (
             <DraggableColorBox
-              key={color}
+              key={color.name}
               color={color}
             />
           ))
