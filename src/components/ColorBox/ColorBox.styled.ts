@@ -25,8 +25,17 @@ export const ColorBoxContainer = styled('div',
   },
 }));
 
-export const BoxContent = styled('div')(() => ({
-  color: '#fff',
+type BoxContentProps = {
+  /**
+   * Weather the color is dark.
+   */
+  isDarkColor: boolean;
+}
+
+export const BoxContent = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'isDarkColor',
+})<BoxContentProps>(({ isDarkColor }) => ({
+  color: isDarkColor ? '#fff' : '#000',
   display: 'flex',
   fontSize: '1rem',
   fontWeight: 600,
@@ -36,10 +45,19 @@ export const BoxContent = styled('div')(() => ({
   textTransform: 'uppercase',
 }));
 
-export const CopyButton = styled('button')(() => ({
-  background: 'rgba(255, 255, 255, 0.3)',
+type CopyButtonProps = {
+  /**
+   * Weather the color is dark.
+   */
+  isDarkColor: boolean;
+}
+
+export const CopyButton = styled('button', {
+  shouldForwardProp: (prop) => prop !== 'isDarkColor',
+})<CopyButtonProps>(({ isDarkColor }) => ({
+  background: isDarkColor ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.1)',
   border: 'none',
-  color: 'white',
+  color: isDarkColor ? '#fff' : '#000',
   cursor: 'pointer',
   display: 'inline-block',
   fontWeight: 600,
@@ -56,10 +74,19 @@ export const CopyButton = styled('button')(() => ({
   width: '40%',
 }));
 
-export const SeeMoreText = styled('span')(() => ({
+type SeeMoreTextProps = {
+  /**
+   * Weather the color is dark.
+   */
+  isDarkColor: boolean;
+}
+
+export const SeeMoreText = styled('span', {
+  shouldForwardProp: (prop) => prop !== 'isDarkColor',
+})<SeeMoreTextProps>(({ isDarkColor }) => ({
   backgroundColor: 'rgba(255, 255, 255, 0.3)',
   bottom: '0',
-  color: '#fff',
+  color: isDarkColor ? '#fff' : '#000',
   fontSize: '0.8rem',
   height: '2rem',
   letterSpacing: '1.5px',

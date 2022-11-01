@@ -9,6 +9,7 @@ import {
 import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
+import chroma from 'chroma-js';
 
 type Props = {
   /**
@@ -69,24 +70,30 @@ const ColorBox = ({
 
       <div>
         <div>
-          <BoxContent>
+          <BoxContent isDarkColor={chroma(backgroundColor).luminance() <= 0.3}>
             <span>{colorName}</span>
           </BoxContent>
 
-          <CopyButton onClick={handleCopy}>
+          <CopyButton
+            onClick={handleCopy}
+            isDarkColor={chroma(backgroundColor).luminance() <= 0.5}
+          >
             Copy
           </CopyButton>
         </div>
 
         {
           !isColorShade && (
-            <SeeMoreText onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}>
+            <SeeMoreText
+              isDarkColor={chroma(backgroundColor).luminance() <= 0.2}
+              onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}
+            >
               More
             </SeeMoreText>
           )
         }
       </div>
-    </ColorBoxContainer>
+    </ColorBoxContainer >
   );
 };
 
