@@ -62,7 +62,10 @@ const ColorBox = ({
         className={`${isCopied ? 'showCopyOverlay' : ''}`}
       />
 
-      <CopyMessage className={`${isCopied ? 'showCopyMessage' : ''}`}>
+      <CopyMessage
+        isDarkColor={chroma(backgroundColor).luminance() <= 0.3}
+        className={`${isCopied ? 'showCopyMessage' : ''}`}
+      >
         <h1>{COPY_MESSAGES[Math.floor(Math.random() * COPY_MESSAGES.length)]}</h1>
 
         <p>{backgroundColor}</p>

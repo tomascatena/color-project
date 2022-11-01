@@ -127,8 +127,17 @@ export const CopyOverlay = styled('div', {
   },
 }));
 
-export const CopyMessage = styled('div')(() => ({
-  color: '#fff',
+type CopyMessageProps = {
+  /**
+   * Weather the color is dark.
+   */
+  isDarkColor: boolean;
+}
+
+export const CopyMessage = styled('div', {
+  shouldForwardProp: (prop) => prop !== 'backgroundColor',
+})<CopyMessageProps>(({ isDarkColor }) => ({
+  color: isDarkColor ? '#fff' : '#000',
   fontSize: '3rem',
   left: '50%',
   opacity: 0,
@@ -148,8 +157,9 @@ export const CopyMessage = styled('div')(() => ({
 
   '& h1': {
     background: 'rgba(255, 255, 255, 0.3)',
+    color: isDarkColor ? '#fff' : 'rgba(0, 0, 0, 0.7)',
     fontWeight: 500,
-    textShadow: '1px 2px black',
+    textShadow: isDarkColor ? '1px 2px #000' : '1px 2px #fff',
     width: '100%',
   }
 }));
