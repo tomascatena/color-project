@@ -58,11 +58,16 @@ const NewPaletteForm = ({
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: 2,
+          gap: 3,
           padding: 2,
         }}
       >
-        <Typography variant='h4'>Design Your Palette</Typography>
+        <Typography
+          variant='h4'
+          fontWeight='light'
+        >
+          Design Your Palette
+        </Typography>
 
         <Box
           sx={{
