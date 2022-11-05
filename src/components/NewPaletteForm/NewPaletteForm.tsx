@@ -1,3 +1,4 @@
+import { AddColorButton, ButtonsContainer, NewPaletteFormContainer, StyledForm } from './NewPaletteForm.styled';
 import {
   Box,
   Button,
@@ -15,6 +16,10 @@ type Color = {
 
 type Props = {
   /**
+   * Array of colors in the palette being created
+   */
+  colors: Color[];
+  /**
    * Width of the drawer
    */
   drawerWidth: number;
@@ -23,31 +28,49 @@ type Props = {
    */
   isDrawerOpen: boolean;
   /**
+   * Function to set the colors in the palette being created
+   */
+  setColors: (colors: Color[]) => void;
+  /**
    * Function to set the state of the drawer
    */
   setIsDrawerOpen: (open: boolean) => void;
-  colors: Color[];
-  setColors: (colors: Color[]) => void;
 };
 
 const NewPaletteForm = ({
+  colors,
   drawerWidth,
   isDrawerOpen,
+  setColors,
   setIsDrawerOpen,
-  colors,
-  setColors
 }: Props) => {
-  const [currentColor, setCurrentColor] = React.useState('#ffffff');
+  const [currentColor, setCurrentColor] = React.useState('#0048FF');
   const [newColorName, setNewColorName] = React.useState('');
   const [hasValidationError, setHasValidationError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
 
   const isPaletteFull = colors.length >= 20;
 
-  const colorNameExists = colors.some(color => color.name === newColorName);
-  const colorExists = colors.some(color => color.color === currentColor);
+  const isColorUnique = (color: Color) => !colors.some((c) => c.name === color.name);
 
-  const handleAddColor = () => {
+  const isColorNameUnique = (color: Color) => !colors.some((c) => c.color === color.color);
+
+  const validateColor = (color: Color) => {
+    if (!isColorUnique(color)) {
+      setHelperText('Color name must be unique');
+      setHasValidationError(true);
+    } else if (!isColorNameUnique(color)) {
+      setHelperText('Color must be unique');
+      setHasValidationError(true);
+    } else {
+      setHelperText('');
+      setHasValidationError(false);
+    }
+  };
+
+  const handleAddColor = (event: React.FormEvent) => {
+    event.preventDefault();
+
     setColors([
       ...colors,
       {
@@ -58,6 +81,7 @@ const NewPaletteForm = ({
 
     setHasValidationError(false);
     setHelperText('');
+    setNewColorName('');
   };
 
   const handleClearColors = () => {
@@ -67,54 +91,27 @@ const NewPaletteForm = ({
   const handleNewColorNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewColorName(event.target.value);
 
-    if (colorNameExists) {
-      setHasValidationError(true);
-      setHelperText(`Color with name ${newColorName} already exists`);
-    }
-  };
-
-  const handleBlur = () => {
-    if (colorNameExists) {
-      setHasValidationError(true);
-      setHelperText(`Color with name ${newColorName} already exists`);
-    } else if (colorExists) {
-      setHasValidationError(true);
-      setHelperText(`Color with hex value ${currentColor} already exists`);
-    } else {
-      setHasValidationError(false);
-      setHelperText('');
-    }
+    validateColor({
+      color: currentColor,
+      name: event.target.value
+    });
   };
 
   const handleColorChange = (newColor: ColorResult) => {
     setCurrentColor(newColor.hex);
 
-    if (colorExists) {
-      setHasValidationError(true);
-      setHelperText(`Color with hex value ${currentColor} already exists`);
-    }
+    validateColor({
+      color: newColor.hex,
+      name: newColorName
+    });
   };
 
-  const isButtonDisabled = colorNameExists || colorExists || newColorName === '';
-
-  const firstRender = React.useRef(true);
-  React.useEffect(() => {
-    if (firstRender.current) {
-      firstRender.current = false;
-      return;
-    }
-
-    if (colorNameExists) {
-      setHasValidationError(true);
-      setHelperText(`Color with name ${newColorName} already exists`);
-    } else if (colorExists) {
-      setHasValidationError(true);
-      setHelperText(`Color with hex value ${currentColor} already exists`);
-    } else {
-      setHasValidationError(false);
-      setHelperText('');
-    }
-  }, [newColorName, currentColor]);
+  const isButtonDisabled = (
+    !newColorName ||
+    !isColorNameUnique({ color: currentColor, name: newColorName }) ||
+    !isColorUnique({ color: currentColor, name: newColorName }) ||
+    isPaletteFull
+  );
 
   return (
     <CustomDrawer
@@ -122,16 +119,7 @@ const NewPaletteForm = ({
       setIsDrawerOpen={setIsDrawerOpen}
       drawerWidth={drawerWidth}
     >
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: 3,
-          padding: 2,
-        }}
-      >
+      <NewPaletteFormContainer>
         <Typography
           variant='h4'
           fontWeight='light'
@@ -139,14 +127,7 @@ const NewPaletteForm = ({
           Design Your Palette
         </Typography>
 
-        <Box
-          sx={{
-            display: 'flex',
-            width: '100%',
-            flexDirection: 'column',
-            gap: 2,
-          }}
-        >
+        <ButtonsContainer>
           <Button
             variant='contained'
             color='secondary'
@@ -161,7 +142,7 @@ const NewPaletteForm = ({
           >
             Random Color
           </Button>
-        </Box>
+        </ButtonsContainer>
 
         <ChromePicker
           color={currentColor}
@@ -175,34 +156,32 @@ const NewPaletteForm = ({
           }}
         />
 
-        <TextField
-          autoComplete='off'
-          error={hasValidationError}
-          fullWidth
-          helperText={helperText}
-          label='New Color Name'
-          onBlur={handleBlur}
-          onChange={handleNewColorNameChange}
-          value={newColorName}
-          variant='filled'
-        />
-
-        <Button
-          onClick={handleAddColor}
-          variant='contained'
-          fullWidth
-          sx={{
-            backgroundColor: currentColor,
-
-            '&:hover': {
-              backgroundColor: currentColor,
-            },
-          }}
-          disabled={isButtonDisabled}
+        <StyledForm
+          noValidate
+          onSubmit={handleAddColor}
         >
-          {isPaletteFull ? 'Palette Full' : 'Add Color'}
-        </Button>
-      </Box>
+          <TextField
+            autoComplete='off'
+            error={hasValidationError}
+            fullWidth
+            helperText={helperText}
+            label='New Color Name'
+            onChange={handleNewColorNameChange}
+            value={newColorName}
+            variant='filled'
+          />
+
+          <AddColorButton
+            backgroundColor={currentColor}
+            disabled={isButtonDisabled}
+            fullWidth
+            type='submit'
+            variant='contained'
+          >
+            {isPaletteFull ? 'Palette Full' : 'Add Color'}
+          </AddColorButton>
+        </StyledForm>
+      </NewPaletteFormContainer>
     </CustomDrawer>
   );
 };

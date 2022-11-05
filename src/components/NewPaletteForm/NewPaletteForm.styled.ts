@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material';
+import { Button, Theme } from '@mui/material';
 import { styled } from '@mui/system';
 import Drawer from '@mui/material/Drawer';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
@@ -60,4 +60,44 @@ export const StyledDrawer = styled(Drawer, {
     width: drawerWidth,
     boxSizing: 'border-box',
   },
+}));
+
+export const StyledForm = styled('form')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(2),
+  width: '100%',
+}));
+
+export const NewPaletteFormContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: theme.spacing(3),
+  padding: theme.spacing(2),
+}));
+
+interface AddColorButtonProps {
+  /**
+   * Background color of the button
+   */
+  backgroundColor: string;
+}
+
+export const AddColorButton = styled(Button, {
+  shouldForwardProp: (prop) => prop !== 'backgroundColor',
+})<AddColorButtonProps>(({ backgroundColor }) => ({
+  backgroundColor,
+
+  '&:hover': {
+    backgroundColor,
+  },
+}));
+
+export const ButtonsContainer = styled('div')(({ theme }) => ({
+  display: 'flex',
+  width: '100%',
+  flexDirection: 'column',
+  gap: theme.spacing(2),
 }));
