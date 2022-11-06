@@ -2,37 +2,81 @@ import {
   Button,
   TextField,
 } from '@mui/material';
+import { ColorPalette } from '@/typings/typings';
 import CustomDialog from '@/components/CustomDialog/CustomDialog';
 import React from 'react';
 
 type Props = {
+  /**
+   * Whether the dialog is open
+   */
   isDialogOpen: boolean;
-  setIsDialogOpen: (value: boolean) => void;
-  setNewPaletteName: (value: string) => void;
+  /**
+   * Name of the new palette
+   */
   newPaletteName: string;
+  /**
+   * List of existing palettes
+   */
+  palettes: ColorPalette[];
+  /**
+   * Callback to close the dialog
+   */
+  setIsDialogOpen: (value: boolean) => void;
+  /**
+   * Callback to set the new palette name
+   */
+  setNewPaletteName: (value: string) => void;
 };
 
 const NewPaletteNameDialog = ({
   isDialogOpen,
+  newPaletteName,
+  palettes,
   setIsDialogOpen,
   setNewPaletteName,
-  newPaletteName
 }: Props) => {
+  const [hasValidationError, setHasValidationError] = React.useState(false);
+  const [helperText, setHelperText] = React.useState('');
+
+  const isPaletteNameUnique = (name: string) => {
+    return palettes.every(
+      ({ paletteName }) => paletteName.toLowerCase() !== name.toLowerCase()
+    );
+  };
+
+  const validatePaletteName = (name: string) => {
+    if (newPaletteName === '') {
+      setHelperText('Palette name cannot be empty');
+      setHasValidationError(true);
+    } else if (!isPaletteNameUnique(name)) {
+      setHelperText('Palette name must be unique');
+      setHasValidationError(true);
+    } else {
+      setHelperText('');
+      setHasValidationError(false);
+    }
+  };
+
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewPaletteName(event.target.value);
+
+    validatePaletteName(event.target.value);
   };
 
   const dialogContent = (
     <TextField
       autoFocus
+      error={hasValidationError}
       fullWidth
+      helperText={helperText}
       id="new-palette-name"
       label="Palette Name"
       margin="dense"
-      variant='filled'
       onChange={handleNameChange}
       type="text"
       value={newPaletteName}
+      variant='filled'
     />
   );
 
@@ -40,6 +84,8 @@ const NewPaletteNameDialog = ({
     <Button
       color="primary"
       onClick={() => setIsDialogOpen(false)}
+      disabled={hasValidationError}
+      variant='contained'
     >
       Save Palette
     </Button>

@@ -112,7 +112,7 @@ const NewPaletteForm = ({
       <ButtonsContainer>
         <Button
           variant='contained'
-          color='secondary'
+          color='info'
           onClick={() => setColors([])}
         >
           Clear Palette

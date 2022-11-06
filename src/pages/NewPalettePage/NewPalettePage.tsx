@@ -21,9 +21,16 @@ type Props = {
    * Function to save the new palette in local storage
    */
   savePalette: (newPalette: ColorPalette) => void;
+  /**
+   * Array of palettes
+   */
+  palettes: ColorPalette[];
 };
 
-const NewPalettePage = ({ savePalette }: Props) => {
+const NewPalettePage = ({
+  palettes,
+  savePalette
+}: Props) => {
   const DRAWER_WIDTH = 360;
   const navigate = useNavigate();
 
@@ -95,6 +102,7 @@ const NewPalettePage = ({ savePalette }: Props) => {
         setIsDialogOpen={setIsNameDialogOpen}
         setNewPaletteName={setNewPaletteName}
         newPaletteName={newPaletteName}
+        palettes={palettes}
       />
     </NewPalettePageContainer>
   );

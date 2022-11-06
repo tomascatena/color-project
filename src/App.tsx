@@ -61,7 +61,12 @@ const App = () => {
 
             <Route
               path="/new-palette"
-              element={<NewPalettePageAsync savePalette={savePalette} />}
+              element={
+                <NewPalettePageAsync
+                  palettes={palettes}
+                  savePalette={savePalette}
+                />
+              }
             />
           </Routes>
         </React.Suspense>
