@@ -1,10 +1,4 @@
-import { AppBar } from '@/components/NewPaletteForm/NewPaletteForm.styled';
-import {
-  Box,
-  Button,
-  IconButton,
-  Typography
-} from '@mui/material';
+
 import {
   ColorBoxesContainer,
   NewPalettePageContainer
@@ -15,11 +9,12 @@ import {
 } from '@/typings/typings';
 import { DrawerHeader } from '@/components/CustomDrawer/customDrawer.styled';
 import { useNavigate } from 'react-router-dom';
-import AddIcon from '@mui/icons-material/Add';
-import DraggableColorBox from '@/components/DraggableColorBox/DraggableColorBox';
-import NewPaletteForm from '@/components/NewPaletteForm/NewPaletteForm';
+import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
+import DraggableColorBox from '@/components/NewPalette/DraggableColorBox/DraggableColorBox';
+import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar';
+import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
+import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
 import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
 
 type Props = {
   /**
@@ -30,12 +25,11 @@ type Props = {
 
 const NewPalettePage = ({ savePalette }: Props) => {
   const DRAWER_WIDTH = 360;
-
-  const [newPaletteName, setNewPaletteName] = React.useState('Pelusa Palette');
-
   const navigate = useNavigate();
 
+  const [newPaletteName, setNewPaletteName] = React.useState('');
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
+  const [isNameDialogOpen, setIsNameDialogOpen] = React.useState(false);
   const [colors, setColors] = React.useState<ColorDefinition[]>([
     { color: '#0000ff', name: 'Blue' },
     { color: '#ff0000', name: 'Red' },
@@ -62,72 +56,23 @@ const NewPalettePage = ({ savePalette }: Props) => {
 
   return (
     <NewPalettePageContainer>
-      <AppBar
-        position="fixed"
+      <NewPaletteAppBar
+        drawerWidth={DRAWER_WIDTH}
         isDrawerOpen={isDrawerOpen}
+        handleDrawerOpen={handleDrawerOpen}
+        setIsNameDialogOpen={setIsNameDialogOpen}
+      />
+
+      <CustomDrawer
+        isDrawerOpen={isDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
         drawerWidth={DRAWER_WIDTH}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(isDrawerOpen && { display: 'none' }) }}
-          >
-            <AddIcon />
-          </IconButton>
-
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '100%',
-            }}
-          >
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-            >
-              Create a Palette
-            </Typography>
-
-            <Box
-              sx={{
-                display: 'flex',
-                gap: 6
-              }}
-            >
-              <Button
-                variant='contained'
-                color='info'
-                onClick={handleSavePalette}
-              >
-                Save Palette
-              </Button>
-
-              <Button
-                variant='contained'
-                color='info'
-                onClick={() => navigate('/')}
-              >
-                Go Back
-              </Button>
-            </Box>
-          </Box>
-        </Toolbar>
-      </AppBar>
-
-      <NewPaletteForm
-        setIsDrawerOpen={setIsDrawerOpen}
-        isDrawerOpen={isDrawerOpen}
-        drawerWidth={DRAWER_WIDTH}
-        colors={colors}
-        setColors={setColors}
-      />
+        <NewPaletteForm
+          colors={colors}
+          setColors={setColors}
+        />
+      </CustomDrawer>
 
       <DrawerHeader />
 
@@ -144,6 +89,13 @@ const NewPalettePage = ({ savePalette }: Props) => {
           ))
         }
       </ColorBoxesContainer>
+
+      <NewPaletteNameDialog
+        isDialogOpen={isNameDialogOpen}
+        setIsDialogOpen={setIsNameDialogOpen}
+        setNewPaletteName={setNewPaletteName}
+        newPaletteName={newPaletteName}
+      />
     </NewPalettePageContainer>
   );
 };

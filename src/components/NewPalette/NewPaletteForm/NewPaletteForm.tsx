@@ -14,7 +14,6 @@ import {
   ColorResult
 } from 'react-color';
 import { ColorDefinition } from '@/typings/typings';
-import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
 import React from 'react';
 
 type Props = {
@@ -23,29 +22,14 @@ type Props = {
    */
   colors: ColorDefinition[];
   /**
-   * Width of the drawer
-   */
-  drawerWidth: number;
-  /**
-   * State of the drawer
-   */
-  isDrawerOpen: boolean;
-  /**
    * Function to set the colors in the palette being created
    */
   setColors: (colors: ColorDefinition[]) => void;
-  /**
-   * Function to set the state of the drawer
-   */
-  setIsDrawerOpen: (open: boolean) => void;
 };
 
 const NewPaletteForm = ({
   colors,
-  drawerWidth,
-  isDrawerOpen,
   setColors,
-  setIsDrawerOpen,
 }: Props) => {
   const [currentColor, setCurrentColor] = React.useState('#0048FF');
   const [newColorName, setNewColorName] = React.useState('');
@@ -55,9 +39,7 @@ const NewPaletteForm = ({
   const isPaletteFull = colors.length >= 20;
 
   const isColorUnique = (color: ColorDefinition) => !colors.some((c) => c.name === color.name);
-
   const isColorNameUnique = (color: ColorDefinition) => !colors.some((c) => c.color === color.color);
-
   const isColorEmpty = (color: ColorDefinition) => color.name === '' || color.color === '';
 
   const validateColor = (color: ColorDefinition) => {
@@ -92,10 +74,6 @@ const NewPaletteForm = ({
     setNewColorName('');
   };
 
-  const handleClearColors = () => {
-    setColors([]);
-  };
-
   const handleNewColorNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNewColorName(event.target.value);
 
@@ -123,75 +101,69 @@ const NewPaletteForm = ({
   );
 
   return (
-    <CustomDrawer
-      isDrawerOpen={isDrawerOpen}
-      setIsDrawerOpen={setIsDrawerOpen}
-      drawerWidth={drawerWidth}
-    >
-      <NewPaletteFormContainer>
-        <Typography
-          variant='h4'
-          fontWeight='light'
+    <NewPaletteFormContainer>
+      <Typography
+        variant='h4'
+        fontWeight='light'
+      >
+        Design Your Palette
+      </Typography>
+
+      <ButtonsContainer>
+        <Button
+          variant='contained'
+          color='secondary'
+          onClick={() => setColors([])}
         >
-          Design Your Palette
-        </Typography>
+          Clear Palette
+        </Button>
 
-        <ButtonsContainer>
-          <Button
-            variant='contained'
-            color='secondary'
-            onClick={handleClearColors}
-          >
-            Clear Palette
-          </Button>
+        <Button
+          variant='contained'
+          color='primary'
+        >
+          Random Color
+        </Button>
+      </ButtonsContainer>
 
-          <Button
-            variant='contained'
-            color='primary'
-          >
-            Random Color
-          </Button>
-        </ButtonsContainer>
-
-        <ChromePicker
-          color={currentColor}
-          onChangeComplete={handleColorChange}
-          styles={{
-            default: {
-              picker: {
-                width: '100%',
-              },
+      <ChromePicker
+        color={currentColor}
+        onChangeComplete={handleColorChange}
+        styles={{
+          default: {
+            picker: {
+              width: '100%',
             },
-          }}
+          },
+        }}
+      />
+
+      <StyledForm
+        noValidate
+        onSubmit={handleAddColor}
+      >
+        <TextField
+          autoComplete='off'
+          error={hasValidationError}
+          fullWidth
+          helperText={helperText}
+          label='New Color Name'
+          onChange={handleNewColorNameChange}
+          value={newColorName}
+          variant='filled'
         />
 
-        <StyledForm
-          noValidate
-          onSubmit={handleAddColor}
+        <AddColorButton
+          backgroundColor={currentColor}
+          disabled={isButtonDisabled}
+          fullWidth
+          type='submit'
+          variant='contained'
         >
-          <TextField
-            autoComplete='off'
-            error={hasValidationError}
-            fullWidth
-            helperText={helperText}
-            label='New Color Name'
-            onChange={handleNewColorNameChange}
-            value={newColorName}
-            variant='filled'
-          />
-
-          <AddColorButton
-            backgroundColor={currentColor}
-            disabled={isButtonDisabled}
-            fullWidth
-            type='submit'
-            variant='contained'
-          >
-            {isPaletteFull ? 'Palette Full' : 'Add Color'}
-          </AddColorButton>
-        </StyledForm>
-      </NewPaletteFormContainer>
-    </CustomDrawer>
+          {isPaletteFull ? 'Palette Full' : 'Add Color'}
+        </AddColorButton>
+      </StyledForm>
+    </NewPaletteFormContainer>
   );
 };
 
