@@ -9,6 +9,10 @@ import {
   ColorBoxesContainer,
   NewPalettePageContainer
 } from './NewPalettePage.styled';
+import {
+  ColorDefinition,
+  ColorPalette
+} from '@/typings/typings';
 import { DrawerHeader } from '@/components/CustomDrawer/customDrawer.styled';
 import { useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
@@ -17,16 +21,22 @@ import NewPaletteForm from '@/components/NewPaletteForm/NewPaletteForm';
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 
-type Color = {
-  color: string;
-  name: string;
+type Props = {
+  /**
+   * Function to save the new palette in local storage
+   */
+  savePalette: (newPalette: ColorPalette) => void;
 };
 
-const NewPalettePage = () => {
+const NewPalettePage = ({ savePalette }: Props) => {
   const DRAWER_WIDTH = 360;
 
+  const [newPaletteName, setNewPaletteName] = React.useState('Pelusa Palette');
+
+  const navigate = useNavigate();
+
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
-  const [colors, setColors] = React.useState<Color[]>([
+  const [colors, setColors] = React.useState<ColorDefinition[]>([
     { color: '#0000ff', name: 'Blue' },
     { color: '#ff0000', name: 'Red' },
     { color: '#00ff00', name: 'Green' },
@@ -37,7 +47,18 @@ const NewPalettePage = () => {
     setIsDrawerOpen(true);
   };
 
-  const navigate = useNavigate();
+  const handleSavePalette = () => {
+    const newPalette = {
+      colors,
+      emoji: '🐈',
+      id: newPaletteName.toLowerCase().replace(/ /g, '-'),
+      paletteName: newPaletteName,
+    };
+
+    savePalette(newPalette);
+
+    navigate('/');
+  };
 
   return (
     <NewPalettePageContainer>
@@ -63,7 +84,7 @@ const NewPalettePage = () => {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              width: '100%'
+              width: '100%',
             }}
           >
             <Typography
@@ -71,7 +92,7 @@ const NewPalettePage = () => {
               noWrap
               component="div"
             >
-              Persistent drawer
+              Create a Palette
             </Typography>
 
             <Box
@@ -80,12 +101,17 @@ const NewPalettePage = () => {
                 gap: 6
               }}
             >
-              <Button variant='contained'>
-                Save
+              <Button
+                variant='contained'
+                color='info'
+                onClick={handleSavePalette}
+              >
+                Save Palette
               </Button>
 
               <Button
                 variant='contained'
+                color='info'
                 onClick={() => navigate('/')}
               >
                 Go Back

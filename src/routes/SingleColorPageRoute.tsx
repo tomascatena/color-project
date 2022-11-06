@@ -1,17 +1,22 @@
+import { ColorPalette } from '@/typings/typings';
 import { Navigate, useParams } from 'react-router-dom';
 import { findPalette } from '@/utils/findPalette';
 import React from 'react';
 
 const SingleColorPageAsync = React.lazy(() => import('@/pages/SingleColorPage/SingleColorPage'));
 
-const SingleColorPageRoute = () => {
+type Props = {
+  palettes: ColorPalette[];
+};
+
+const SingleColorPageRoute = ({ palettes }: Props) => {
   const { paletteId, colorId } = useParams();
 
   if (!paletteId || !colorId) {
     return <Navigate to="/" />;
   }
 
-  const palette = findPalette(paletteId);
+  const palette = findPalette(palettes, paletteId);
 
   if (!palette) {
     return <Navigate to="/" />;

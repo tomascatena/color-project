@@ -17,9 +17,16 @@ type Props = {
    * Array of palettes
    */
   palettes: ColorPalette[];
+  /**
+   * Function to delete a palette from local storage
+   */
+  removePalette: (paletteId: string) => void;
 };
 
-const PalettesListPage = ({ palettes }: Props) => {
+const PalettesListPage = ({
+  palettes,
+  removePalette
+}: Props) => {
   const navigate = useNavigate();
 
   return (
@@ -40,6 +47,7 @@ const PalettesListPage = ({ palettes }: Props) => {
                 key={palette.id}
                 palette={palette}
                 handleClick={() => navigate(`/palettes/${palette.id}`)}
+                removePalette={removePalette}
               />
             ))
           }

@@ -1,24 +1,27 @@
-import { AddColorButton, ButtonsContainer, NewPaletteFormContainer, StyledForm } from './NewPaletteForm.styled';
 import {
-  Box,
+  AddColorButton,
+  ButtonsContainer,
+  NewPaletteFormContainer,
+  StyledForm
+} from './NewPaletteForm.styled';
+import {
   Button,
   TextField,
   Typography,
 } from '@mui/material';
-import { ChromePicker, ColorResult } from 'react-color';
+import {
+  ChromePicker,
+  ColorResult
+} from 'react-color';
+import { ColorDefinition } from '@/typings/typings';
 import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
 import React from 'react';
-
-type Color = {
-  color: string;
-  name: string;
-};
 
 type Props = {
   /**
    * Array of colors in the palette being created
    */
-  colors: Color[];
+  colors: ColorDefinition[];
   /**
    * Width of the drawer
    */
@@ -30,7 +33,7 @@ type Props = {
   /**
    * Function to set the colors in the palette being created
    */
-  setColors: (colors: Color[]) => void;
+  setColors: (colors: ColorDefinition[]) => void;
   /**
    * Function to set the state of the drawer
    */
@@ -51,12 +54,17 @@ const NewPaletteForm = ({
 
   const isPaletteFull = colors.length >= 20;
 
-  const isColorUnique = (color: Color) => !colors.some((c) => c.name === color.name);
+  const isColorUnique = (color: ColorDefinition) => !colors.some((c) => c.name === color.name);
 
-  const isColorNameUnique = (color: Color) => !colors.some((c) => c.color === color.color);
+  const isColorNameUnique = (color: ColorDefinition) => !colors.some((c) => c.color === color.color);
 
-  const validateColor = (color: Color) => {
-    if (!isColorUnique(color)) {
+  const isColorEmpty = (color: ColorDefinition) => color.name === '' || color.color === '';
+
+  const validateColor = (color: ColorDefinition) => {
+    if (isColorEmpty(color)) {
+      setHelperText('Color name and color cannot be empty');
+      setHasValidationError(true);
+    } else if (!isColorUnique(color)) {
       setHelperText('Color name must be unique');
       setHasValidationError(true);
     } else if (!isColorNameUnique(color)) {
@@ -108,6 +116,7 @@ const NewPaletteForm = ({
 
   const isButtonDisabled = (
     !newColorName ||
+    !currentColor ||
     !isColorNameUnique({ color: currentColor, name: newColorName }) ||
     !isColorUnique({ color: currentColor, name: newColorName }) ||
     isPaletteFull

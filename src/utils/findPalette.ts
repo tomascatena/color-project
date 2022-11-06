@@ -1,5 +1,5 @@
-import seedPalettes from '@/data/seedPalettes';
+import { ColorPalette } from '@/typings/typings';
 
-export const findPalette = (id: string) => {
-  return seedPalettes.find((palette) => palette.id === id);
+export const findPalette = (palettes: ColorPalette[], paletteId: string) => {
+  return palettes.find((palette) => palette.id === paletteId);
 };

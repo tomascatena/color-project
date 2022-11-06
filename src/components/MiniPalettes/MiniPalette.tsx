@@ -15,10 +15,15 @@ type Props = {
    * Function to handle click event
    */
   handleClick?: () => void;
+  /**
+   * Function to delete a palette from local storage
+   */
+  removePalette: (paletteId: string) => void;
 };
 
 const MiniPalette = ({
   palette,
+  removePalette,
   handleClick
 }: Props) => {
   return (

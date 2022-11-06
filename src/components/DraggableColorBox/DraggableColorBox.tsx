@@ -1,11 +1,9 @@
+import { ColorDefinition } from '@/typings/typings';
 import { DraggableColorBoxContainer } from './DraggableColorBox.styled';
 import React from 'react';
 
 type Props = {
-  color: {
-    color: string;
-    name: string;
-  };
+  color: ColorDefinition;
 };
 
 const DraggableColorBox = ({ color }: Props) => {
