@@ -34,7 +34,7 @@ const App = () => {
           fallback={
             <CustomBackdrop
               isOpen
-              message='Loading...'
+              message='Loading page...'
             />
           }
         >

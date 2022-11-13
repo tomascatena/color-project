@@ -1,17 +1,14 @@
 
 import {
-  ColorBoxesContainer,
-  NewPalettePageContainer
-} from './NewPalettePage.styled';
-import {
   ColorDefinition,
   ColorPalette
 } from '@/typings/typings';
 import { DrawerHeader } from '@/components/CustomDrawer/customDrawer.styled';
-import { arrayMoveImmutable } from 'array-move';
+import { NewPalettePageContainer } from './NewPalettePage.styled';
+import { arrayMoveImmutable } from '@/utils/arrayMove/arrayMove';
 import { useNavigate } from 'react-router-dom';
 import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
-import DraggableColorList from '@/components/DraggableColorList/DraggableColorList';
+import DraggableColorGrid from '@/components/DraggableColorGrid/DraggableColorGrid';
 import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar';
 import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
 import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
@@ -49,10 +46,6 @@ const NewPalettePage = ({
     { color: '#ffffff', name: 'White' },
   ]);
 
-  const handleDrawerOpen = () => {
-    setIsDrawerOpen(true);
-  };
-
   const handleSavePalette = () => {
     const newPalette = {
       colors,
@@ -79,7 +72,7 @@ const NewPalettePage = ({
       <NewPaletteAppBar
         drawerWidth={DRAWER_WIDTH}
         isDrawerOpen={isDrawerOpen}
-        handleDrawerOpen={handleDrawerOpen}
+        setIsDrawerOpen={setIsDrawerOpen}
         setIsNameDialogOpen={setIsNameDialogOpen}
       />
 
@@ -96,17 +89,14 @@ const NewPalettePage = ({
 
       <DrawerHeader />
 
-      <ColorBoxesContainer
+      <DraggableColorGrid
+        axis='xy'
+        colors={colors}
+        deleteColor={deleteColor}
         drawerWidth={DRAWER_WIDTH}
         isDrawerOpen={isDrawerOpen}
-      >
-        <DraggableColorList
-          axis='xy'
-          colors={colors}
-          deleteColor={deleteColor}
-          onSortEnd={onSortEnd}
-        />
-      </ColorBoxesContainer>
+        onSortEnd={onSortEnd}
+      />
 
       <NewPaletteNameDialog
         isDialogOpen={isNameDialogOpen}

@@ -15,13 +15,13 @@ type Props = {
    */
   drawerWidth: number;
   /**
-   * Callback to open the drawer
-   */
-  handleDrawerOpen: () => void;
-  /**
    * Whether the drawer is open
    */
   isDrawerOpen: boolean;
+  /**
+   * Callback to open the drawer
+   */
+  setIsDrawerOpen: (isDrawerOpen: boolean) => void;
   /**
    * Callback to open the dialog to save the palette
    */
@@ -30,9 +30,9 @@ type Props = {
 
 const NewPaletteAppBar = ({
   drawerWidth,
-  handleDrawerOpen,
   isDrawerOpen,
-  setIsNameDialogOpen
+  setIsDrawerOpen,
+  setIsNameDialogOpen,
 }: Props) => {
   const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ const NewPaletteAppBar = ({
         <IconButton
           color="inherit"
           aria-label="open drawer"
-          onClick={handleDrawerOpen}
+          onClick={() => setIsDrawerOpen(true)}
           edge="start"
           sx={{ mr: 2, ...(isDrawerOpen && { display: 'none' }) }}
         >
