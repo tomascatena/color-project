@@ -10,6 +10,10 @@ export const DraggableColorBoxContainer = styled('div', {
 })<DraggableColorBoxContainerProps>(({ color }) => ({
   display: 'inline-block',
   backgroundColor: color,
+
+  '&:hover': {
+    cursor: 'grab',
+  },
 }));
 
 type BoxContentProps = {

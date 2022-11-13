@@ -35,16 +35,7 @@ const NewPalettePage = ({
   const [newPaletteName, setNewPaletteName] = React.useState('');
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
   const [isNameDialogOpen, setIsNameDialogOpen] = React.useState(false);
-  const [colors, setColors] = React.useState<ColorDefinition[]>([
-    { color: '#0000ff', name: 'Blue' },
-    { color: '#ff0000', name: 'Red' },
-    { color: '#00ff00', name: 'Green' },
-    { color: '#ffff00', name: 'Yellow' },
-    { color: '#ff00ff', name: 'Magenta' },
-    { color: '#00ffff', name: 'Cyan' },
-    { color: '#000000', name: 'Black' },
-    { color: '#ffffff', name: 'White' },
-  ]);
+  const [colors, setColors] = React.useState<ColorDefinition[]>(palettes[0].colors);
 
   const handleSavePalette = () => {
     const newPalette = {

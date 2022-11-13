@@ -6,7 +6,10 @@ import {
 import { LEVELS } from '@/constants/colors';
 import chroma from 'chroma-js';
 
-const getRange = (hexColor: string, end: string = '#fff') => {
+const getRange = (
+  hexColor: string,
+  end: string = '#fff'
+) => {
   return [
     chroma(hexColor).darken(1.4).hex(),
     hexColor,
@@ -14,7 +17,10 @@ const getRange = (hexColor: string, end: string = '#fff') => {
   ];
 };
 
-const generateScale = (hexColor: string, numberOfColors: number) => {
+const generateScale = (
+  hexColor: string,
+  numberOfColors: number
+) => {
   return chroma
     .scale(getRange(hexColor))
     .mode('lab')

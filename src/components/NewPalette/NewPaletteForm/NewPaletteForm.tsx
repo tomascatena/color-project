@@ -14,6 +14,7 @@ import {
   ColorResult
 } from 'react-color';
 import { ColorDefinition } from '@/typings/typings';
+import { pickRandomHexColor } from '@/utils/pickRandomHexColor/pickRandomHexColor';
 import React from 'react';
 
 type Props = {
@@ -35,6 +36,10 @@ const NewPaletteForm = ({
   const [newColorName, setNewColorName] = React.useState('');
   const [hasValidationError, setHasValidationError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
+
+  React.useEffect(() => {
+    pickRandomHexColor(colors, setNewColorName, setCurrentColor);
+  }, []);
 
   const isPaletteFull = colors.length >= 20;
 
@@ -121,6 +126,7 @@ const NewPaletteForm = ({
         <Button
           variant='contained'
           color='primary'
+          onClick={() => pickRandomHexColor(colors, setNewColorName, setCurrentColor)}
         >
           Random Color
         </Button>

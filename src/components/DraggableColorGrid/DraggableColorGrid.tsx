@@ -1,7 +1,7 @@
 import { ColorBoxesContainer } from './DraggableColorGrid.styled';
 import { ColorDefinition } from '@/typings/typings';
 import { SortableContainer } from 'react-sortable-hoc';
-import DraggableColorBox from '@/components/NewPalette/DraggableColorBox/DraggableColorBox';
+import DraggableColorBox from '@/components/DraggableColorBox/DraggableColorBox';
 import React from 'react';
 
 interface Props {
