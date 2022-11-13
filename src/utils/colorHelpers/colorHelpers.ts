@@ -6,6 +6,12 @@ import {
 import { LEVELS } from '@/constants/colors';
 import chroma from 'chroma-js';
 
+/**
+ * Function to generate a range of colors
+ * @param hexColor The color to generate the range from
+ * @param end The end of the range
+ * @returns An array of colors
+ */
 const getRange = (
   hexColor: string,
   end: string = '#fff'
@@ -17,6 +23,12 @@ const getRange = (
   ];
 };
 
+/**
+ * Function to generate a scale of colors
+ * @param hexColor - The color to generate the shades from
+ * @param numberOfColors - The number of shades to generate
+ * @returns - An array of shades
+ */
 const generateScale = (
   hexColor: string,
   numberOfColors: number
@@ -25,6 +37,11 @@ const generateScale = (
   .mode('lab')
   .colors(numberOfColors);
 
+/**
+ * Function to generate a palette of colors
+ * @param starterPalette The palette to generate the shades from
+ * @returns A palette with shades
+ */
 export const generatePalette = (starterPalette: ColorPalette) => {
   const newPalette: ColorPaletteWithShades = {
     colors: {},

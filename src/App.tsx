@@ -17,13 +17,9 @@ const NewPalettePageAsync = React.lazy(() => import('@/pages/NewPalettePage/NewP
 const App = () => {
   const [palettes, setPalettes] = React.useState(seedPalettes);
 
-  const savePalette = (newPalette: ColorPalette) => {
-    setPalettes([...palettes, newPalette]);
-  };
+  const savePalette = (newPalette: ColorPalette) => setPalettes([...palettes, newPalette]);
 
-  const removePalette = (paletteId: string) => {
-    setPalettes(palettes.filter((palette) => palette.id !== paletteId));
-  };
+  const removePalette = (paletteId: string) => setPalettes(palettes.filter((palette) => palette.id !== paletteId));
 
   return (
     <BrowserRouter>

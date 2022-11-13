@@ -41,6 +41,7 @@ const NewPaletteAppBar = ({
       position="fixed"
       isDrawerOpen={isDrawerOpen}
       drawerWidth={drawerWidth}
+      color="inherit"
     >
       <Toolbar>
         <IconButton

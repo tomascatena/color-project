@@ -45,10 +45,6 @@ const ColorBox = ({
 
   const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
 
-  const handleCopy = () => {
-    copyTextToClipboard(backgroundColor);
-  };
-
   React.useEffect(() => {
     document.body.style.overflow = isCopied ? 'hidden' : 'auto';
   }, [isCopied]);
@@ -78,7 +74,7 @@ const ColorBox = ({
           </BoxContent>
 
           <CopyButton
-            onClick={handleCopy}
+            onClick={() => copyTextToClipboard(backgroundColor)}
             isDarkColor={chroma(backgroundColor).luminance() <= 0.5}
           >
             Copy
