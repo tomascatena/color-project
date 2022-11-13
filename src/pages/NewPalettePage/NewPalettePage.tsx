@@ -8,9 +8,10 @@ import {
   ColorPalette
 } from '@/typings/typings';
 import { DrawerHeader } from '@/components/CustomDrawer/customDrawer.styled';
+import { arrayMoveImmutable } from 'array-move';
 import { useNavigate } from 'react-router-dom';
 import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
-import DraggableColorBox from '@/components/NewPalette/DraggableColorBox/DraggableColorBox';
+import DraggableColorList from '@/components/DraggableColorList/DraggableColorList';
 import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar';
 import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
 import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
@@ -42,6 +43,10 @@ const NewPalettePage = ({
     { color: '#ff0000', name: 'Red' },
     { color: '#00ff00', name: 'Green' },
     { color: '#ffff00', name: 'Yellow' },
+    { color: '#ff00ff', name: 'Magenta' },
+    { color: '#00ffff', name: 'Cyan' },
+    { color: '#000000', name: 'Black' },
+    { color: '#ffffff', name: 'White' },
   ]);
 
   const handleDrawerOpen = () => {
@@ -61,8 +66,12 @@ const NewPalettePage = ({
     navigate('/');
   };
 
-  const handleDeleteColor = (colorName: string) => {
+  const deleteColor = (colorName: string) => {
     setColors(colors.filter(({ name }) => name !== colorName));
+  };
+
+  const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number; }) => {
+    setColors(arrayMoveImmutable(colors, oldIndex, newIndex));
   };
 
   return (
@@ -91,15 +100,12 @@ const NewPalettePage = ({
         drawerWidth={DRAWER_WIDTH}
         isDrawerOpen={isDrawerOpen}
       >
-        {
-          colors.map((color) => (
-            <DraggableColorBox
-              key={color.name}
-              color={color}
-              handleDeleteColor={handleDeleteColor}
-            />
-          ))
-        }
+        <DraggableColorList
+          axis='xy'
+          colors={colors}
+          deleteColor={deleteColor}
+          onSortEnd={onSortEnd}
+        />
       </ColorBoxesContainer>
 
       <NewPaletteNameDialog

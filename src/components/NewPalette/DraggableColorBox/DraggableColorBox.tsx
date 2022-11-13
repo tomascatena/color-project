@@ -4,6 +4,7 @@ import {
   StyledIconButton
 } from './DraggableColorBox.styled';
 import { ColorDefinition } from '@/typings/typings';
+import { SortableElement } from 'react-sortable-hoc';
 import {
   Tooltip,
   Typography
@@ -20,12 +21,12 @@ type Props = {
   /**
    * Function to delete a color
    */
-  handleDeleteColor: (colorName: string) => void;
+  deleteColor: (colorName: string) => void;
 };
 
 const DraggableColorBox = ({
   color,
-  handleDeleteColor
+  deleteColor
 }: Props) => {
   const isDarkColor = chroma(color.color).luminance() <= 0.35;
 
@@ -42,7 +43,7 @@ const DraggableColorBox = ({
 
         <Tooltip title={tooltipTitle}>
           <StyledIconButton
-            onClick={() => handleDeleteColor(color.name)}
+            onClick={() => deleteColor(color.name)}
             isDarkColor={isDarkColor}
           >
             <DeleteOutlineIcon />
@@ -53,4 +54,4 @@ const DraggableColorBox = ({
   );
 };
 
-export default DraggableColorBox;
+export default SortableElement<Props>(DraggableColorBox);
