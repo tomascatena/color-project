@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import { ColorPalette } from '@/typings/typings';
 import { Container } from '@mui/system';
 import {
@@ -7,6 +6,7 @@ import {
 } from 'react-router-dom';
 import {
   PalettesList,
+  PalettesListContainer,
   PalettesListHeader,
 } from './PalettesListPage.styled';
 import MiniPalette from '@/components/MiniPalettes/MiniPalette';
@@ -30,7 +30,7 @@ const PalettesListPage = ({
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ backgroundColor: 'steelblue', minHeight: '100vh' }}>
+    <PalettesListContainer>
       <Container maxWidth='md'>
         <PalettesListHeader>
           <h1>Color Palettes Project</h1>
@@ -53,7 +53,7 @@ const PalettesListPage = ({
           }
         </PalettesList>
       </Container>
-    </Box>
+    </PalettesListContainer>
   );
 };
 

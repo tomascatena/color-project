@@ -18,3 +18,9 @@ export const PalettesListHeader = styled('header')(() => ({
     textDecoration: 'underline',
   }
 }));
+
+export const PalettesListContainer = styled('div')(({ theme }) => ({
+  backgroundColor: 'steelblue',
+  minHeight: '100vh',
+  paddingBottom: theme.spacing(10),
+}));

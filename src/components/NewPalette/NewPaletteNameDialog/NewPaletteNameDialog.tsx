@@ -27,6 +27,7 @@ type Props = {
    * Callback to set the new palette name
    */
   setNewPaletteName: (value: string) => void;
+  handleSavePalette: () => void;
 };
 
 const NewPaletteNameDialog = ({
@@ -35,6 +36,7 @@ const NewPaletteNameDialog = ({
   palettes,
   setIsDialogOpen,
   setNewPaletteName,
+  handleSavePalette
 }: Props) => {
   const [hasValidationError, setHasValidationError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
@@ -46,7 +48,7 @@ const NewPaletteNameDialog = ({
   };
 
   const validatePaletteName = (name: string) => {
-    if (newPaletteName === '') {
+    if (newPaletteName.trim() === '') {
       setHelperText('Palette name cannot be empty');
       setHasValidationError(true);
     } else if (!isPaletteNameUnique(name)) {
@@ -63,6 +65,13 @@ const NewPaletteNameDialog = ({
 
     validatePaletteName(event.target.value);
   };
+
+  const handleSavePaletteName = () => {
+    setIsDialogOpen(false);
+    handleSavePalette();
+  };
+
+  const isButtonDisabled = hasValidationError || newPaletteName.trim() === '';
 
   const dialogContent = (
     <TextField
@@ -83,11 +92,11 @@ const NewPaletteNameDialog = ({
   const dialogActions = (
     <Button
       color="primary"
-      onClick={() => setIsDialogOpen(false)}
-      disabled={hasValidationError}
+      onClick={handleSavePaletteName}
+      disabled={isButtonDisabled}
       variant='contained'
     >
-      Save Palette
+      Save Palette Name
     </Button>
   );
 

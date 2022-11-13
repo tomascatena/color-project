@@ -103,6 +103,7 @@ const NewPalettePage = ({
         setNewPaletteName={setNewPaletteName}
         newPaletteName={newPaletteName}
         palettes={palettes}
+        handleSavePalette={handleSavePalette}
       />
     </NewPalettePageContainer>
   );
