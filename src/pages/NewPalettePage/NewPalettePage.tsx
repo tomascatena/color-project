@@ -61,6 +61,10 @@ const NewPalettePage = ({
     navigate('/');
   };
 
+  const handleDeleteColor = (colorName: string) => {
+    setColors(colors.filter(({ name }) => name !== colorName));
+  };
+
   return (
     <NewPalettePageContainer>
       <NewPaletteAppBar
@@ -92,6 +96,7 @@ const NewPalettePage = ({
             <DraggableColorBox
               key={color.name}
               color={color}
+              handleDeleteColor={handleDeleteColor}
             />
           ))
         }
