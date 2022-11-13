@@ -1,7 +1,7 @@
 import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
 import { ColorPalette } from '@/typings/typings';
 import { PalettePageContainer } from './PalettePage.styled';
-import { generatePalette } from '@/utils/colorHelpers';
+import { generatePalette } from '@/utils/colorHelpers/colorHelpers';
 import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
 import Palette from '@/components/Palette/Palette';

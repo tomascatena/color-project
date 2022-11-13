@@ -20,12 +20,10 @@ const getRange = (
 const generateScale = (
   hexColor: string,
   numberOfColors: number
-) => {
-  return chroma
-    .scale(getRange(hexColor))
-    .mode('lab')
-    .colors(numberOfColors);
-};
+) => chroma
+  .scale(getRange(hexColor))
+  .mode('lab')
+  .colors(numberOfColors);
 
 export const generatePalette = (starterPalette: ColorPalette) => {
   const newPalette: ColorPaletteWithShades = {

@@ -1,6 +1,6 @@
 import { ColorPalette } from '@/typings/typings';
 import { Navigate, useParams } from 'react-router-dom';
-import { findPalette } from '@/utils/findPalette';
+import { findPalette } from '@/utils/findPalette/findPalette';
 import React from 'react';
 
 const PalettePageAsync = React.lazy(() => import('@/pages/PalettePage/PalettePage'));

@@ -1,5 +1,5 @@
 import { ColorPalette } from '@/typings/typings';
-import { generatePalette } from '@/utils/colorHelpers';
+import { generatePalette } from '@/utils/colorHelpers/colorHelpers';
 
 export const getColorShades = (
   palette: ColorPalette,
