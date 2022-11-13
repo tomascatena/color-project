@@ -23,7 +23,6 @@ type Props = {
 
 const MiniPalette = ({
   palette,
-  removePalette,
   handleClick
 }: Props) => {
   return (

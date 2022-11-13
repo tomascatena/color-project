@@ -75,6 +75,7 @@ const NewPaletteNameDialog = ({
 
   const dialogContent = (
     <TextField
+      autoComplete='off'
       autoFocus
       error={hasValidationError}
       fullWidth

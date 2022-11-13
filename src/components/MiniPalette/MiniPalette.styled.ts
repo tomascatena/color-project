@@ -20,7 +20,7 @@ export const MiniPaletteColors = styled('div')(() => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(5, 1fr)',
   gridTemplateRows: 'repeat(4, 1fr)',
-  height: '10rem',
+  height: '13rem',
   margin: '.5rem .5rem 0 .5rem',
   overflow: 'hidden',
 }));

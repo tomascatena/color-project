@@ -9,7 +9,8 @@ import {
   PalettesListContainer,
   PalettesListHeader,
 } from './PalettesListPage.styled';
-import MiniPalette from '@/components/MiniPalettes/MiniPalette';
+import { Typography } from '@mui/material';
+import MiniPalette from '@/components/MiniPalette/MiniPalette';
 import React from 'react';
 
 type Props = {
@@ -31,12 +32,12 @@ const PalettesListPage = ({
 
   return (
     <PalettesListContainer>
-      <Container maxWidth='md'>
+      <Container maxWidth='lg'>
         <PalettesListHeader>
-          <h1>Color Palettes Project</h1>
+          <Typography variant='h4'>Color Palettes Project</Typography>
 
           <Link to='/new-palette'>
-            Create New Palette
+            <Typography variant='h6'>Create New Palette</Typography>
           </Link>
         </PalettesListHeader>
 
