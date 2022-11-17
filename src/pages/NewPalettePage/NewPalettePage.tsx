@@ -42,7 +42,7 @@ const NewPalettePage = ({
   const handleSavePalette = (emoji: BaseEmoji) => {
     const newPalette = {
       colors,
-      emoji: emoji.native,
+      emoji: emoji.id,
       id: newPaletteName.toLowerCase().replace(/ /g, '-'),
       paletteName: newPaletteName,
     };

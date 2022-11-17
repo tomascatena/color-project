@@ -1,4 +1,5 @@
 import { ColorPalette } from '@/typings/typings';
+import { Emoji } from 'emoji-mart';
 import {
   MiniPaletteColors,
   MiniPaletteContainer,
@@ -25,6 +26,15 @@ const MiniPalette = ({
   palette,
   handleClick
 }: Props) => {
+  const emoji = (
+    <Emoji
+      emoji={palette.emoji}
+      size={24}
+      set='apple'
+      native
+    />
+  );
+
   return (
     <MiniPaletteContainer onClick={handleClick}>
       <MiniPaletteColors>
@@ -40,7 +50,7 @@ const MiniPalette = ({
       </MiniPaletteColors>
 
       <MiniPaletteFooter>
-        {palette.paletteName} <span>{palette.emoji}</span>
+        {palette.paletteName} <span>{emoji}</span>
       </MiniPaletteFooter>
     </MiniPaletteContainer>
   );

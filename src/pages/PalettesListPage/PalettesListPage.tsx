@@ -1,5 +1,6 @@
 import { ColorPalette } from '@/typings/typings';
 import { Container } from '@mui/system';
+import { Emoji } from 'emoji-mart/dist-es';
 import {
   Link,
   useNavigate
@@ -34,7 +35,16 @@ const PalettesListPage = ({
     <PalettesListContainer>
       <Container maxWidth='lg'>
         <PalettesListHeader>
-          <Typography variant='h4'>Color Palettes Project</Typography>
+          <Typography variant='h4'>
+            Color Palettes Project{' '}
+
+            <Emoji
+              emoji=':art:'
+              size={24}
+              set='apple'
+              native
+            />
+          </Typography>
 
           <Link to='/new-palette'>
             <Typography variant='h6'>Create New Palette</Typography>
