@@ -25,7 +25,6 @@ const prodConfig: Configuration = {
           },
           compress: {
             ecma: 5,
-            warnings: false,
             comparisons: false,
             inline: 2,
           },

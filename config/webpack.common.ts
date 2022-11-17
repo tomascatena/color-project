@@ -123,7 +123,6 @@ const commonConfig = (env: WebpackEnvs): Configuration => {
         {
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
-          exclude: /node_modules/,
         },
         {
           test: /\.(scss|sass)$/,
@@ -166,6 +165,7 @@ const commonConfig = (env: WebpackEnvs): Configuration => {
     plugins,
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      modules: ['node_modules'],
       plugins: [
         new TsconfigPathsPlugin({}),
       ],

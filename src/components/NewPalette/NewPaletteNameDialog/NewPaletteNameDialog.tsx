@@ -27,7 +27,10 @@ type Props = {
    * Callback to set the new palette name
    */
   setNewPaletteName: (value: string) => void;
-  handleSavePalette: () => void;
+  /**
+   * Callback to save the new palette
+   */
+  openEmojiPickerDialog: () => void;
 };
 
 const NewPaletteNameDialog = ({
@@ -36,7 +39,7 @@ const NewPaletteNameDialog = ({
   palettes,
   setIsDialogOpen,
   setNewPaletteName,
-  handleSavePalette
+  openEmojiPickerDialog
 }: Props) => {
   const [hasValidationError, setHasValidationError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
@@ -68,7 +71,7 @@ const NewPaletteNameDialog = ({
 
   const handleSavePaletteName = () => {
     setIsDialogOpen(false);
-    handleSavePalette();
+    openEmojiPickerDialog();
   };
 
   const isButtonDisabled = hasValidationError || newPaletteName.trim() === '';

@@ -45,7 +45,7 @@ const BootstrapDialogTitle = ({
 };
 
 type Props = {
-  dialogActions: React.ReactNode;
+  dialogActions?: React.ReactNode | undefined;
   dialogContent: React.ReactNode;
   dialogTitle: string;
   isDialogOpen: boolean;
@@ -82,9 +82,13 @@ const CustomDialog = ({
         {dialogContent}
       </DialogContent>
 
-      <DialogActions>
-        {dialogActions}
-      </DialogActions>
+      {
+        dialogActions && (
+          <DialogActions>
+            {dialogActions}
+          </DialogActions>
+        )
+      }
     </BootstrapDialog>
   );
 };

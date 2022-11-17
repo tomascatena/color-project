@@ -1,4 +1,4 @@
-
+import { BaseEmoji, Emoji } from 'emoji-mart/dist-es';
 import {
   ColorDefinition,
   ColorPalette
@@ -9,6 +9,7 @@ import { arrayMoveImmutable } from '@/utils/arrayMove/arrayMove';
 import { useNavigate } from 'react-router-dom';
 import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
 import DraggableColorGrid from '@/components/DraggableColorGrid/DraggableColorGrid';
+import EmojiPickerDialog from '@/components/NewPalette/EmojiPickerDialog/EmojiPickerDialog';
 import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar';
 import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
 import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
@@ -32,15 +33,16 @@ const NewPalettePage = ({
   const DRAWER_WIDTH = 360;
   const navigate = useNavigate();
 
-  const [newPaletteName, setNewPaletteName] = React.useState('');
-  const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
-  const [isNameDialogOpen, setIsNameDialogOpen] = React.useState(false);
   const [colors, setColors] = React.useState<ColorDefinition[]>(palettes[0].colors);
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
+  const [isEmojiPickerDialogOpen, setIsEmojiPickerDialogOpen] = React.useState(false);
+  const [isNameDialogOpen, setIsNameDialogOpen] = React.useState(false);
+  const [newPaletteName, setNewPaletteName] = React.useState('');
 
-  const handleSavePalette = () => {
+  const handleSavePalette = (emoji: BaseEmoji) => {
     const newPalette = {
       colors,
-      emoji: '🐈',
+      emoji: emoji.native,
       id: newPaletteName.toLowerCase().replace(/ /g, '-'),
       paletteName: newPaletteName,
     };
@@ -57,6 +59,18 @@ const NewPalettePage = ({
   const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number; }) => {
     setColors(arrayMoveImmutable(colors, oldIndex, newIndex));
   };
+
+  const preFetchEmojisSheet = async () => {
+    if (Emoji.defaultProps?.backgroundImageFn) {
+      const url = Emoji.defaultProps.backgroundImageFn('apple', 32);
+
+      await fetch(url);
+    }
+  };
+
+  React.useEffect(() => {
+    preFetchEmojisSheet();
+  }, []);
 
   return (
     <NewPalettePageContainer>
@@ -95,6 +109,12 @@ const NewPalettePage = ({
         setNewPaletteName={setNewPaletteName}
         newPaletteName={newPaletteName}
         palettes={palettes}
+        openEmojiPickerDialog={() => setIsEmojiPickerDialogOpen(true)}
+      />
+
+      <EmojiPickerDialog
+        isDialogOpen={isEmojiPickerDialogOpen}
+        setIsDialogOpen={setIsEmojiPickerDialogOpen}
         handleSavePalette={handleSavePalette}
       />
     </NewPalettePageContainer>
