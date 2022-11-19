@@ -29,7 +29,7 @@ const MiniPalette = ({
   const emoji = (
     <Emoji
       emoji={palette.emoji}
-      size={24}
+      size={18}
       set='apple'
       native
     />

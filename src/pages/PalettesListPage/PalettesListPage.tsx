@@ -33,17 +33,17 @@ const PalettesListPage = ({
 
   return (
     <PalettesListContainer>
-      <Container maxWidth='lg'>
+      <Container maxWidth='md'>
         <PalettesListHeader>
           <Typography variant='h4'>
-            Color Palettes Project{' '}
-
             <Emoji
               emoji=':art:'
-              size={24}
+              size={28}
               set='apple'
               native
-            />
+            />{' '}
+
+            Color Palettes Project
           </Typography>
 
           <Link to='/new-palette'>
