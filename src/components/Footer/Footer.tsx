@@ -1,4 +1,5 @@
 import { ColorPalette } from '@/typings/typings';
+import { Emoji } from 'emoji-mart';
 import { FooterContainer } from './Footer.styled';
 import React from 'react';
 
@@ -10,9 +11,18 @@ type Props = {
 };
 
 const Footer = ({ palette }: Props) => {
+  const emoji = (
+    <Emoji
+      emoji={palette.emoji}
+      size={22}
+      set='apple'
+      native
+    />
+  );
+
   return (
     <FooterContainer>
-      {palette.paletteName} {palette.emoji}
+      {palette.paletteName} {emoji}
     </FooterContainer>
   );
 };

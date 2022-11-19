@@ -164,7 +164,13 @@ const commonConfig = (env: WebpackEnvs): Configuration => {
     module: { rules },
     plugins,
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      extensions: [
+        '.js',
+        '.jsx',
+        '.ts',
+        '.tsx',
+        '.json'
+      ],
       modules: ['node_modules'],
       plugins: [
         new TsconfigPathsPlugin({}),
