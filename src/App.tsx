@@ -27,7 +27,9 @@ const App = () => {
     });
   };
 
-  const removePalette = (paletteId: string) => setPalettes(palettes.filter((palette) => palette.id !== paletteId));
+  const removePalette = (paletteId: string) => {
+    setPalettes(palettes.filter((palette) => palette.id !== paletteId));
+  };
 
   return (
     <BrowserRouter>

@@ -1,21 +1,27 @@
 import { ColorPalette } from '@/typings/typings';
-import { Emoji } from 'emoji-mart';
 import {
+  DeletePaletteIcon,
   MiniPaletteColors,
   MiniPaletteContainer,
   MiniPaletteFooter
 } from './MiniPalette.styled';
+import { Emoji } from 'emoji-mart';
+import {
+  Tooltip,
+  Typography
+} from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import React from 'react';
 
 type Props = {
   /**
-   * Palette object
-   */
-  palette: ColorPalette;
-  /**
    * Function to handle click event
    */
   handleClick?: () => void;
+  /**
+   * Palette object
+   */
+  palette: ColorPalette;
   /**
    * Function to delete a palette from local storage
    */
@@ -23,8 +29,9 @@ type Props = {
 };
 
 const MiniPalette = ({
+  handleClick,
   palette,
-  handleClick
+  removePalette
 }: Props) => {
   const emoji = (
     <Emoji
@@ -35,8 +42,25 @@ const MiniPalette = ({
     />
   );
 
+  const tooltipTitle = (
+    <React.Fragment>
+      <Typography variant="body2">Delete Palette</Typography>
+    </React.Fragment>
+  );
+
+  const handleRemovePalette = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    removePalette(palette.id);
+  };
+
   return (
     <MiniPaletteContainer onClick={handleClick}>
+      <Tooltip title={tooltipTitle}>
+        <DeletePaletteIcon onClick={handleRemovePalette}>
+          <DeleteOutlineIcon />
+        </DeletePaletteIcon>
+      </Tooltip>
+
       <MiniPaletteColors>
         {
           palette.colors.map((color) => (
