@@ -1,6 +1,7 @@
 import {
   Button,
   TextField,
+  Typography,
 } from '@mui/material';
 import { ColorPalette } from '@/typings/typings';
 import CustomDialog from '@/components/CustomDialog/CustomDialog';
@@ -51,7 +52,7 @@ const NewPaletteNameDialog = ({
   };
 
   const validatePaletteName = (name: string) => {
-    if (newPaletteName.trim() === '') {
+    if (name.trim() === '') {
       setHelperText('Palette name cannot be empty');
       setHasValidationError(true);
     } else if (!isPaletteNameUnique(name)) {
@@ -74,30 +75,43 @@ const NewPaletteNameDialog = ({
     openEmojiPickerDialog();
   };
 
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      handleSavePaletteName();
+    }
+  };
+
   const isButtonDisabled = hasValidationError || newPaletteName.trim() === '';
 
   const dialogContent = (
-    <TextField
-      autoComplete='off'
-      autoFocus
-      error={hasValidationError}
-      fullWidth
-      helperText={helperText}
-      id="new-palette-name"
-      label="Palette Name"
-      margin="dense"
-      onChange={handleNameChange}
-      type="text"
-      value={newPaletteName}
-      variant='filled'
-    />
+    <>
+      <Typography>
+        Make sure it&lsquo;s unique!
+      </Typography>
+
+      <TextField
+        autoComplete='off'
+        autoFocus
+        error={hasValidationError}
+        fullWidth
+        helperText={helperText}
+        id="new-palette-name"
+        label="Palette Name"
+        margin="dense"
+        onChange={handleNameChange}
+        onKeyDown={handleKeyDown}
+        type="text"
+        value={newPaletteName}
+        variant='filled'
+      />
+    </>
   );
 
   const dialogActions = (
     <Button
       color="primary"
-      onClick={handleSavePaletteName}
       disabled={isButtonDisabled}
+      onClick={handleSavePaletteName}
       variant='contained'
     >
       Save Palette Name
