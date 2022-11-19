@@ -1,6 +1,6 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { ColorPalette } from './typings/typings';
+import { ColorPalette } from '@/typings/typings';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
@@ -15,9 +15,17 @@ const PalettesListPageAsync = React.lazy(() => import('@/pages/PalettesListPage/
 const NewPalettePageAsync = React.lazy(() => import('@/pages/NewPalettePage/NewPalettePage'));
 
 const App = () => {
-  const [palettes, setPalettes] = React.useState(seedPalettes);
+  const savedPalettes = JSON.parse(localStorage.getItem('palettes') || '[]');
 
-  const savePalette = (newPalette: ColorPalette) => setPalettes([...palettes, newPalette]);
+  const [palettes, setPalettes] = React.useState<ColorPalette[]>(savedPalettes.length ? savedPalettes : seedPalettes);
+
+  const savePalette = (newPalette: ColorPalette) => {
+    setPalettes(() => {
+      localStorage.setItem('palettes', JSON.stringify([...palettes, newPalette]));
+
+      return [...palettes, newPalette];
+    });
+  };
 
   const removePalette = (paletteId: string) => setPalettes(palettes.filter((palette) => palette.id !== paletteId));
 
