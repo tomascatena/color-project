@@ -21,14 +21,22 @@ const App = () => {
 
   const savePalette = (newPalette: ColorPalette) => {
     setPalettes(() => {
-      localStorage.setItem('palettes', JSON.stringify([...palettes, newPalette]));
+      const updatedPalettes = [...palettes, newPalette];
 
-      return [...palettes, newPalette];
+      localStorage.setItem('palettes', JSON.stringify(updatedPalettes));
+
+      return updatedPalettes;
     });
   };
 
   const removePalette = (paletteId: string) => {
-    setPalettes(palettes.filter((palette) => palette.id !== paletteId));
+    setPalettes(() => {
+      const updatedPalettes = palettes.filter((palette) => palette.id !== paletteId);
+
+      localStorage.setItem('palettes', JSON.stringify(updatedPalettes));
+
+      return updatedPalettes;
+    });
   };
 
   return (
@@ -57,12 +65,16 @@ const App = () => {
 
             <Route
               path="/palettes/:paletteId"
-              element={<PalettePageRoute palettes={palettes} />}
+              element={
+                <PalettePageRoute palettes={palettes} />
+              }
             />
 
             <Route
               path="/palettes/:paletteId/:colorId"
-              element={<SingleColorPageRoute palettes={palettes} />}
+              element={
+                <SingleColorPageRoute palettes={palettes} />
+              }
             />
 
             <Route

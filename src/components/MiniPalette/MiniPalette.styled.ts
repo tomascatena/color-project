@@ -2,16 +2,16 @@ import { styled } from '@mui/material/styles';
 
 export const DeletePaletteIcon = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.error.light,
+  border: `1px solid ${theme.palette.error.main}`,
+  borderRadius: '0 0 0 .5rem',
   color: 'white',
   cursor: 'pointer',
+  opacity: 0,
   padding: theme.spacing(0.5),
   position: 'absolute',
   right: '0',
   top: '0',
   transition: 'all .3s ease-in-out .1s',
-  border: `1px solid ${theme.palette.error.main}`,
-  borderRadius: '0 0 0 .5rem',
-  opacity: 0,
 }));
 
 export const MiniPaletteFooter = styled('div')(() => ({
@@ -37,7 +37,6 @@ export const MiniPaletteColors = styled('div')(() => ({
 
 export const MiniPaletteContainer = styled('div')(() => ({
   backgroundColor: '#fff',
-  border: '1px solid transparent',
   borderRadius: '.5rem',
   overflow: 'hidden',
   position: 'relative',
