@@ -15,6 +15,7 @@ import {
 } from 'react-color';
 import { ColorDefinition } from '@/typings/typings';
 import { pickRandomHexColor } from '@/utils/pickRandomHexColor/pickRandomHexColor';
+import CustomDialog from '@/components/CustomDialog/CustomDialog';
 import React from 'react';
 
 type Props = {
@@ -36,10 +37,11 @@ const NewPaletteForm = ({
   const [newColorName, setNewColorName] = React.useState('');
   const [hasValidationError, setHasValidationError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('');
+  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   React.useEffect(() => {
     pickRandomHexColor(colors, setNewColorName, setCurrentColor);
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isPaletteFull = colors.length >= 20;
 
@@ -105,6 +107,43 @@ const NewPaletteForm = ({
     isPaletteFull
   );
 
+  const handleClearPalette = () => {
+    setColors([]);
+    setIsDialogOpen(false);
+  };
+
+  const dialogActions = (
+    <>
+      <Button
+        variant="contained"
+        color="info"
+        onClick={() => setIsDialogOpen(false)}
+      >
+        Cancel
+      </Button>
+
+      <Button
+        variant="contained"
+        color="error"
+        onClick={handleClearPalette}
+      >
+        Clear Palette
+      </Button>
+    </>
+  );
+
+  const dialogContent = (
+    <>
+      <Typography>
+        Are you sure you want to clear the palette?
+      </Typography>
+
+      <Typography>
+        This action cannot be undone.
+      </Typography>
+    </>
+  );
+
   return (
     <NewPaletteFormContainer>
       <Typography
@@ -118,7 +157,7 @@ const NewPaletteForm = ({
         <Button
           variant='contained'
           color='info'
-          onClick={() => setColors([])}
+          onClick={() => setIsDialogOpen(true)}
         >
           Clear Palette
         </Button>
@@ -169,6 +208,14 @@ const NewPaletteForm = ({
           {isPaletteFull ? 'Palette Full' : 'Add Color'}
         </AddColorButton>
       </StyledForm>
+
+      <CustomDialog
+        dialogActions={dialogActions}
+        dialogContent={dialogContent}
+        dialogTitle='Confirm Clear Palette'
+        isDialogOpen={isDialogOpen}
+        setIsDialogOpen={setIsDialogOpen}
+      />
     </NewPaletteFormContainer>
   );
 };

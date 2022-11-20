@@ -1,3 +1,8 @@
+import {
+  Button,
+  Tooltip,
+  Typography
+} from '@mui/material';
 import { ColorPalette } from '@/typings/typings';
 import {
   DeletePaletteIcon,
@@ -6,10 +11,7 @@ import {
   MiniPaletteFooter
 } from './MiniPalette.styled';
 import { Emoji } from 'emoji-mart';
-import {
-  Tooltip,
-  Typography
-} from '@mui/material';
+import CustomDialog from '../CustomDialog/CustomDialog';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import React from 'react';
 
@@ -33,6 +35,8 @@ const MiniPalette = ({
   palette,
   removePalette
 }: Props) => {
+  const [isDialogOpen, setIsDialogOpen] = React.useState(false);
+
   const emoji = (
     <Emoji
       emoji={palette.emoji}
@@ -51,12 +55,55 @@ const MiniPalette = ({
   const handleRemovePalette = (event: React.MouseEvent) => {
     event.stopPropagation();
     removePalette(palette.id);
+    setIsDialogOpen(false);
   };
+
+  const handleDeletePaletteIconClick = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsDialogOpen(true);
+  };
+
+  const handleCancelDeletePalette = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setIsDialogOpen(false);
+  };
+
+  const dialogActions = (
+    <>
+      <Button
+        variant="contained"
+        color="info"
+        onClick={handleCancelDeletePalette}
+      >
+        Cancel
+      </Button>
+
+      <Button
+        variant="contained"
+        color="error"
+        onClick={handleRemovePalette}
+      >
+        Delete Palette
+      </Button>
+    </>
+  );
+
+  const dialogContent = (
+    <>
+      <Typography>
+        Are you sure you want to delete the palette?
+      </Typography>
+
+      <Typography>
+        This action cannot be undone.
+      </Typography>
+    </>
+  );
 
   return (
     <MiniPaletteContainer onClick={handleClick}>
       <Tooltip title={tooltipTitle}>
-        <DeletePaletteIcon onClick={handleRemovePalette}>
+        <DeletePaletteIcon onClick={handleDeletePaletteIconClick}>
           <DeleteOutlineIcon />
         </DeletePaletteIcon>
       </Tooltip>
@@ -76,6 +123,14 @@ const MiniPalette = ({
       <MiniPaletteFooter>
         {palette.paletteName} <span>{emoji}</span>
       </MiniPaletteFooter>
+
+      <CustomDialog
+        dialogActions={dialogActions}
+        dialogContent={dialogContent}
+        dialogTitle='Confirm Delete Palette'
+        isDialogOpen={isDialogOpen}
+        setIsDialogOpen={setIsDialogOpen}
+      />
     </MiniPaletteContainer>
   );
 };

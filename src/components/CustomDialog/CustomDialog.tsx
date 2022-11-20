@@ -1,48 +1,9 @@
 import { BootstrapDialog } from './CustomDialog.styles';
-import CloseIcon from '@mui/icons-material/Close';
+import BootstrapDialogTitle from './BootstrapDialogTitle/BootstrapDialogTitle';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
 import React from 'react';
-
-export interface DialogTitleProps {
-  id: string;
-  children?: React.ReactNode;
-  onClose: () => void;
-}
-
-const BootstrapDialogTitle = ({
-  children,
-  onClose,
-  ...other
-}: DialogTitleProps) => {
-  return (
-    <DialogTitle
-      sx={{ m: 0, p: 2 }}
-      {...other}
-    >
-      {children}
-
-      {
-        onClose ? (
-          <IconButton
-            aria-label="close"
-            onClick={onClose}
-            sx={{
-              position: 'absolute',
-              right: 8,
-              top: 8,
-              color: (theme) => theme.palette.grey[500],
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-        ) : null
-      }
-    </DialogTitle>
-  );
-};
+import useClickOutside from '@/hooks/useClickOutside';
 
 type Props = {
   dialogActions?: React.ReactNode | undefined;
@@ -59,6 +20,10 @@ const CustomDialog = ({
   isDialogOpen,
   setIsDialogOpen,
 }: Props) => {
+  const dialogContentRef = React.useRef<HTMLDivElement>(null);
+
+  useClickOutside(dialogContentRef, () => setIsDialogOpen(false));
+
   const handleClose = () => {
     setIsDialogOpen(false);
   };
@@ -70,25 +35,28 @@ const CustomDialog = ({
       maxWidth='sm'
       onClose={handleClose}
       open={isDialogOpen}
+      onClick={(event: React.MouseEvent) => event.stopPropagation()}
     >
-      <BootstrapDialogTitle
-        id="customized-dialog-title"
-        onClose={handleClose}
-      >
-        {dialogTitle}
-      </BootstrapDialogTitle>
+      <div ref={dialogContentRef}>
+        <BootstrapDialogTitle
+          id="customized-dialog-title"
+          onClose={handleClose}
+        >
+          {dialogTitle}
+        </BootstrapDialogTitle>
 
-      <DialogContent dividers>
-        {dialogContent}
-      </DialogContent>
+        <DialogContent dividers>
+          {dialogContent}
+        </DialogContent>
 
-      {
-        dialogActions && (
-          <DialogActions>
-            {dialogActions}
-          </DialogActions>
-        )
-      }
+        {
+          dialogActions && (
+            <DialogActions>
+              {dialogActions}
+            </DialogActions>
+          )
+        }
+      </div>
     </BootstrapDialog>
   );
 };
