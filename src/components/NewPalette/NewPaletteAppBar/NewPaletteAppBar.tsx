@@ -4,12 +4,17 @@ import {
   IconButton,
   Typography
 } from '@mui/material';
+import { ColorDefinition } from '@/typings/typings';
 import { useNavigate } from 'react-router-dom';
 import AddIcon from '@mui/icons-material/Add';
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 
 type Props = {
+  /**
+   * Array of colors
+   */
+  colors: ColorDefinition[];
   /**
    * Width of the drawer
    */
@@ -29,6 +34,7 @@ type Props = {
 };
 
 const NewPaletteAppBar = ({
+  colors,
   drawerWidth,
   isDrawerOpen,
   setIsDrawerOpen,
@@ -67,6 +73,7 @@ const NewPaletteAppBar = ({
               variant='contained'
               color='info'
               onClick={() => setIsNameDialogOpen(true)}
+              disabled={!colors.length}
             >
               Save Palette
             </Button>

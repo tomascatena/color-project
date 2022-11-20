@@ -79,6 +79,7 @@ const NewPalettePage = ({
         isDrawerOpen={isDrawerOpen}
         setIsDrawerOpen={setIsDrawerOpen}
         setIsNameDialogOpen={setIsNameDialogOpen}
+        colors={colors}
       />
 
       <CustomDrawer
