@@ -150,7 +150,7 @@ type CopyMessageProps = {
 }
 
 export const CopyMessage = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'backgroundColor',
+  shouldForwardProp: (prop) => prop !== 'isDarkColor',
 })<CopyMessageProps>(({ isDarkColor }) => ({
   color: isDarkColor ? '#fff' : '#000',
   fontSize: '3rem',
