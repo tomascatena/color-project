@@ -9,10 +9,12 @@ import {
   PalettesList,
   PalettesListContainer,
   PalettesListHeader,
+  TitleContainer,
 } from './PalettesListPage.styled';
 import { Typography } from '@mui/material';
 import MiniPalette from '@/components/MiniPalette/MiniPalette';
 import React from 'react';
+import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
 type Props = {
   /**
@@ -31,20 +33,29 @@ const PalettesListPage = ({
 }: Props) => {
   const navigate = useNavigate();
 
+  const { isMobile } = useGetDeviceSeize();
+
   return (
     <PalettesListContainer>
       <Container maxWidth='md'>
         <PalettesListHeader>
-          <Typography variant='h4'>
-            <Emoji
-              emoji=':art:'
-              size={28}
-              set='apple'
-              native
-            />{' '}
+          <TitleContainer>
+            {
+              !isMobile && (
+                <Emoji
+                  emoji=':art:'
+                  size={isMobile ? 20 : 28}
+                  set='apple'
+                  native
+                />
+              )
+            }
 
-            Color Palettes Project
-          </Typography>
+            <Typography variant='h4'>
+
+              Color Palettes Project
+            </Typography>
+          </TitleContainer>
 
           <Link to='/new-palette'>
             <Typography variant='h6'>Create New Palette</Typography>

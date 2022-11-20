@@ -39,7 +39,8 @@
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
-    "react-sortable-hoc": "^2.0.0"
+    "react-sortable-hoc": "^2.0.0",
+    "use-debounce": "^8.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

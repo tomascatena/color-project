@@ -7,7 +7,7 @@ export const NavbarContainer = styled('header')(({ theme }) => ({
   height: '3rem',
 }));
 
-export const StyledLink = styled(Link)(() => ({
+export const StyledLink = styled(Link)(({ theme }) => ({
   textDecoration: 'none',
   color: '#000',
   backgroundColor: '#d4d4d4',
@@ -15,4 +15,8 @@ export const StyledLink = styled(Link)(() => ({
   padding: '0 1rem',
   fontSize: '1.2rem',
   fontWeight: 600,
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '1.1rem',
+  },
 }));

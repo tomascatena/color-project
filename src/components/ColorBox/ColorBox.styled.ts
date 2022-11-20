@@ -36,13 +36,15 @@ export const BoxContent = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isDarkColor',
 })<BoxContentProps>(({ isDarkColor }) => ({
   color: isDarkColor ? '#fff' : '#000',
-  display: 'flex',
   fontSize: '1rem',
   fontWeight: 600,
   overflow: 'hidden',
-  overflowWrap: 'break-word',
   padding: '0.5rem',
   textTransform: 'uppercase',
+
+  '& span': {
+    overflowWrap: 'break-word',
+  }
 }));
 
 type CopyButtonProps = {
@@ -54,7 +56,7 @@ type CopyButtonProps = {
 
 export const CopyButton = styled('button', {
   shouldForwardProp: (prop) => prop !== 'isDarkColor',
-})<CopyButtonProps>(({ isDarkColor }) => ({
+})<CopyButtonProps>(({ isDarkColor, theme }) => ({
   background: isDarkColor ? 'rgba(255, 255, 255, 0.3)' : 'rgba(0, 0, 0, 0.1)',
   border: 'none',
   color: isDarkColor ? '#fff' : '#000',
@@ -72,6 +74,19 @@ export const CopyButton = styled('button', {
   top: '50%',
   transform: 'translate(-50%, -50%)',
   width: '40%',
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '1rem',
+    padding: '0.4rem 0.5rem',
+    top: '65%',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '0.8rem',
+    padding: '0.3rem 0.4rem',
+    top: '50%',
+    left: '60%',
+  },
 }));
 
 type SeeMoreTextProps = {
