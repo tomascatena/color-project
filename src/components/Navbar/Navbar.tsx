@@ -1,11 +1,9 @@
 import { ColorFormat } from '@/constants/colors';
-import { NavbarContainer, StyledLink } from './Navbar.styled';
-import { Typography } from '@mui/material';
+import { NavbarContainer, NavbarTitle, StyledLink } from './Navbar.styled';
 import ColorFormatSelect from '../ColorFormatSelect/ColorFormatSelect';
 import CustomSnackbar from '@/components/CustomSnackbar/CustomSnackbar';
 import React from 'react';
 import ShadeLevelSlider from '@/components/ShadeLevelSlider/ShadeLevelSlider';
-import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
 type Props = {
   /**
@@ -46,24 +44,13 @@ const Navbar = ({
 }: Props) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
 
-  const { isMobile } = useGetDeviceSeize();
-
   return (
     <NavbarContainer>
       <StyledLink to="/">
         Back To Palettes
       </StyledLink>
 
-      {
-        !isMobile && title && (
-          <Typography
-            sx={{ alignSelf: 'center' }}
-            variant="h5"
-          >
-            {title}
-          </Typography>
-        )
-      }
+      {title && <NavbarTitle>{title}</NavbarTitle>}
 
       {
         hasSlider && level && setLevel && (

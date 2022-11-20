@@ -19,7 +19,7 @@ export const ColorBoxContainer = styled('div',
   width: '100%',
   height: '100%',
 
-  [theme.breakpoints.down('md')]: {
+  [`@media (max-width: ${theme.breakpoints.values.md + 100}px)`]: {
     gridArea: 'go-back-box',
   },
 

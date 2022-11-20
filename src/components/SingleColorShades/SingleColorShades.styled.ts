@@ -6,7 +6,7 @@ export const SingleColorShadesContainer = styled('section')(({ theme }) => ({
   gridTemplateColumns: 'repeat(5, 1fr)',
   gridTemplateRows: 'repeat(2, 1fr)',
 
-  [theme.breakpoints.down('md')]: {
+  [`@media (max-width: ${theme.breakpoints.values.md + 100}px)`]: {
     gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
     gridTemplateRows: 'repeat(3, minmax(0, 1fr)) 8rem',
     gridTemplateAreas: `

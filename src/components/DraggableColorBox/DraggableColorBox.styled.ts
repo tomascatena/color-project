@@ -51,7 +51,7 @@ export const BoxContent = styled('div',
 
   ...(isDrawerOpen && {
     [`@media (max-width: ${theme.breakpoints.values.sm + 200}px)`]: {
-      padding: '0.1rem',
+      padding: '0.1rem 0 0.1rem 0.5rem',
     },
   }),
 }));

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Typography } from '@mui/material';
 import { styled } from '@mui/system';
 
 export const NavbarContainer = styled('header')(({ theme }) => ({
@@ -19,4 +20,18 @@ export const StyledLink = styled(Link)(({ theme }) => ({
   [theme.breakpoints.down('md')]: {
     fontSize: '1.1rem',
   },
+}));
+
+export const NavbarTitle = styled(Typography)(({ theme }) => ({
+  fontSize: '1.5rem',
+  fontWeight: 500,
+  alignSelf: 'center',
+
+  [theme.breakpoints.down('md')]: {
+    fontSize: '1.3rem',
+  },
+
+  '@media (max-width: 660px)': {
+    display: 'none'
+  }
 }));

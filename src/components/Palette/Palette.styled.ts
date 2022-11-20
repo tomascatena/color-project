@@ -6,6 +6,11 @@ export const PaletteColors = styled('section')(({ theme }) => ({
   gridTemplateColumns: 'repeat(5, minmax(0, 1fr))',
   gridTemplateRows: 'repeat(4, minmax(0, 1fr))',
 
+  [theme.breakpoints.down('lg')]: {
+    gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+    gridTemplateRows: 'repeat(5, minmax(0, 1fr))',
+  },
+
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
     gridTemplateRows: 'repeat(10, minmax(0, 1fr))',
