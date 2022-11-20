@@ -1,9 +1,11 @@
 import { ColorFormat } from '@/constants/colors';
 import { NavbarContainer, StyledLink } from './Navbar.styled';
+import { Typography } from '@mui/material';
 import ColorFormatSelect from '../ColorFormatSelect/ColorFormatSelect';
 import CustomSnackbar from '@/components/CustomSnackbar/CustomSnackbar';
 import React from 'react';
 import ShadeLevelSlider from '@/components/ShadeLevelSlider/ShadeLevelSlider';
+import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
 type Props = {
   /**
@@ -28,6 +30,10 @@ type Props = {
    * Function to set the shade level
    */
   setLevel?: (level: number) => void;
+  /**
+   * Title to display
+   */
+  title?: string;
 };
 
 const Navbar = ({
@@ -36,14 +42,28 @@ const Navbar = ({
   level,
   setColorFormat,
   setLevel,
+  title
 }: Props) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
+
+  const { isMobile } = useGetDeviceSeize();
 
   return (
     <NavbarContainer>
       <StyledLink to="/">
         Back To Palettes
       </StyledLink>
+
+      {
+        !isMobile && title && (
+          <Typography
+            sx={{ alignSelf: 'center' }}
+            variant="h5"
+          >
+            {title}
+          </Typography>
+        )
+      }
 
       {
         hasSlider && level && setLevel && (

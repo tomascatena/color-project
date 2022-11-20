@@ -11,12 +11,21 @@ export const ColorBoxContainer = styled('div',
   { shouldForwardProp: (prop) => prop !== 'backgroundColor' }
 )<ColorBoxContainerProps>(({
   backgroundColor,
+  theme
 }) => ({
   backgroundColor,
   display: 'inline-block',
   position: 'relative',
   width: '100%',
   height: '100%',
+
+  [theme.breakpoints.down('md')]: {
+    gridArea: 'go-back-box',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    gridArea: null,
+  },
 }));
 
 export const GoBackButton = styled('button')(() => ({

@@ -78,7 +78,7 @@ export const CopyButton = styled('button', {
   [theme.breakpoints.down('md')]: {
     fontSize: '1rem',
     padding: '0.4rem 0.5rem',
-    top: '65%',
+    top: '50%',
   },
 
   [theme.breakpoints.down('sm')]: {
@@ -151,7 +151,10 @@ type CopyMessageProps = {
 
 export const CopyMessage = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isDarkColor',
-})<CopyMessageProps>(({ isDarkColor }) => ({
+})<CopyMessageProps>(({
+  isDarkColor,
+  theme
+}) => ({
   color: isDarkColor ? '#fff' : '#000',
   fontSize: '3rem',
   left: '50%',
@@ -176,5 +179,9 @@ export const CopyMessage = styled('div', {
     fontWeight: 500,
     textShadow: isDarkColor ? '1px 2px #000' : '1px 2px #fff',
     width: '100%',
-  }
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '2rem',
+  },
 }));

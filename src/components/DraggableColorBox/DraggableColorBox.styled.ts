@@ -21,11 +21,19 @@ type BoxContentProps = {
    * Weather the color is dark.
    */
   isDarkColor: boolean;
+  /**
+   * Weather the drawer is open.
+   */
+  isDrawerOpen: boolean;
 }
 
 export const BoxContent = styled('div',
-  { shouldForwardProp: (prop) => prop !== 'isDarkColor' }
-)<BoxContentProps>(({ isDarkColor }) => ({
+  { shouldForwardProp: (prop) => prop !== 'isDarkColor' && prop !== 'isDrawerOpen' }
+)<BoxContentProps>(({
+  isDarkColor,
+  isDrawerOpen,
+  theme
+}) => ({
   alignItems: 'center',
   color: isDarkColor ? '#fff' : '#000',
   display: 'flex',
@@ -36,6 +44,16 @@ export const BoxContent = styled('div',
   overflowWrap: 'break-word',
   padding: '0.5rem',
   textTransform: 'uppercase',
+
+  '@media (max-width: 400px)': {
+    padding: '0.1rem',
+  },
+
+  ...(isDrawerOpen && {
+    [`@media (max-width: ${theme.breakpoints.values.sm + 200}px)`]: {
+      padding: '0.1rem',
+    },
+  }),
 }));
 
 type StyledIconButtonProps = {

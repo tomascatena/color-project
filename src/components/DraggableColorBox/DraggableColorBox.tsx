@@ -22,11 +22,16 @@ type Props = {
    * Function to delete a color
    */
   deleteColor: (colorName: string) => void;
+  /**
+   * Whether the drawer is open or not
+   */
+  isDrawerOpen: boolean;
 };
 
 const DraggableColorBox = ({
   color,
-  deleteColor
+  deleteColor,
+  isDrawerOpen
 }: Props) => {
   const isDarkColor = chroma(color.color).luminance() <= 0.35;
 
@@ -38,7 +43,10 @@ const DraggableColorBox = ({
 
   return (
     <DraggableColorBoxContainer color={color.color}>
-      <BoxContent isDarkColor={isDarkColor}>
+      <BoxContent
+        isDrawerOpen={isDrawerOpen}
+        isDarkColor={isDarkColor}
+      >
         <span>{color.name}</span>
 
         <Tooltip title={tooltipTitle}>

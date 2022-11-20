@@ -41,6 +41,7 @@ const DraggableColorGrid = ({
             key={color.name}
             color={color}
             deleteColor={deleteColor}
+            isDrawerOpen={isDrawerOpen}
           />
         ))
       }

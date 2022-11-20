@@ -23,12 +23,15 @@ const ColorShadesPage = ({
 }: Props) => {
   const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
 
+  const color = (palette.colors.find(color => color.name.toLowerCase() === colorId));
+
   return (
     <SingleColorPageContainer>
       <Navbar
         colorFormat={colorFormat}
         setColorFormat={setColorFormat}
         hasSlider={false}
+        title={`Shades for ${color?.name}`}
       />
 
       <SingleColorShades
