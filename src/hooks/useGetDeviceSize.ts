@@ -20,13 +20,6 @@ const useGetDeviceSeize = () => {
   const isDesktop = deviceSize >= breakpoints.values!.md && deviceSize < breakpoints.values!.xl;
   const isLargeDesktop = deviceSize >= breakpoints.values!.xl;
 
-  console.log({
-    isMobile,
-    isTablet,
-    isDesktop,
-    isLargeDesktop,
-  });
-
   return {
     isMobile,
     isTablet,

@@ -37,7 +37,7 @@ export const BoxContent = styled('div', {
 })<BoxContentProps>(({ isDarkColor }) => ({
   color: isDarkColor ? '#fff' : '#000',
   fontSize: '1rem',
-  fontWeight: 600,
+  fontWeight: 400,
   overflow: 'hidden',
   padding: '0.5rem',
   textTransform: 'uppercase',
@@ -62,7 +62,7 @@ export const CopyButton = styled('button', {
   color: isDarkColor ? '#fff' : '#000',
   cursor: 'pointer',
   display: 'inline-block',
-  fontWeight: 600,
+  fontWeight: 500,
   fontSize: '1.2rem',
   left: '50%',
   opacity: 0,

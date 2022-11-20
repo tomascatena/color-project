@@ -13,7 +13,7 @@ export const SliderContainer = styled('div')(({ theme }) => ({
 
 export const LevelText = styled('span')(({ theme }) => ({
   fontSize: '1.2rem',
-  fontWeight: 600,
+  fontWeight: 500,
 
   [theme.breakpoints.down('md')]: {
     fontSize: '1.1rem',

@@ -14,7 +14,7 @@ export const StyledLink = styled(Link)(({ theme }) => ({
   lineHeight: '3rem',
   padding: '0 1rem',
   fontSize: '1.2rem',
-  fontWeight: 600,
+  fontWeight: 500,
 
   [theme.breakpoints.down('md')]: {
     fontSize: '1.1rem',

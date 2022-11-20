@@ -24,7 +24,7 @@ export const GoBackButton = styled('button')(() => ({
   border: 'none',
   color: 'white',
   cursor: 'pointer',
-  fontWeight: 600,
+  fontWeight: 500,
   fontSize: '1.2rem',
   left: '50%',
   outline: 'none',

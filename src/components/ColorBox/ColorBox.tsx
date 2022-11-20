@@ -6,6 +6,10 @@ import {
   CopyOverlay,
   SeeMoreText
 } from './ColorBox.styled';
+import {
+  Tooltip,
+  Typography
+} from '@mui/material';
 import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
@@ -51,6 +55,12 @@ const ColorBox = ({
 
   const navigate = useNavigate();
 
+  const tooltipTitle = (
+    <React.Fragment>
+      <Typography variant="body2">See shadows for {colorName.slice(0, -4)}</Typography>
+    </React.Fragment>
+  );
+
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
       <CopyOverlay
@@ -83,12 +93,14 @@ const ColorBox = ({
 
         {
           !isColorShade && (
-            <SeeMoreText
-              isDarkColor={chroma(backgroundColor).luminance() <= 0.2}
-              onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}
-            >
-              More
-            </SeeMoreText>
+            <Tooltip title={tooltipTitle} >
+              <SeeMoreText
+                isDarkColor={chroma(backgroundColor).luminance() <= 0.2}
+                onClick={() => navigate(`/palettes/${paletteId}/${colorId}`)}
+              >
+                More
+              </SeeMoreText>
+            </Tooltip>
           )
         }
       </div>
