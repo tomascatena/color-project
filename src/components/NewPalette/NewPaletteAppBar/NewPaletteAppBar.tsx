@@ -1,8 +1,7 @@
-import { AppBar, AppBarContent, ButtonsContainer } from './NewPaletteAppBar.styled';
+import { AppBar, AppBarContent, AppBarTitle, ButtonsContainer } from './NewPaletteAppBar.styled';
 import {
   Button,
   IconButton,
-  Typography
 } from '@mui/material';
 import { ColorDefinition } from '@/typings/typings';
 import { useNavigate } from 'react-router-dom';
@@ -60,13 +59,13 @@ const NewPaletteAppBar = ({
           <AddIcon />
         </IconButton>
 
-        <AppBarContent>
-          <Typography
-            variant="h6"
+        <AppBarContent isDrawerOpen={isDrawerOpen}>
+          <AppBarTitle
+            isDrawerOpen={isDrawerOpen}
             noWrap
           >
             Create a Palette
-          </Typography>
+          </AppBarTitle>
 
           <ButtonsContainer>
             <Button

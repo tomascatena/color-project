@@ -14,6 +14,7 @@ import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPalett
 import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
 import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
 import React from 'react';
+import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
 type Props = {
   /**
@@ -30,7 +31,9 @@ const NewPalettePage = ({
   palettes,
   savePalette
 }: Props) => {
-  const DRAWER_WIDTH = 360;
+  const { isMobile } = useGetDeviceSeize();
+
+  const DRAWER_WIDTH = isMobile ? window.innerWidth : 360;
   const navigate = useNavigate();
 
   const [colors, setColors] = React.useState<ColorDefinition[]>(palettes[0].colors);
