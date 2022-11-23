@@ -1,3 +1,8 @@
+import './palettesListPage.scss';
+import {
+  CSSTransition,
+  TransitionGroup
+} from 'react-transition-group';
 import { ColorPalette } from '@/@types/typings';
 import { Container } from '@mui/system';
 import { Emoji } from 'emoji-mart/dist-es';
@@ -53,7 +58,6 @@ const PalettesListPage = ({
             }
 
             <Typography variant='h4'>
-
               Color Palettes Project
             </Typography>
           </TitleContainer>
@@ -64,16 +68,23 @@ const PalettesListPage = ({
         </PalettesListHeader>
 
         <PalettesList>
-          {
-            palettes.map((palette) => (
-              <MiniPalette
-                key={palette.id}
-                palette={palette}
-                handleClick={() => navigate(`/palettes/${palette.id}`)}
-                removePalette={removePalette}
-              />
-            ))
-          }
+          <TransitionGroup component={null}>
+            {
+              palettes.map((palette) => (
+                <CSSTransition
+                  key={palette.id}
+                  classNames='fade'
+                  timeout={300}
+                >
+                  <MiniPalette
+                    palette={palette}
+                    handleClick={() => navigate(`/palettes/${palette.id}`)}
+                    removePalette={removePalette}
+                  />
+                </CSSTransition>
+              ))
+            }
+          </TransitionGroup>
         </PalettesList>
       </Container>
 

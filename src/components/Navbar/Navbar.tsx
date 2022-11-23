@@ -57,6 +57,10 @@ const Navbar = ({
 }: Props) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
 
+  const handleSoundIconClick = () => {
+    setShouldPlaySound(!shouldPlaySound);
+  };
+
   return (
     <NavbarContainer>
       <StyledLink to="/">
@@ -83,18 +87,8 @@ const Navbar = ({
       <SoundSelector>
         Sound {shouldPlaySound ? `On` : `Off`}
 
-        <IconButton >
-          {
-            shouldPlaySound ? (
-              <VolumeUpIcon
-                onClick={() => setShouldPlaySound(false)}
-              />
-            ) : (
-              <VolumeOffIcon
-                onClick={() => setShouldPlaySound(true)}
-              />
-            )
-          }
+        <IconButton onClick={handleSoundIconClick}>
+          {shouldPlaySound ? <VolumeUpIcon /> : <VolumeOffIcon />}
         </IconButton>
       </SoundSelector>
 
