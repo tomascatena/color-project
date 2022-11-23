@@ -1,13 +1,13 @@
-import { AppBar, AppBarContent, AppBarTitle, ButtonsContainer } from './NewPaletteAppBar.styled';
+import { AppBar, AppBarContent, AppBarTitle, ButtonsContainer } from "./NewPaletteAppBar.styled";
 import {
   Button,
   IconButton,
-} from '@mui/material';
-import { ColorDefinition } from '@/typings/typings';
-import { useNavigate } from 'react-router-dom';
-import AddIcon from '@mui/icons-material/Add';
-import React from 'react';
-import Toolbar from '@mui/material/Toolbar';
+} from "@mui/material";
+import { ColorDefinition } from "@/@types/typings";
+import { useNavigate } from "react-router-dom";
+import AddIcon from "@mui/icons-material/Add";
+import React from "react";
+import Toolbar from "@mui/material/Toolbar";
 
 type Props = {
   /**
@@ -54,7 +54,7 @@ const NewPaletteAppBar = ({
           aria-label="open drawer"
           onClick={() => setIsDrawerOpen(true)}
           edge="start"
-          sx={{ mr: 2, ...(isDrawerOpen && { display: 'none' }) }}
+          sx={{ mr: 2, ...(isDrawerOpen && { display: `none` }) }}
         >
           <AddIcon />
         </IconButton>
@@ -80,7 +80,7 @@ const NewPaletteAppBar = ({
             <Button
               variant='contained'
               color='info'
-              onClick={() => navigate('/')}
+              onClick={() => navigate(`/`)}
             >
               Go Back
             </Button>

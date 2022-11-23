@@ -23,7 +23,7 @@ export default {
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  coverageDirectory: 'coverage',
+  coverageDirectory: `coverage`,
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
@@ -31,7 +31,7 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: 'v8',
+  coverageProvider: `v8`,
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -129,7 +129,7 @@ export default {
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   setupFilesAfterEnv: [
-    './jest.setup.ts'
+    `./jest.setup.ts`
   ],
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
@@ -139,7 +139,7 @@ export default {
   // snapshotSerializers: [],
 
   // The test environment that will be used for testing
-  testEnvironment: 'jsdom',
+  testEnvironment: `jsdom`,
 
   // Options that will be passed to the testEnvironment
   // testEnvironmentOptions: {},
@@ -176,8 +176,8 @@ export default {
   // A map from regular expressions to paths to transformers
   // transform: undefined,
   transform: {
-    '\\.tsx?$': 'ts-jest',
-    '\\.jsx?$': 'babel-jest', // if you have jsx tests too
+    "\\.tsx?$": `ts-jest`,
+    "\\.jsx?$": `babel-jest`, // if you have jsx tests too
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
@@ -199,6 +199,6 @@ export default {
   // watchman: true,
 
   moduleNameMapper: {
-    '^@/(.+)': '<rootDir>/src/$1',
+    "^@/(.+)": `<rootDir>/src/$1`,
   }
 };

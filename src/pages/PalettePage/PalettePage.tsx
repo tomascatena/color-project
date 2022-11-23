@@ -1,12 +1,12 @@
-import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
-import { ColorPalette } from '@/typings/typings';
-import { PalettePageContainer } from './PalettePage.styled';
-import { generatePalette } from '@/utils/colorHelpers/colorHelpers';
-import Footer from '@/components/Footer/Footer';
-import Navbar from '@/components/Navbar/Navbar';
-import Palette from '@/components/Palette/Palette';
-import React from 'react';
-import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
+import { COLOR_FORMATS, ColorFormat } from "@/constants/colors";
+import { ColorPalette } from "@/@types/typings";
+import { PalettePageContainer } from "./PalettePage.styled";
+import { generatePalette } from "@/utils/colorHelpers/colorHelpers";
+import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import Palette from "@/components/Palette/Palette";
+import React from "react";
+import useGetDeviceSeize from "@/hooks/useGetDeviceSize";
 
 type Props = {
   palette: ColorPalette;

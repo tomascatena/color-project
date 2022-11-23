@@ -1,10 +1,10 @@
-import { ColorFormat } from '@/constants/colors';
-import { ColorPalette } from '@/typings/typings';
-import { SingleColorShadesContainer } from './SingleColorShades.styled';
-import { getColorShades } from '@/utils/getColorShades/getColorShades';
-import ColorBox from '@/components/ColorBox/ColorBox';
-import GoBackBox from '@/components/GoBackBox/GoBackBox';
-import React from 'react';
+import { ColorFormat } from "@/constants/colors";
+import { ColorPalette } from "@/@types/typings";
+import { SingleColorShadesContainer } from "./SingleColorShades.styled";
+import { getColorShades } from "@/utils/getColorShades/getColorShades";
+import ColorBox from "@/components/ColorBox/ColorBox";
+import GoBackBox from "@/components/GoBackBox/GoBackBox";
+import React from "react";
 
 type Props = {
   /**

@@ -1,16 +1,16 @@
-import { breakpoints } from './baseTheme/breakpoints';
-import { createTheme } from '@mui/material/styles';
-import { darkPalette } from './darkPalette';
-import { mixins } from './baseTheme/mixins';
-import { shadows } from './baseTheme/shadows';
-import { shape } from './baseTheme/shape';
-import { transitions } from './baseTheme/transitions';
-import { typography } from './baseTheme/typography';
-import { zIndex } from './baseTheme/zIndex';
+import { breakpoints } from "./baseTheme/breakpoints";
+import { createTheme } from "@mui/material/styles";
+import { darkPalette } from "./darkPalette";
+import { mixins } from "./baseTheme/mixins";
+import { shadows } from "./baseTheme/shadows";
+import { shape } from "./baseTheme/shape";
+import { transitions } from "./baseTheme/transitions";
+import { typography } from "./baseTheme/typography";
+import { zIndex } from "./baseTheme/zIndex";
 
 const darkTheme = createTheme({
   breakpoints,
-  direction: 'ltr',
+  direction: `ltr`,
   components: {},
   palette: darkPalette,
   shape,

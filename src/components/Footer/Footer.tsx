@@ -1,7 +1,7 @@
-import { ColorPalette } from '@/typings/typings';
-import { Emoji } from 'emoji-mart';
-import { FooterContainer } from './Footer.styled';
-import React from 'react';
+import { ColorPalette } from "@/@types/typings";
+import { Emoji } from "emoji-mart";
+import { FooterContainer } from "./Footer.styled";
+import React from "react";
 
 type Props = {
   /**

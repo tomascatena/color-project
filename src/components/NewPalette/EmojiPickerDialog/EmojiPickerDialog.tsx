@@ -1,7 +1,7 @@
-import 'emoji-mart/css/emoji-mart.css';
-import { BaseEmoji, Picker } from 'emoji-mart';
-import CustomDialog from '@/components/CustomDialog/CustomDialog';
-import React from 'react';
+import "emoji-mart/css/emoji-mart.css";
+import { BaseEmoji, Picker } from "emoji-mart";
+import CustomDialog from "@/components/CustomDialog/CustomDialog";
+import React from "react";
 
 type Props = {
   /**
@@ -29,7 +29,7 @@ const EmojiPickerDialog = ({
       title='Pick an emoji'
       sheetSize={32}
       emojiSize={32}
-      style={{ width: '100%' }}
+      style={{ width: `100%` }}
     />
   );
 

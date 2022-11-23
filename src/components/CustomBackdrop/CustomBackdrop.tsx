@@ -1,7 +1,7 @@
-import { StyledBackdrop } from './CustomBackdrop.styled';
-import { Typography } from '@mui/material';
-import CircularLoader from '@/components/CircularLoader/CircularLoader';
-import React from 'react';
+import { StyledBackdrop } from "./CustomBackdrop.styled";
+import { Typography } from "@mui/material";
+import CircularLoader from "@/components/CircularLoader/CircularLoader";
+import React from "react";
 
 type Props = {
   /**
@@ -29,7 +29,7 @@ type Props = {
    *
    * @default 'h4'
    */
-  textVariant?: 'button' | 'caption' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'inherit' | 'subtitle1' | 'subtitle2' | 'body1' | 'body2' | 'overline' | undefined;
+  textVariant?: `button` | `caption` | `h1` | `h2` | `h3` | `h4` | `h5` | `h6` | `inherit` | `subtitle1` | `subtitle2` | `body1` | `body2` | `overline` | undefined;
 };
 
 /**
@@ -39,8 +39,8 @@ const CustomBackdrop = ({
   isOpen,
   loaderSize = 100,
   loaderThickness = 4,
-  message = 'Loading... Please wait.',
-  textVariant = 'h4'
+  message = `Loading... Please wait.`,
+  textVariant = `h4`
 }: Props) => {
   return (
     <StyledBackdrop open={isOpen}>
@@ -50,7 +50,7 @@ const CustomBackdrop = ({
       />
 
       <Typography
-        sx={{ textAlign: 'center' }}
+        sx={{ textAlign: `center` }}
         variant={textVariant}
         color='text.primary'
       >

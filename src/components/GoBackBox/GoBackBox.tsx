@@ -1,9 +1,9 @@
 import {
   ColorBoxContainer,
   GoBackButton,
-} from './GoBackBox.styled';
-import { useNavigate } from 'react-router-dom';
-import React from 'react';
+} from "./GoBackBox.styled";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 
 type Props = {
   /**

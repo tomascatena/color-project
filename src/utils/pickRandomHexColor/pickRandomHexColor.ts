@@ -1,11 +1,11 @@
-import { ColorDefinition } from '@/typings/typings';
+import { ColorDefinition } from "@/@types/typings";
 
 /**
  * Function to generate a random hex color
  * @returns A random hex color
  */
 export const generateRandomHexColor = () => {
-  return ('#' + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, '0')).toLowerCase();
+  return (`#` + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, `0`)).toLowerCase();
 };
 
 /**
@@ -38,7 +38,7 @@ export const pickRandomHexColor = (
 
   setCurrentColor(randomHexColor);
 
-  const url = `https://www.thecolorapi.com/id?hex=${randomHexColor.replace('#', '')}`;
+  const url = `https://www.thecolorapi.com/id?hex=${randomHexColor.replace(`#`, ``)}`;
 
   fetch(url).then((response) => {
     response.json().then(({ name }) => {

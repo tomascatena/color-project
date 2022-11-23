@@ -1,8 +1,8 @@
-import { COLOR_FORMATS } from '@/constants/colors';
-import { SelectContainer } from './ColorFormatSelect.styled';
-import MenuItem from '@mui/material/MenuItem';
-import React from 'react';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { COLOR_FORMATS } from "@/constants/colors";
+import { SelectContainer } from "./ColorFormatSelect.styled";
+import MenuItem from "@mui/material/MenuItem";
+import React from "react";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 type Props = {
   /**

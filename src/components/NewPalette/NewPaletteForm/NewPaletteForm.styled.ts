@@ -1,7 +1,7 @@
-import { Button, Theme } from '@mui/material';
-import { styled } from '@mui/system';
-import Drawer from '@mui/material/Drawer';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import { Button, Theme } from "@mui/material";
+import { styled } from "@mui/system";
+import Drawer from "@mui/material/Drawer";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 
 interface AppBarProps extends MuiAppBarProps {
   /**
@@ -15,29 +15,29 @@ interface AppBarProps extends MuiAppBarProps {
 }
 
 export const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'isDrawerOpen' && prop !== 'drawerWidth',
+  shouldForwardProp: (prop) => prop !== `isDrawerOpen` && prop !== `drawerWidth`,
 })<AppBarProps>(({ theme, isDrawerOpen, drawerWidth }) => ({
-  transition: (theme as Theme).transitions.create(['margin', 'width'], {
+  transition: (theme as Theme).transitions.create([`margin`, `width`], {
     easing: (theme as Theme).transitions.easing.sharp,
     duration: (theme as Theme).transitions.duration.leavingScreen,
   }),
   ...(isDrawerOpen && {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: `${drawerWidth}px`,
-    transition: (theme as Theme).transitions.create(['margin', 'width'], {
+    transition: (theme as Theme).transitions.create([`margin`, `width`], {
       easing: (theme as Theme).transitions.easing.easeOut,
       duration: (theme as Theme).transitions.duration.enteringScreen,
     }),
   }),
 }));
 
-export const DrawerHeader = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+export const DrawerHeader = styled(`div`)(({ theme }) => ({
+  display: `flex`,
+  alignItems: `center`,
   padding: theme.spacing(0, 1),
   // necessary for content to be below app bar
   ...(theme as Theme).mixins.toolbar,
-  justifyContent: 'flex-end',
+  justifyContent: `flex-end`,
 }));
 
 interface StyledDrawerProps extends MuiAppBarProps {
@@ -52,28 +52,28 @@ interface StyledDrawerProps extends MuiAppBarProps {
 }
 
 export const StyledDrawer = styled(Drawer, {
-  shouldForwardProp: (prop) => prop !== 'drawerWidth',
+  shouldForwardProp: (prop) => prop !== `drawerWidth`,
 })<StyledDrawerProps>(({ drawerWidth }) => ({
   width: drawerWidth,
   flexShrink: 0,
-  '& .MuiDrawer-paper': {
+  "& .MuiDrawer-paper": {
     width: drawerWidth,
-    boxSizing: 'border-box',
+    boxSizing: `border-box`,
   },
 }));
 
-export const StyledForm = styled('form')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
+export const StyledForm = styled(`form`)(({ theme }) => ({
+  display: `flex`,
+  flexDirection: `column`,
   gap: theme.spacing(2),
-  width: '100%',
+  width: `100%`,
 }));
 
-export const NewPaletteFormContainer = styled('div')(({ theme }) => ({
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
+export const NewPaletteFormContainer = styled(`div`)(({ theme }) => ({
+  display: `flex`,
+  flexDirection: `column`,
+  alignItems: `center`,
+  justifyContent: `center`,
   gap: theme.spacing(3),
   padding: theme.spacing(2),
 }));
@@ -86,18 +86,18 @@ interface AddColorButtonProps {
 }
 
 export const AddColorButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== 'backgroundColor',
+  shouldForwardProp: (prop) => prop !== `backgroundColor`,
 })<AddColorButtonProps>(({ backgroundColor }) => ({
   backgroundColor,
 
-  '&:hover': {
+  "&:hover": {
     backgroundColor,
   },
 }));
 
-export const ButtonsContainer = styled('div')(({ theme }) => ({
-  display: 'flex',
-  width: '100%',
-  flexDirection: 'column',
+export const ButtonsContainer = styled(`div`)(({ theme }) => ({
+  display: `flex`,
+  width: `100%`,
+  flexDirection: `column`,
   gap: theme.spacing(2),
 }));

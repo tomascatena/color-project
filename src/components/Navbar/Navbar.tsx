@@ -1,9 +1,9 @@
-import { ColorFormat } from '@/constants/colors';
-import { NavbarContainer, NavbarTitle, StyledLink } from './Navbar.styled';
-import ColorFormatSelect from '../ColorFormatSelect/ColorFormatSelect';
-import CustomSnackbar from '@/components/CustomSnackbar/CustomSnackbar';
-import React from 'react';
-import ShadeLevelSlider from '@/components/ShadeLevelSlider/ShadeLevelSlider';
+import { ColorFormat } from "@/constants/colors";
+import { NavbarContainer, NavbarTitle, StyledLink } from "./Navbar.styled";
+import ColorFormatSelect from "../ColorFormatSelect/ColorFormatSelect";
+import CustomSnackbar from "@/components/CustomSnackbar/CustomSnackbar";
+import React from "react";
+import ShadeLevelSlider from "@/components/ShadeLevelSlider/ShadeLevelSlider";
 
 type Props = {
   /**

@@ -1,8 +1,8 @@
-import { ColorFormat } from '@/constants/colors';
-import { ColorPaletteWithShades } from '@/typings/typings';
-import { PaletteColors } from './Palette.styled';
-import ColorBox from '../ColorBox/ColorBox';
-import React from 'react';
+import { ColorFormat } from "@/constants/colors";
+import { ColorPaletteWithShades } from "@/@types/typings";
+import { PaletteColors } from "./Palette.styled";
+import ColorBox from "../ColorBox/ColorBox";
+import React from "react";
 
 type Props = {
   /**

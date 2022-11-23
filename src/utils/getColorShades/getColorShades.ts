@@ -1,5 +1,5 @@
-import { ColorPalette } from '@/typings/typings';
-import { generatePalette } from '@/utils/colorHelpers/colorHelpers';
+import { ColorPalette } from "@/@types/typings";
+import { generatePalette } from "@/utils/colorHelpers/colorHelpers";
 
 /**
  * Function to get the shades of a color

@@ -1,9 +1,9 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import CircularLoader from './CircularLoader';
-import React from 'react';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
+import CircularLoader from "./CircularLoader";
+import React from "react";
 
 export default {
-  title: 'UI/CircularLoader',
+  title: `UI/CircularLoader`,
   component: CircularLoader,
 } as ComponentMeta<typeof CircularLoader>;
 

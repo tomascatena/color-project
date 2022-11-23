@@ -1,6 +1,6 @@
-import { StyledAlert } from './CustomSnackbar.styled';
-import React from 'react';
-import Snackbar from '@mui/material/Snackbar';
+import { StyledAlert } from "./CustomSnackbar.styled";
+import React from "react";
+import Snackbar from "@mui/material/Snackbar";
 
 type Props = {
   /**
@@ -26,7 +26,7 @@ const CustomSnackbar = ({
     event?: React.SyntheticEvent | Event,
     reason?: string
   ) => {
-    if (reason === 'clickaway') {
+    if (reason === `clickaway`) {
       return;
     }
 
@@ -35,7 +35,7 @@ const CustomSnackbar = ({
 
   return (
     <Snackbar
-      anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+      anchorOrigin={{ vertical: `bottom`, horizontal: `left` }}
       autoHideDuration={3000}
       onClose={handleCloseSnackbar}
       open={isSnackbarOpen}

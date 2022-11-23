@@ -2,10 +2,10 @@ import {
   Button,
   TextField,
   Typography,
-} from '@mui/material';
-import { ColorPalette } from '@/typings/typings';
-import CustomDialog from '@/components/CustomDialog/CustomDialog';
-import React from 'react';
+} from "@mui/material";
+import { ColorPalette } from "@/@types/typings";
+import CustomDialog from "@/components/CustomDialog/CustomDialog";
+import React from "react";
 
 type Props = {
   /**
@@ -43,7 +43,7 @@ const NewPaletteNameDialog = ({
   openEmojiPickerDialog
 }: Props) => {
   const [hasValidationError, setHasValidationError] = React.useState(false);
-  const [helperText, setHelperText] = React.useState('');
+  const [helperText, setHelperText] = React.useState(``);
 
   const isPaletteNameUnique = (name: string) => {
     return palettes.every(
@@ -52,14 +52,14 @@ const NewPaletteNameDialog = ({
   };
 
   const validatePaletteName = (name: string) => {
-    if (name.trim() === '') {
-      setHelperText('Palette name cannot be empty');
+    if (name.trim() === ``) {
+      setHelperText(`Palette name cannot be empty`);
       setHasValidationError(true);
     } else if (!isPaletteNameUnique(name)) {
-      setHelperText('Palette name must be unique');
+      setHelperText(`Palette name must be unique`);
       setHasValidationError(true);
     } else {
-      setHelperText('');
+      setHelperText(``);
       setHasValidationError(false);
     }
   };
@@ -76,12 +76,12 @@ const NewPaletteNameDialog = ({
   };
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter') {
+    if (event.key === `Enter`) {
       handleSavePaletteName();
     }
   };
 
-  const isButtonDisabled = hasValidationError || newPaletteName.trim() === '';
+  const isButtonDisabled = hasValidationError || newPaletteName.trim() === ``;
 
   const dialogContent = (
     <>

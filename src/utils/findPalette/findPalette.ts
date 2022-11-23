@@ -1,4 +1,4 @@
-import { ColorPalette } from '@/typings/typings';
+import { ColorPalette } from "@/@types/typings";
 
 /**
  * Function to find a palette by id

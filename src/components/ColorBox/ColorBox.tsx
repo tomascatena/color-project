@@ -5,15 +5,15 @@ import {
   CopyMessage,
   CopyOverlay,
   SeeMoreText
-} from './ColorBox.styled';
+} from "./ColorBox.styled";
 import {
   Tooltip,
   Typography
-} from '@mui/material';
-import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
-import { useNavigate } from 'react-router-dom';
-import React from 'react';
-import chroma from 'chroma-js';
+} from "@mui/material";
+import { useCopyTextToClipboard } from "@/hooks/useCopyTextToClipboard";
+import { useNavigate } from "react-router-dom";
+import React from "react";
+import chroma from "chroma-js";
 
 type Props = {
   /**
@@ -45,12 +45,12 @@ const ColorBox = ({
   colorId,
   isColorShade = false,
 }: Props) => {
-  const COPY_MESSAGES = ['Copied!', 'Right One!', 'Paste Me!', 'It\'ll Rock!'];
+  const COPY_MESSAGES = [`Copied!`, `Right One!`, `Paste Me!`, `It'll Rock!`];
 
   const { isCopied, copyTextToClipboard } = useCopyTextToClipboard();
 
   React.useEffect(() => {
-    document.body.style.overflow = isCopied ? 'hidden' : 'auto';
+    document.body.style.overflow = isCopied ? `hidden` : `auto`;
   }, [isCopied]);
 
   const navigate = useNavigate();
@@ -65,12 +65,12 @@ const ColorBox = ({
     <ColorBoxContainer backgroundColor={backgroundColor}>
       <CopyOverlay
         backgroundColor={backgroundColor}
-        className={`${isCopied ? 'showCopyOverlay' : ''}`}
+        className={`${isCopied ? `showCopyOverlay` : ``}`}
       />
 
       <CopyMessage
         isDarkColor={chroma(backgroundColor).luminance() <= 0.5}
-        className={`${isCopied ? 'showCopyMessage' : ''}`}
+        className={`${isCopied ? `showCopyMessage` : ``}`}
       >
         <h1>{COPY_MESSAGES[Math.floor(Math.random() * COPY_MESSAGES.length)]}</h1>
 

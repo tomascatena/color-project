@@ -1,6 +1,6 @@
-import { breakpoints } from '@/themes/baseTheme/breakpoints';
-import { useDebouncedCallback } from 'use-debounce';
-import React from 'react';
+import { breakpoints } from "@/themes/baseTheme/breakpoints";
+import { useDebouncedCallback } from "use-debounce";
+import React from "react";
 
 const useGetDeviceSeize = () => {
   const [deviceSize, setDeviceSize] = React.useState(window.innerWidth);
@@ -8,10 +8,10 @@ const useGetDeviceSeize = () => {
   const debounced = useDebouncedCallback(() => setDeviceSize(window.innerWidth), 50);
 
   React.useEffect(() => {
-    window.addEventListener('resize', debounced);
+    window.addEventListener(`resize`, debounced);
 
     return () => {
-      window.removeEventListener('resize', debounced);
+      window.removeEventListener(`resize`, debounced);
     };
   }, [debounced]);
 

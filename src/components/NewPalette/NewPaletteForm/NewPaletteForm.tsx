@@ -3,20 +3,20 @@ import {
   ButtonsContainer,
   NewPaletteFormContainer,
   StyledForm
-} from './NewPaletteForm.styled';
+} from "./NewPaletteForm.styled";
 import {
   Button,
   TextField,
   Typography,
-} from '@mui/material';
+} from "@mui/material";
 import {
   ChromePicker,
   ColorResult
-} from 'react-color';
-import { ColorDefinition } from '@/typings/typings';
-import { pickRandomHexColor } from '@/utils/pickRandomHexColor/pickRandomHexColor';
-import CustomDialog from '@/components/CustomDialog/CustomDialog';
-import React from 'react';
+} from "react-color";
+import { ColorDefinition } from "@/@types/typings";
+import { pickRandomHexColor } from "@/utils/pickRandomHexColor/pickRandomHexColor";
+import CustomDialog from "@/components/CustomDialog/CustomDialog";
+import React from "react";
 
 type Props = {
   /**
@@ -33,10 +33,10 @@ const NewPaletteForm = ({
   colors,
   setColors,
 }: Props) => {
-  const [currentColor, setCurrentColor] = React.useState('#0048FF');
-  const [newColorName, setNewColorName] = React.useState('');
+  const [currentColor, setCurrentColor] = React.useState(`#0048FF`);
+  const [newColorName, setNewColorName] = React.useState(``);
   const [hasValidationError, setHasValidationError] = React.useState(false);
-  const [helperText, setHelperText] = React.useState('');
+  const [helperText, setHelperText] = React.useState(``);
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
   React.useEffect(() => {
@@ -47,20 +47,20 @@ const NewPaletteForm = ({
 
   const isColorUnique = (color: ColorDefinition) => !colors.some((c) => c.name === color.name);
   const isColorNameUnique = (color: ColorDefinition) => !colors.some((c) => c.color === color.color);
-  const isColorEmpty = (color: ColorDefinition) => color.name === '' || color.color === '';
+  const isColorEmpty = (color: ColorDefinition) => color.name === `` || color.color === ``;
 
   const validateColor = (color: ColorDefinition) => {
     if (isColorEmpty(color)) {
-      setHelperText('Color name and color cannot be empty');
+      setHelperText(`Color name and color cannot be empty`);
       setHasValidationError(true);
     } else if (!isColorUnique(color)) {
-      setHelperText('Color name must be unique');
+      setHelperText(`Color name must be unique`);
       setHasValidationError(true);
     } else if (!isColorNameUnique(color)) {
-      setHelperText('Color must be unique');
+      setHelperText(`Color must be unique`);
       setHasValidationError(true);
     } else {
-      setHelperText('');
+      setHelperText(``);
       setHasValidationError(false);
     }
   };
@@ -77,8 +77,8 @@ const NewPaletteForm = ({
     ]);
 
     setHasValidationError(false);
-    setHelperText('');
-    setNewColorName('');
+    setHelperText(``);
+    setNewColorName(``);
   };
 
   const handleNewColorNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -177,7 +177,7 @@ const NewPaletteForm = ({
         styles={{
           default: {
             picker: {
-              width: '100%',
+              width: `100%`,
             },
           },
         }}
@@ -205,7 +205,7 @@ const NewPaletteForm = ({
           type='submit'
           variant='contained'
         >
-          {isPaletteFull ? 'Palette Full' : 'Add Color'}
+          {isPaletteFull ? `Palette Full` : `Add Color`}
         </AddColorButton>
       </StyledForm>
 

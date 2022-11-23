@@ -1,10 +1,10 @@
-import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
-import { ColorPalette } from '@/typings/typings';
-import { SingleColorPageContainer } from './SingleColorPage.styled';
-import Footer from '@/components/Footer/Footer';
-import Navbar from '@/components/Navbar/Navbar';
-import React from 'react';
-import SingleColorShades from '@/components/SingleColorShades/SingleColorShades';
+import { COLOR_FORMATS, ColorFormat } from "@/constants/colors";
+import { ColorPalette } from "@/@types/typings";
+import { SingleColorPageContainer } from "./SingleColorPage.styled";
+import Footer from "@/components/Footer/Footer";
+import Navbar from "@/components/Navbar/Navbar";
+import React from "react";
+import SingleColorShades from "@/components/SingleColorShades/SingleColorShades";
 
 type Props = {
   /**

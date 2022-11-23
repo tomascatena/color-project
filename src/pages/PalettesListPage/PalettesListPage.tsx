@@ -1,20 +1,21 @@
-import { ColorPalette } from '@/typings/typings';
-import { Container } from '@mui/system';
-import { Emoji } from 'emoji-mart/dist-es';
+import { ColorPalette } from "@/@types/typings";
+import { Container } from "@mui/system";
+import { Emoji } from "emoji-mart/dist-es";
 import {
   Link,
   useNavigate
-} from 'react-router-dom';
+} from "react-router-dom";
 import {
   PalettesList,
   PalettesListContainer,
   PalettesListHeader,
   TitleContainer,
-} from './PalettesListPage.styled';
-import { Typography } from '@mui/material';
-import MiniPalette from '@/components/MiniPalette/MiniPalette';
-import React from 'react';
-import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
+} from "./PalettesListPage.styled";
+import { Typography } from "@mui/material";
+import Footer from "./Footer/Footer";
+import MiniPalette from "@/components/MiniPalette/MiniPalette";
+import React from "react";
+import useGetDeviceSeize from "@/hooks/useGetDeviceSize";
 
 type Props = {
   /**
@@ -75,6 +76,8 @@ const PalettesListPage = ({
           }
         </PalettesList>
       </Container>
+
+      <Footer />
     </PalettesListContainer>
   );
 };

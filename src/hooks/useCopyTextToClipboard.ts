@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const useCopyTextToClipboard = () => {
   const [isCopied, setIsCopied] = React.useState(false);
@@ -7,7 +7,7 @@ export const useCopyTextToClipboard = () => {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text);
     } else {
-      document.execCommand('copy', true, text); // To support older browsers like IE
+      document.execCommand(`copy`, true, text); // To support older browsers like IE
     }
 
     setIsCopied(true);

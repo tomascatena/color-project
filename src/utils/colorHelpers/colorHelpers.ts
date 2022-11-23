@@ -2,9 +2,9 @@ import {
   ColorDefinition,
   ColorPalette,
   ColorPaletteWithShades
-} from '@/typings/typings';
-import { LEVELS } from '@/constants/colors';
-import chroma from 'chroma-js';
+} from "@/@types/typings";
+import { LEVELS } from "@/constants/colors";
+import chroma from "chroma-js";
 
 /**
  * Function to generate a range of colors
@@ -14,7 +14,7 @@ import chroma from 'chroma-js';
  */
 const getRange = (
   hexColor: string,
-  end: string = '#fff'
+  end: string = `#fff`
 ) => {
   return [
     chroma(hexColor).darken(1.4).hex(),
@@ -34,7 +34,7 @@ const generateScale = (
   numberOfColors: number
 ) => chroma
   .scale(getRange(hexColor))
-  .mode('lab')
+  .mode(`lab`)
   .colors(numberOfColors);
 
 /**
@@ -60,11 +60,11 @@ export const generatePalette = (starterPalette: ColorPalette) => {
     for (const index in scale) {
       newPalette.colors[LEVELS[index]].push({
         hex: scale[index],
-        id: name.toLowerCase().replace(/ /g, '-'),
+        id: name.toLowerCase().replace(/ /g, `-`),
         level: LEVELS[index],
         name: `${name} ${LEVELS[index]}`,
         rgb: chroma(scale[index]).css(),
-        rgba: chroma(scale[index]).css().replace('rgb', 'rgba').replace(')', ',1.0)'),
+        rgba: chroma(scale[index]).css().replace(`rgb`, `rgba`).replace(`)`, `,1.0)`),
       });
     }
   });

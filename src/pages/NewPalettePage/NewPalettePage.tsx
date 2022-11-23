@@ -1,20 +1,20 @@
-import { BaseEmoji, Emoji } from 'emoji-mart/dist-es';
+import { BaseEmoji, Emoji } from "emoji-mart/dist-es";
 import {
   ColorDefinition,
   ColorPalette
-} from '@/typings/typings';
-import { DrawerHeader } from '@/components/CustomDrawer/customDrawer.styled';
-import { NewPalettePageContainer } from './NewPalettePage.styled';
-import { arrayMoveImmutable } from '@/utils/arrayMove/arrayMove';
-import { useNavigate } from 'react-router-dom';
-import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
-import DraggableColorGrid from '@/components/DraggableColorGrid/DraggableColorGrid';
-import EmojiPickerDialog from '@/components/NewPalette/EmojiPickerDialog/EmojiPickerDialog';
-import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar';
-import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
-import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
-import React from 'react';
-import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
+} from "@/@types/typings";
+import { DrawerHeader } from "@/components/CustomDrawer/customDrawer.styled";
+import { NewPalettePageContainer } from "./NewPalettePage.styled";
+import { arrayMoveImmutable } from "@/utils/arrayMove/arrayMove";
+import { useNavigate } from "react-router-dom";
+import CustomDrawer from "@/components/CustomDrawer/CustomDrawer";
+import DraggableColorGrid from "@/components/DraggableColorGrid/DraggableColorGrid";
+import EmojiPickerDialog from "@/components/NewPalette/EmojiPickerDialog/EmojiPickerDialog";
+import NewPaletteAppBar from "@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar";
+import NewPaletteForm from "@/components/NewPalette/NewPaletteForm/NewPaletteForm";
+import NewPaletteNameDialog from "../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog";
+import React from "react";
+import useGetDeviceSeize from "@/hooks/useGetDeviceSize";
 
 type Props = {
   /**
@@ -40,19 +40,19 @@ const NewPalettePage = ({
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(true);
   const [isEmojiPickerDialogOpen, setIsEmojiPickerDialogOpen] = React.useState(false);
   const [isNameDialogOpen, setIsNameDialogOpen] = React.useState(false);
-  const [newPaletteName, setNewPaletteName] = React.useState('');
+  const [newPaletteName, setNewPaletteName] = React.useState(``);
 
   const handleSavePalette = (emoji: BaseEmoji) => {
     const newPalette = {
       colors,
       emoji: emoji.id,
-      id: newPaletteName.toLowerCase().replace(/ /g, '-'),
+      id: newPaletteName.toLowerCase().replace(/ /g, `-`),
       paletteName: newPaletteName,
     };
 
     savePalette(newPalette);
 
-    navigate('/');
+    navigate(`/`);
   };
 
   const deleteColor = (colorName: string) => {
@@ -65,7 +65,7 @@ const NewPalettePage = ({
 
   const preFetchEmojisSheet = async () => {
     if (Emoji.defaultProps?.backgroundImageFn) {
-      const url = Emoji.defaultProps.backgroundImageFn('apple', 32);
+      const url = Emoji.defaultProps.backgroundImageFn(`apple`, 32);
 
       await fetch(url);
     }

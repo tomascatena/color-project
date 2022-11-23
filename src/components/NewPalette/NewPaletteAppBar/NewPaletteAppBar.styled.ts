@@ -1,6 +1,6 @@
-import { Theme, Typography } from '@mui/material';
-import { styled } from '@mui/system';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import { Theme, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 
 interface AppBarProps extends MuiAppBarProps {
   /**
@@ -14,16 +14,16 @@ interface AppBarProps extends MuiAppBarProps {
 }
 
 export const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== 'isDrawerOpen' && prop !== 'drawerWidth',
+  shouldForwardProp: (prop) => prop !== `isDrawerOpen` && prop !== `drawerWidth`,
 })<AppBarProps>(({ theme, isDrawerOpen, drawerWidth }) => ({
-  transition: (theme as Theme).transitions.create(['margin', 'width'], {
+  transition: (theme as Theme).transitions.create([`margin`, `width`], {
     easing: (theme as Theme).transitions.easing.sharp,
     duration: (theme as Theme).transitions.duration.leavingScreen,
   }),
   ...(isDrawerOpen && {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: `${drawerWidth}px`,
-    transition: (theme as Theme).transitions.create(['margin', 'width'], {
+    transition: (theme as Theme).transitions.create([`margin`, `width`], {
       easing: (theme as Theme).transitions.easing.easeOut,
       duration: (theme as Theme).transitions.duration.enteringScreen,
     }),
@@ -37,34 +37,34 @@ type AppBarContentProps = {
   isDrawerOpen?: boolean;
 };
 
-export const AppBarContent = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isDrawerOpen',
+export const AppBarContent = styled(`div`, {
+  shouldForwardProp: (prop) => prop !== `isDrawerOpen`,
 })<AppBarContentProps>(({
   theme,
   isDrawerOpen,
 }) => ({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '100%',
+  display: `flex`,
+  flexDirection: `row`,
+  alignItems: `center`,
+  justifyContent: `space-between`,
+  width: `100%`,
 
   ...(isDrawerOpen && {
-    [theme.breakpoints.down('md')]: {
-      flexDirection: 'column',
+    [theme.breakpoints.down(`md`)]: {
+      flexDirection: `column`,
     },
   }),
 
-  [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column',
+  [theme.breakpoints.down(`sm`)]: {
+    flexDirection: `column`,
   },
 }));
 
-export const ButtonsContainer = styled('div')(({ theme }) => ({
-  display: 'flex',
+export const ButtonsContainer = styled(`div`)(({ theme }) => ({
+  display: `flex`,
   gap: theme.spacing(6),
 
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down(`sm`)]: {
     gap: theme.spacing(2),
   },
 }));
@@ -77,22 +77,22 @@ type AppBarTitleProps = {
 };
 
 export const AppBarTitle = styled(Typography, {
-  shouldForwardProp: (prop) => prop !== 'isDrawerOpen',
+  shouldForwardProp: (prop) => prop !== `isDrawerOpen`,
 })<AppBarTitleProps>(({
   isDrawerOpen,
   theme
 }) => ({
-  fontSize: '1.5rem',
+  fontSize: `1.5rem`,
   fontWeight: 500,
   color: theme.palette.text.primary,
 
   ...(isDrawerOpen && {
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
+    [theme.breakpoints.down(`md`)]: {
+      display: `none`,
     },
   }),
 
-  [theme.breakpoints.down('sm')]: {
-    display: 'none',
+  [theme.breakpoints.down(`sm`)]: {
+    display: `none`,
   },
 }));
