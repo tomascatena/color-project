@@ -1,8 +1,8 @@
-import { ColorBoxesContainer } from "./DraggableColorGrid.styled";
-import { ColorDefinition } from "@/@types/typings";
-import { SortableContainer } from "react-sortable-hoc";
-import DraggableColorBox from "@/components/DraggableColorBox/DraggableColorBox";
-import React from "react";
+import { ColorBoxesContainer } from './DraggableColorGrid.styled';
+import { ColorDefinition } from '@/@types/typings';
+import { SortableContainer } from 'react-sortable-hoc';
+import DraggableColorBox from '@/components/DraggableColorBox/DraggableColorBox';
+import React from 'react';
 
 interface Props {
   /**
@@ -16,7 +16,7 @@ interface Props {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
   /**
    * Whether the drawer is open or not
    */

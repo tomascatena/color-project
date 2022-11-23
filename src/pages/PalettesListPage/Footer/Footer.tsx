@@ -1,6 +1,6 @@
-import { FooterContainer } from "./Footer.styled";
-import { Link, Typography } from "@mui/material";
-import React from "react";
+import { FooterContainer } from './Footer.styled';
+import { Link, Typography } from '@mui/material';
+import React from 'react';
 
 const Footer = () => {
   return (
@@ -9,7 +9,7 @@ const Footer = () => {
         variant="body1"
         textAlign="center"
       >
-        Created by Tomas Catena. All rights reserved. Copyright &copy; 2022.
+        Created by Tomas Catena. All rights reserved.
       </Typography>
 
       <Typography

@@ -1,13 +1,13 @@
 import {
   DrawerHeader,
   StyledDrawer
-} from "./customDrawer.styled";
-import { useTheme } from "@mui/material/styles";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import React from "react";
+} from './customDrawer.styled';
+import { useTheme } from '@mui/material/styles';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import Divider from '@mui/material/Divider';
+import IconButton from '@mui/material/IconButton';
+import React from 'react';
 
 type Props = {
   /**
@@ -17,7 +17,7 @@ type Props = {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
   /**
     * State of the drawer
     */

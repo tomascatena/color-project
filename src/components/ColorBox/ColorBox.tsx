@@ -5,15 +5,15 @@ import {
   CopyMessage,
   CopyOverlay,
   SeeMoreText
-} from "./ColorBox.styled";
+} from './ColorBox.styled';
 import {
   Tooltip,
   Typography
-} from "@mui/material";
-import { useCopyTextToClipboard } from "@/hooks/useCopyTextToClipboard";
-import { useNavigate } from "react-router-dom";
-import React from "react";
-import chroma from "chroma-js";
+} from '@mui/material';
+import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
+import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import chroma from 'chroma-js';
 
 type Props = {
   /**

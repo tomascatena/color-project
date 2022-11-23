@@ -1,6 +1,6 @@
-import { Theme } from "@mui/material";
-import { styled } from "@mui/system";
-import Drawer from "@mui/material/Drawer";
+import { Theme } from '@mui/material';
+import { styled } from '@mui/system';
+import Drawer from '@mui/material/Drawer';
 
 export const DrawerHeader = styled(`div`)(({ theme }) => ({
   display: `flex`,
@@ -15,7 +15,7 @@ type StyledDrawerProps = {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
 }
 
 export const StyledDrawer = styled(Drawer, {
@@ -23,6 +23,7 @@ export const StyledDrawer = styled(Drawer, {
 })<StyledDrawerProps>(({ drawerWidth }) => ({
   width: drawerWidth,
   flexShrink: 0,
+
   "& .MuiDrawer-paper": {
     width: drawerWidth,
     boxSizing: `border-box`,

@@ -1,20 +1,20 @@
-import { BaseEmoji, Emoji } from "emoji-mart/dist-es";
+import { BaseEmoji, Emoji } from 'emoji-mart/dist-es';
 import {
   ColorDefinition,
   ColorPalette
-} from "@/@types/typings";
-import { DrawerHeader } from "@/components/CustomDrawer/customDrawer.styled";
-import { NewPalettePageContainer } from "./NewPalettePage.styled";
-import { arrayMoveImmutable } from "@/utils/arrayMove/arrayMove";
-import { useNavigate } from "react-router-dom";
-import CustomDrawer from "@/components/CustomDrawer/CustomDrawer";
-import DraggableColorGrid from "@/components/DraggableColorGrid/DraggableColorGrid";
-import EmojiPickerDialog from "@/components/NewPalette/EmojiPickerDialog/EmojiPickerDialog";
-import NewPaletteAppBar from "@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar";
-import NewPaletteForm from "@/components/NewPalette/NewPaletteForm/NewPaletteForm";
-import NewPaletteNameDialog from "../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog";
-import React from "react";
-import useGetDeviceSeize from "@/hooks/useGetDeviceSize";
+} from '@/@types/typings';
+import { DrawerHeader } from '@/components/CustomDrawer/customDrawer.styled';
+import { NewPalettePageContainer } from './NewPalettePage.styled';
+import { arrayMoveImmutable } from '@/utils/arrayMove/arrayMove';
+import { useNavigate } from 'react-router-dom';
+import CustomDrawer from '@/components/CustomDrawer/CustomDrawer';
+import DraggableColorGrid from '@/components/DraggableColorGrid/DraggableColorGrid';
+import EmojiPickerDialog from '@/components/NewPalette/EmojiPickerDialog/EmojiPickerDialog';
+import NewPaletteAppBar from '@/components/NewPalette/NewPaletteAppBar/NewPaletteAppBar';
+import NewPaletteForm from '@/components/NewPalette/NewPaletteForm/NewPaletteForm';
+import NewPaletteNameDialog from '../../components/NewPalette/NewPaletteNameDialog/NewPaletteNameDialog';
+import React from 'react';
+import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
 type Props = {
   /**
@@ -33,7 +33,7 @@ const NewPalettePage = ({
 }: Props) => {
   const { isMobile } = useGetDeviceSeize();
 
-  const DRAWER_WIDTH = isMobile ? window.innerWidth : 360;
+  const DRAWER_WIDTH = isMobile ? `100%` : 360;
   const navigate = useNavigate();
 
   const [colors, setColors] = React.useState<ColorDefinition[]>(palettes[0].colors);

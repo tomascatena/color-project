@@ -1,9 +1,9 @@
-import { BootstrapDialog } from "./CustomDialog.styles";
-import BootstrapDialogTitle from "./BootstrapDialogTitle/BootstrapDialogTitle";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import React from "react";
-import useClickOutside from "@/hooks/useClickOutside";
+import { BootstrapDialog } from './CustomDialog.styles';
+import BootstrapDialogTitle from './BootstrapDialogTitle/BootstrapDialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import React from 'react';
+import useClickOutside from '@/hooks/useClickOutside';
 
 type Props = {
   dialogActions?: React.ReactNode | undefined;

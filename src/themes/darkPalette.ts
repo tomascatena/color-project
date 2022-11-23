@@ -1,7 +1,7 @@
 import {
   Palette,
   getContrastRatio
-} from "@mui/material";
+} from '@mui/material';
 
 export const darkPalette: Palette = {
   mode: `dark`,

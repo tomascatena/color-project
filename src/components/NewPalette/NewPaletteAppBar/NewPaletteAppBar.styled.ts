@@ -1,6 +1,6 @@
-import { Theme, Typography } from "@mui/material";
-import { styled } from "@mui/system";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import { Theme, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 
 interface AppBarProps extends MuiAppBarProps {
   /**
@@ -10,7 +10,7 @@ interface AppBarProps extends MuiAppBarProps {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
 }
 
 export const AppBar = styled(MuiAppBar, {
@@ -20,6 +20,7 @@ export const AppBar = styled(MuiAppBar, {
     easing: (theme as Theme).transitions.easing.sharp,
     duration: (theme as Theme).transitions.duration.leavingScreen,
   }),
+
   ...(isDrawerOpen && {
     width: `calc(100% - ${drawerWidth}px)`,
     marginLeft: `${drawerWidth}px`,
@@ -51,12 +52,12 @@ export const AppBarContent = styled(`div`, {
 
   ...(isDrawerOpen && {
     [theme.breakpoints.down(`md`)]: {
-      flexDirection: `column`,
+      justifyContent: `center`,
     },
   }),
 
   [theme.breakpoints.down(`sm`)]: {
-    flexDirection: `column`,
+    justifyContent: `center`,
   },
 }));
 

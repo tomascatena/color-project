@@ -1,4 +1,4 @@
-import { ZIndex, } from "@mui/material";
+import { ZIndex, } from '@mui/material';
 
 export const zIndex: ZIndex = {
   mobileStepper: 1000,

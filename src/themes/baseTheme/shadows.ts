@@ -1,4 +1,4 @@
-import { Shadows, } from "@mui/material";
+import { Shadows, } from '@mui/material';
 
 export const shadows: Shadows = [
   `none`,

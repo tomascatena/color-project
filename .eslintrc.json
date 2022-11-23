@@ -15,10 +15,11 @@
     "standard"
   ],
   "plugins": [
+    "@typescript-eslint",
+    "import-quotes",
+    "jest",
     "react",
     "react-hooks",
-    "jest",
-    "@typescript-eslint",
     "sort-imports-es6-autofix"
   ],
   "settings": { "react": { "version": "detect" } },
@@ -34,6 +35,7 @@
     "@typescript-eslint/no-use-before-define": ["error"],
     "camelcase": "off",
     "comma-dangle": "off",
+    "import-quotes/import-quotes": [2, "single"],
     "multiline-ternary": "off",
     "no-unused-vars": "warn",
     "no-use-before-define": "off",

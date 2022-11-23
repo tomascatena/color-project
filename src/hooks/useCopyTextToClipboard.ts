@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const useCopyTextToClipboard = () => {
   const [isCopied, setIsCopied] = React.useState(false);

@@ -1,4 +1,4 @@
-import { styled } from "@mui/material/styles";
+import { styled } from '@mui/material/styles';
 
 export const DeletePaletteIcon = styled(`div`)(({ theme }) => ({
   backgroundColor: theme.palette.error.light,

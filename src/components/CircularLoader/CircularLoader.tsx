@@ -1,7 +1,7 @@
-import { SxProps, Theme } from "@mui/material";
-import Box from "@mui/material/Box";
-import CircularProgress, { circularProgressClasses } from "@mui/material/CircularProgress";
-import React from "react";
+import { SxProps, Theme } from '@mui/material';
+import Box from '@mui/material/Box';
+import CircularProgress, { circularProgressClasses } from '@mui/material/CircularProgress';
+import React from 'react';
 
 type Props = {
   /**

@@ -1,4 +1,4 @@
-import { ColorPalette } from "@/@types/typings";
+import { ColorPalette } from '@/@types/typings';
 
 const seedPalettes: ColorPalette[] = [
   {

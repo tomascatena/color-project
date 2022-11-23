@@ -1,7 +1,7 @@
-import "emoji-mart/css/emoji-mart.css";
-import { BaseEmoji, Picker } from "emoji-mart";
-import CustomDialog from "@/components/CustomDialog/CustomDialog";
-import React from "react";
+import 'emoji-mart/css/emoji-mart.css';
+import { BaseEmoji, Picker } from 'emoji-mart';
+import CustomDialog from '@/components/CustomDialog/CustomDialog';
+import React from 'react';
 
 type Props = {
   /**

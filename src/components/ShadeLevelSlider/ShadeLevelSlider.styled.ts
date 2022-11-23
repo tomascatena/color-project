@@ -1,4 +1,4 @@
-import { styled } from "@mui/system";
+import { styled } from '@mui/system';
 
 export const SliderContainer = styled(`div`)(({ theme }) => ({
   alignItems: `center`,

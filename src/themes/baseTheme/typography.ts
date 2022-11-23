@@ -1,4 +1,4 @@
-import { TypographyVariantsOptions, } from "@mui/material";
+import { TypographyVariantsOptions, } from '@mui/material';
 
 export const typography: TypographyVariantsOptions = {
   htmlFontSize: 16,

@@ -1,6 +1,6 @@
-import { StyledAlert } from "./CustomSnackbar.styled";
-import React from "react";
-import Snackbar from "@mui/material/Snackbar";
+import { StyledAlert } from './CustomSnackbar.styled';
+import React from 'react';
+import Snackbar from '@mui/material/Snackbar';
 
 type Props = {
   /**

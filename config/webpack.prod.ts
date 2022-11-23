@@ -1,8 +1,8 @@
-import { Configuration } from "webpack";
-import { merge } from "webpack-merge";
-import TerserPlugin from "terser-webpack-plugin";
-import commonConfig, { WebpackEnvs } from "./webpack.common";
-import path from "path";
+import { Configuration } from 'webpack';
+import { merge } from 'webpack-merge';
+import TerserPlugin from 'terser-webpack-plugin';
+import commonConfig, { WebpackEnvs } from './webpack.common';
+import path from 'path';
 
 const prodConfig: Configuration = {
   mode: `production`,

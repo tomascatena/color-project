@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const useClickOutside = (ref: React.RefObject<HTMLElement>, callback: () => void) => {
   const handleClick = (event: MouseEvent) => {

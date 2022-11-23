@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import CustomBackdrop from "./CustomBackdrop";
-import React from "react";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import CustomBackdrop from './CustomBackdrop';
+import React from 'react';
 
 export default {
   title: `UI/CustomBackdrop`,

@@ -1,9 +1,9 @@
-import "webpack-dev-server";
-import { Configuration } from "webpack";
-import { merge } from "webpack-merge";
-import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
-import commonConfig, { WebpackEnvs } from "./webpack.common";
-import path from "path";
+import 'webpack-dev-server';
+import { Configuration } from 'webpack';
+import { merge } from 'webpack-merge';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import commonConfig, { WebpackEnvs } from './webpack.common';
+import path from 'path';
 
 const devConfig: Configuration = {
   mode: `development`,

@@ -1,7 +1,7 @@
-import { LEVELS } from "@/constants/colors";
-import { LevelText, SliderContainer } from "./ShadeLevelSlider.styled";
-import { Slider } from "@mui/material";
-import React from "react";
+import { LEVELS } from '@/constants/colors';
+import { LevelText, SliderContainer } from './ShadeLevelSlider.styled';
+import { Slider } from '@mui/material';
+import React from 'react';
 
 type Props = {
   /**

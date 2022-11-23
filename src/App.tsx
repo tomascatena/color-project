@@ -1,14 +1,14 @@
-import "./App.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { ColorPalette } from "@/@types/typings";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import CustomBackdrop from "@/components/CustomBackdrop/CustomBackdrop";
-import PalettePageRoute from "@/routes/PalettePageRoute";
-import React from "react";
-import SingleColorPageRoute from "@/routes/SingleColorPageRoute";
-import lightTheme from "@/themes/lightTheme";
-import seedPalettes from "@/data/seedPalettes";
+import './App.scss';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ColorPalette } from '@/@types/typings';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
+import PalettePageRoute from '@/routes/PalettePageRoute';
+import React from 'react';
+import SingleColorPageRoute from '@/routes/SingleColorPageRoute';
+import lightTheme from '@/themes/lightTheme';
+import seedPalettes from '@/data/seedPalettes';
 
 // Lazy load Pages
 const PalettesListPageAsync = React.lazy(() => import(`@/pages/PalettesListPage/PalettesListPage`));

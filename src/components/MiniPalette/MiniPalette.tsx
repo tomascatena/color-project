@@ -2,18 +2,18 @@ import {
   Button,
   Tooltip,
   Typography
-} from "@mui/material";
-import { ColorPalette } from "@/@types/typings";
+} from '@mui/material';
+import { ColorPalette } from '@/@types/typings';
 import {
   DeletePaletteIcon,
   MiniPaletteColors,
   MiniPaletteContainer,
   MiniPaletteFooter
-} from "./MiniPalette.styled";
-import { Emoji } from "emoji-mart";
-import CustomDialog from "../CustomDialog/CustomDialog";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import React from "react";
+} from './MiniPalette.styled';
+import { Emoji } from 'emoji-mart';
+import CustomDialog from '../CustomDialog/CustomDialog';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import React from 'react';
 
 type Props = {
   /**

@@ -1,13 +1,13 @@
-import { AppBar, AppBarContent, AppBarTitle, ButtonsContainer } from "./NewPaletteAppBar.styled";
+import { AppBar, AppBarContent, AppBarTitle, ButtonsContainer } from './NewPaletteAppBar.styled';
 import {
   Button,
   IconButton,
-} from "@mui/material";
-import { ColorDefinition } from "@/@types/typings";
-import { useNavigate } from "react-router-dom";
-import AddIcon from "@mui/icons-material/Add";
-import React from "react";
-import Toolbar from "@mui/material/Toolbar";
+} from '@mui/material';
+import { ColorDefinition } from '@/@types/typings';
+import { useNavigate } from 'react-router-dom';
+import AddIcon from '@mui/icons-material/Add';
+import React from 'react';
+import Toolbar from '@mui/material/Toolbar';
 
 type Props = {
   /**
@@ -17,7 +17,7 @@ type Props = {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
   /**
    * Whether the drawer is open
    */

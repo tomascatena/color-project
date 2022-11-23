@@ -1,6 +1,6 @@
-import { breakpoints } from "@/themes/baseTheme/breakpoints";
-import { useDebouncedCallback } from "use-debounce";
-import React from "react";
+import { breakpoints } from '@/themes/baseTheme/breakpoints';
+import { useDebouncedCallback } from 'use-debounce';
+import React from 'react';
 
 const useGetDeviceSeize = () => {
   const [deviceSize, setDeviceSize] = React.useState(window.innerWidth);

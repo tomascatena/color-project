@@ -1,7 +1,7 @@
-import { Button, Theme } from "@mui/material";
-import { styled } from "@mui/system";
-import Drawer from "@mui/material/Drawer";
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
+import { Button, Theme } from '@mui/material';
+import { styled } from '@mui/system';
+import Drawer from '@mui/material/Drawer';
+import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 
 interface AppBarProps extends MuiAppBarProps {
   /**
@@ -11,7 +11,7 @@ interface AppBarProps extends MuiAppBarProps {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
 }
 
 export const AppBar = styled(MuiAppBar, {
@@ -48,7 +48,7 @@ interface StyledDrawerProps extends MuiAppBarProps {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
 }
 
 export const StyledDrawer = styled(Drawer, {

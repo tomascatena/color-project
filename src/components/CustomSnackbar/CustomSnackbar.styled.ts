@@ -1,5 +1,5 @@
-import { styled } from "@mui/system";
-import Alert from "@mui/material/Alert";
+import { styled } from '@mui/system';
+import Alert from '@mui/material/Alert';
 
 export const StyledAlert = styled(Alert)(() => ({
   width: `100%`,

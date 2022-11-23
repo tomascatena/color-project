@@ -2,16 +2,16 @@ import {
   BoxContent,
   DraggableColorBoxContainer,
   StyledIconButton
-} from "./DraggableColorBox.styled";
-import { ColorDefinition } from "@/@types/typings";
-import { SortableElement } from "react-sortable-hoc";
+} from './DraggableColorBox.styled';
+import { ColorDefinition } from '@/@types/typings';
+import { SortableElement } from 'react-sortable-hoc';
 import {
   Tooltip,
   Typography
-} from "@mui/material";
-import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import React from "react";
-import chroma from "chroma-js";
+} from '@mui/material';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import React from 'react';
+import chroma from 'chroma-js';
 
 type Props = {
   /**

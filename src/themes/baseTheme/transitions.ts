@@ -1,4 +1,4 @@
-import { TransitionsOptions } from "@mui/material";
+import { TransitionsOptions } from '@mui/material';
 
 export const transitions: TransitionsOptions = {
   easing: {

@@ -3,20 +3,20 @@ import {
   ButtonsContainer,
   NewPaletteFormContainer,
   StyledForm
-} from "./NewPaletteForm.styled";
+} from './NewPaletteForm.styled';
 import {
   Button,
   TextField,
   Typography,
-} from "@mui/material";
+} from '@mui/material';
 import {
   ChromePicker,
   ColorResult
-} from "react-color";
-import { ColorDefinition } from "@/@types/typings";
-import { pickRandomHexColor } from "@/utils/pickRandomHexColor/pickRandomHexColor";
-import CustomDialog from "@/components/CustomDialog/CustomDialog";
-import React from "react";
+} from 'react-color';
+import { ColorDefinition } from '@/@types/typings';
+import { pickRandomHexColor } from '@/utils/pickRandomHexColor/pickRandomHexColor';
+import CustomDialog from '@/components/CustomDialog/CustomDialog';
+import React from 'react';
 
 type Props = {
   /**

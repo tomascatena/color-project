@@ -1,7 +1,7 @@
-import { ColorPalette } from "@/@types/typings";
-import { Emoji } from "emoji-mart";
-import { FooterContainer } from "./Footer.styled";
-import React from "react";
+import { ColorPalette } from '@/@types/typings';
+import { CopyrightText, FooterContainer, PaletteDescription } from './Footer.styled';
+import { Emoji } from 'emoji-mart';
+import React from 'react';
 
 type Props = {
   /**
@@ -22,7 +22,16 @@ const Footer = ({ palette }: Props) => {
 
   return (
     <FooterContainer>
-      {palette.paletteName} {emoji}
+      <CopyrightText
+        variant="body1"
+        textAlign="center"
+      >
+        Created by Tomas Catena. All rights reserved.
+      </CopyrightText>
+
+      <PaletteDescription>
+        {palette.paletteName} {emoji}
+      </PaletteDescription>
     </FooterContainer>
   );
 };

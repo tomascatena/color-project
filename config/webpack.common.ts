@@ -1,8 +1,8 @@
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
-import webpack, { Configuration } from "webpack";
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import webpack, { Configuration } from 'webpack';
 
 export type WebpackEnvs = {
   WEBPACK_BUNDLE: boolean;

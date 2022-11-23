@@ -2,10 +2,10 @@ import {
   Button,
   TextField,
   Typography,
-} from "@mui/material";
-import { ColorPalette } from "@/@types/typings";
-import CustomDialog from "@/components/CustomDialog/CustomDialog";
-import React from "react";
+} from '@mui/material';
+import { ColorPalette } from '@/@types/typings';
+import CustomDialog from '@/components/CustomDialog/CustomDialog';
+import React from 'react';
 
 type Props = {
   /**

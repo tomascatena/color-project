@@ -1,4 +1,4 @@
-import { ColorDefinition } from "@/@types/typings";
+import { ColorDefinition } from '@/@types/typings';
 
 /**
  * Function to generate a random hex color

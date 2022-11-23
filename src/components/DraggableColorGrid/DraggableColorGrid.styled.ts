@@ -1,10 +1,10 @@
-import { Theme, styled } from "@mui/material/styles";
+import { Theme, styled } from '@mui/material/styles';
 
 type MainProps = {
   /**
    * Width of the drawer
    */
-  drawerWidth: number;
+  drawerWidth: number | string;
   /**
    * State of the drawer
    */

@@ -1,5 +1,5 @@
-import { styled } from "@mui/system";
-import backgroundImage from "./background.svg";
+import { styled } from '@mui/system';
+import backgroundImage from './background.svg';
 
 export const PalettesList = styled(`main`)(({ theme }) => ({
   display: `grid`,

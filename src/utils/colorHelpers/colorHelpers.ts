@@ -2,9 +2,9 @@ import {
   ColorDefinition,
   ColorPalette,
   ColorPaletteWithShades
-} from "@/@types/typings";
-import { LEVELS } from "@/constants/colors";
-import chroma from "chroma-js";
+} from '@/@types/typings';
+import { LEVELS } from '@/constants/colors';
+import chroma from 'chroma-js';
 
 /**
  * Function to generate a range of colors
