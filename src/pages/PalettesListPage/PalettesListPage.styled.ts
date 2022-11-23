@@ -36,6 +36,8 @@ export const PalettesListHeader = styled(`header`)(({ theme }) => ({
 
 export const PalettesListContainer = styled(`div`)(() => ({
   backgroundImage: `url(${backgroundImage})`,
+  /* background by SVGBackgrounds.com */
+
   backgroundPosition: `center`,
   backgroundSize: `cover`,
   minHeight: `100vh`,
