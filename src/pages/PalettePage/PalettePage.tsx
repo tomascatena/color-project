@@ -15,6 +15,7 @@ type Props = {
 const HomePage = ({ palette }: Props) => {
   const [level, setLevel] = React.useState(500);
   const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
+  const [shouldPlaySound, setShouldPlaySound] = React.useState(true);
 
   const { isMobile } = useGetDeviceSeize();
 
@@ -26,12 +27,15 @@ const HomePage = ({ palette }: Props) => {
         setColorFormat={setColorFormat}
         setLevel={setLevel}
         hasSlider={!isMobile}
+        shouldPlaySound={shouldPlaySound}
+        setShouldPlaySound={setShouldPlaySound}
       />
 
       <Palette
         level={level}
         colorFormat={colorFormat}
         palette={generatePalette(palette)}
+        shouldPlaySound={shouldPlaySound}
       />
 
       <Footer palette={palette} />

@@ -19,9 +19,18 @@ type Props = {
    * Color format (hex, rgb, rgba)
    */
   colorFormat: ColorFormat;
+  /**
+   * Weather to play sound or not
+   */
+  shouldPlaySound: boolean;
 };
 
-const SingleColorShades = ({ palette, colorId, colorFormat }: Props) => {
+const SingleColorShades = ({
+  palette,
+  colorId,
+  colorFormat,
+  shouldPlaySound,
+}: Props) => {
   const colorShades = getColorShades(palette, colorId);
 
   return (
@@ -33,8 +42,9 @@ const SingleColorShades = ({ palette, colorId, colorFormat }: Props) => {
             backgroundColor={color[colorFormat]}
             colorId={color.id}
             colorName={color.name}
-            paletteId={palette.id}
             isColorShade
+            paletteId={palette.id}
+            shouldPlaySound={shouldPlaySound}
           />
         ))
       }

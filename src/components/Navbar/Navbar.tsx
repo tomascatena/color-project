@@ -1,9 +1,12 @@
 import { ColorFormat } from '@/constants/colors';
-import { NavbarContainer, NavbarTitle, StyledLink } from './Navbar.styled';
+import { IconButton } from '@mui/material';
+import { NavbarContainer, NavbarTitle, SoundSelector, StyledLink } from './Navbar.styled';
 import ColorFormatSelect from '../ColorFormatSelect/ColorFormatSelect';
 import CustomSnackbar from '@/components/CustomSnackbar/CustomSnackbar';
 import React from 'react';
 import ShadeLevelSlider from '@/components/ShadeLevelSlider/ShadeLevelSlider';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 type Props = {
   /**
@@ -32,6 +35,14 @@ type Props = {
    * Title to display
    */
   title?: string;
+  /**
+   * Weather to play sound or not
+   */
+  shouldPlaySound: boolean;
+  /**
+   * Function to set the sound
+   */
+  setShouldPlaySound: (shouldPlaySound: boolean) => void;
 };
 
 const Navbar = ({
@@ -40,7 +51,9 @@ const Navbar = ({
   level,
   setColorFormat,
   setLevel,
-  title
+  setShouldPlaySound,
+  shouldPlaySound,
+  title,
 }: Props) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = React.useState(false);
 
@@ -66,6 +79,24 @@ const Navbar = ({
         setColorFormat={setColorFormat}
         setIsSnackbarOpen={setIsSnackbarOpen}
       />
+
+      <SoundSelector>
+        Sound {shouldPlaySound ? `On` : `Off`}
+
+        <IconButton >
+          {
+            shouldPlaySound ? (
+              <VolumeUpIcon
+                onClick={() => setShouldPlaySound(false)}
+              />
+            ) : (
+              <VolumeOffIcon
+                onClick={() => setShouldPlaySound(true)}
+              />
+            )
+          }
+        </IconButton>
+      </SoundSelector>
 
       <CustomSnackbar
         isSnackbarOpen={isSnackbarOpen}

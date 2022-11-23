@@ -17,12 +17,17 @@ type Props = {
    * Color format (hex, rgb, rgba)
    */
   colorFormat: ColorFormat;
+  /**
+   * Weather to play sound or not
+   */
+  shouldPlaySound: boolean;
 };
 
 const Palette = ({
   palette,
   level,
-  colorFormat
+  colorFormat,
+  shouldPlaySound,
 }: Props) => {
   return (
     <PaletteColors>
@@ -34,6 +39,7 @@ const Palette = ({
             colorId={color.id}
             colorName={color.name}
             paletteId={palette.id}
+            shouldPlaySound={shouldPlaySound}
           />
         ))
       }

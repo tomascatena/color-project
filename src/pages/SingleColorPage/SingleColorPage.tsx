@@ -22,6 +22,7 @@ const ColorShadesPage = ({
   palette
 }: Props) => {
   const [colorFormat, setColorFormat] = React.useState<ColorFormat>(COLOR_FORMATS.hex.name);
+  const [shouldPlaySound, setShouldPlaySound] = React.useState(true);
 
   const color = (palette.colors.find(color => color.name.toLowerCase() === colorId));
 
@@ -32,12 +33,15 @@ const ColorShadesPage = ({
         setColorFormat={setColorFormat}
         hasSlider={false}
         title={`Shades for ${color?.name}`}
+        shouldPlaySound={shouldPlaySound}
+        setShouldPlaySound={setShouldPlaySound}
       />
 
       <SingleColorShades
         palette={palette}
         colorId={colorId}
         colorFormat={colorFormat}
+        shouldPlaySound={shouldPlaySound}
       />
 
       <Footer palette={palette} />

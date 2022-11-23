@@ -14,6 +14,7 @@ import { useCopyTextToClipboard } from '@/hooks/useCopyTextToClipboard';
 import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import chroma from 'chroma-js';
+import copiedSound from './copiedSound.mp3';
 
 type Props = {
   /**
@@ -36,6 +37,10 @@ type Props = {
    * Whether the box is used to display a color shade.
    */
   isColorShade?: boolean;
+  /**
+   * Weather to play sound or not
+   */
+  shouldPlaySound: boolean;
 };
 
 const ColorBox = ({
@@ -44,6 +49,7 @@ const ColorBox = ({
   paletteId,
   colorId,
   isColorShade = false,
+  shouldPlaySound
 }: Props) => {
   const COPY_MESSAGES = [`Copied!`, `Right One!`, `Paste Me!`, `It'll Rock!`];
 
@@ -60,6 +66,16 @@ const ColorBox = ({
       <Typography variant="body2">See shadows for {colorName.slice(0, -4)}</Typography>
     </React.Fragment>
   );
+
+  const audio = new Audio(copiedSound);
+
+  const handleCopyButtonClick = () => {
+    copyTextToClipboard(backgroundColor);
+
+    if (shouldPlaySound) {
+      audio.play();
+    }
+  };
 
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
@@ -84,7 +100,7 @@ const ColorBox = ({
           </BoxContent>
 
           <CopyButton
-            onClick={() => copyTextToClipboard(backgroundColor)}
+            onClick={handleCopyButtonClick}
             isDarkColor={chroma(backgroundColor).luminance() <= 0.5}
           >
             Copy
