@@ -22,10 +22,7 @@ const Footer = ({ palette }: Props) => {
 
   return (
     <FooterContainer>
-      <CopyrightText
-        variant="body1"
-        textAlign="center"
-      >
+      <CopyrightText variant="body1">
         Created by Tomas Catena. All rights reserved.
       </CopyrightText>
 

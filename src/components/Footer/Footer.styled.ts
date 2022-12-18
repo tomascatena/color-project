@@ -5,7 +5,7 @@ export const FooterContainer = styled(`footer`)(({ theme }) => ({
   alignItems: `center`,
   display: `flex`,
   fontSize: `1.2rem`,
-  fontWeight: 600,
+  fontWeight: 500,
   gap: theme.spacing(2),
   height: `2.5rem`,
   justifyContent: `space-between`,
@@ -18,12 +18,14 @@ export const FooterContainer = styled(`footer`)(({ theme }) => ({
 }));
 
 export const PaletteDescription = styled(`p`)(({ theme }) => ({
-  alignItems: `end`,
+  alignItems: `center`,
   display: `flex`,
   gap: theme.spacing(2),
 }));
 
 export const CopyrightText = styled(Typography)(({ theme }) => ({
+  paddingTop: theme.spacing(0.5),
+
   [theme.breakpoints.down(`sm`)]: {
     display: `none`,
   },

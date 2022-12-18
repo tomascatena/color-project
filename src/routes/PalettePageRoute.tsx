@@ -1,9 +1,8 @@
 import { ColorPalette } from '@/@types/typings';
 import { Navigate, useParams } from 'react-router-dom';
 import { findPalette } from '@/utils/findPalette/findPalette';
+import PalettePage from '@/pages/PalettePage/PalettePage';
 import React from 'react';
-
-const PalettePageAsync = React.lazy(() => import(`@/pages/PalettePage/PalettePage`));
 
 type Props = {
   palettes: ColorPalette[];
@@ -22,7 +21,7 @@ const PalettePageRoute = ({ palettes }: Props) => {
     return <Navigate to="/" />;
   }
 
-  return <PalettePageAsync palette={palette} />;
+  return <PalettePage palette={palette} />;
 };
 
 export default PalettePageRoute;

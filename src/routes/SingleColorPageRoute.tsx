@@ -2,8 +2,7 @@ import { ColorPalette } from '@/@types/typings';
 import { Navigate, useParams } from 'react-router-dom';
 import { findPalette } from '@/utils/findPalette/findPalette';
 import React from 'react';
-
-const SingleColorPageAsync = React.lazy(() => import(`@/pages/SingleColorPage/SingleColorPage`));
+import SingleColorPage from '@/pages/SingleColorPage/SingleColorPage';
 
 type Props = {
   palettes: ColorPalette[];
@@ -29,7 +28,7 @@ const SingleColorPageRoute = ({ palettes }: Props) => {
   }
 
   return (
-    <SingleColorPageAsync
+    <SingleColorPage
       colorId={colorId}
       palette={palette}
     />

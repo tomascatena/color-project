@@ -1,18 +1,20 @@
 import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {
+  CSSTransition,
+  TransitionGroup
+} from 'react-transition-group';
 import { ColorPalette } from '@/@types/typings';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
+import {
+  Route,
+  Routes,
+  useLocation
+} from 'react-router-dom';
+import NewPalettePage from '@/pages/NewPalettePage/NewPalettePage';
 import PalettePageRoute from '@/routes/PalettePageRoute';
+import PalettesListPage from '@/pages/PalettesListPage/PalettesListPage';
 import React from 'react';
 import SingleColorPageRoute from '@/routes/SingleColorPageRoute';
-import lightTheme from '@/themes/lightTheme';
 import seedPalettes from '@/data/seedPalettes';
-
-// Lazy load Pages
-const PalettesListPageAsync = React.lazy(() => import(`@/pages/PalettesListPage/PalettesListPage`));
-const NewPalettePageAsync = React.lazy(() => import(`@/pages/NewPalettePage/NewPalettePage`));
 
 const App = () => {
   const savedPalettes = JSON.parse(localStorage.getItem(`palettes`) || `[]`);
@@ -39,57 +41,60 @@ const App = () => {
     });
   };
 
+  const location = useLocation();
+
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-
-        <React.Suspense
-          fallback={
-            <CustomBackdrop
-              isOpen
-              message='Loading page...'
-            />
-          }
-        >
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <PalettesListPageAsync
-                  removePalette={removePalette}
-                  palettes={palettes}
+    <Routes location={location}>
+      <Route
+        path='*'
+        element={
+          <TransitionGroup>
+            <CSSTransition
+              key={location.key}
+              timeout={500}
+              classNames='page'
+            >
+              <Routes location={location}>
+                <Route
+                  path="/"
+                  element={
+                    <PalettesListPage
+                      removePalette={removePalette}
+                      palettes={palettes}
+                    />
+                  }
                 />
-              }
-            />
 
-            <Route
-              path="/palettes/:paletteId"
-              element={
-                <PalettePageRoute palettes={palettes} />
-              }
-            />
-
-            <Route
-              path="/palettes/:paletteId/:colorId"
-              element={
-                <SingleColorPageRoute palettes={palettes} />
-              }
-            />
-
-            <Route
-              path="/new-palette"
-              element={
-                <NewPalettePageAsync
-                  palettes={palettes}
-                  savePalette={savePalette}
+                <Route
+                  path="/palettes/:paletteId"
+                  element={
+                    <PalettePageRoute palettes={palettes} />
+                  }
                 />
-              }
-            />
-          </Routes>
-        </React.Suspense>
-      </ThemeProvider>
-    </BrowserRouter >
+
+                <Route
+                  path="/palettes/:paletteId/:colorId"
+                  element={
+                    <SingleColorPageRoute palettes={palettes} />
+                  }
+                />
+
+                <Route
+                  path="/new-palette"
+                  element={
+                    <NewPalettePage
+                      palettes={palettes}
+                      savePalette={savePalette}
+                    />
+                  }
+                />
+              </Routes>
+            </CSSTransition>
+          </TransitionGroup>
+        }
+      >
+      </Route>
+    </Routes>
   );
 };
 

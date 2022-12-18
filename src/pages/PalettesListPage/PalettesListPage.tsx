@@ -17,8 +17,8 @@ import {
   TitleContainer,
 } from './PalettesListPage.styled';
 import { Typography } from '@mui/material';
-import Footer from './Footer/Footer';
 import MiniPalette from '@/components/MiniPalette/MiniPalette';
+import PageFooter from './PageFooter/PageFooter';
 import React from 'react';
 import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
@@ -88,7 +88,7 @@ const PalettesListPage = ({
         </PalettesList>
       </Container>
 
-      <Footer />
+      <PageFooter />
     </PalettesListContainer>
   );
 };

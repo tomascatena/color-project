@@ -1,8 +1,8 @@
-import { FooterContainer } from './Footer.styled';
+import { FooterContainer } from './PageFooter.styled';
 import { Typography } from '@mui/material';
 import React from 'react';
 
-const Footer = () => {
+const PageFooter = () => {
   return (
     <FooterContainer>
       <Typography
@@ -15,4 +15,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default PageFooter;
