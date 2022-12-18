@@ -105,6 +105,7 @@ const NewPalettePage = ({
         drawerWidth={DRAWER_WIDTH}
         isDrawerOpen={isDrawerOpen}
         onSortEnd={onSortEnd}
+        onSortStart={(_, event) => event.preventDefault()} // to prevent selecting text in other boxes
       />
 
       <NewPaletteNameDialog
