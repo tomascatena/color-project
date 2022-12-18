@@ -84,8 +84,8 @@ const Navbar = ({
         setIsSnackbarOpen={setIsSnackbarOpen}
       />
 
-      <SoundSelector>
-        Sound {shouldPlaySound ? `On` : `Off`}
+      <SoundSelector onClick={handleSoundIconClick}>
+        <span>Sound {shouldPlaySound ? `On` : `Off`}</span>
 
         <IconButton onClick={handleSoundIconClick}>
           {shouldPlaySound ? <VolumeUpIcon /> : <VolumeOffIcon />}

@@ -37,9 +37,10 @@ export const NavbarTitle = styled(Typography)(({ theme }) => ({
 }));
 
 export const SoundSelector = styled(`div`)(({ theme }) => ({
+  alignItems: `center`,
+  display: `flex`,
   fontSize: `1.2rem`,
   fontWeight: 500,
-  alignSelf: `center`,
   marginRight: theme.spacing(2),
 
   [theme.breakpoints.down(`md`)]: {
