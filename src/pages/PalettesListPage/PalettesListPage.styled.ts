@@ -47,6 +47,7 @@ export const PalettesListContainer = styled(`div`)(() => ({
 }));
 
 export const TitleContainer = styled(`div`)(({ theme }) => ({
+  alignItems: `baseline`,
   display: `flex`,
   gap: theme.spacing(1),
 }));
