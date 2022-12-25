@@ -69,12 +69,7 @@ const withMUIThemeProvider = (Story, context) => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
 
-      <Box
-        sx={{
-          backgroundColor: theme.palette.background.default,
-          padding: 3,
-        }}
-      >
+      <Box sx={{ backgroundColor: theme.palette.background.default }}>
         <Story {...context} />
       </Box>
     </ThemeProvider>

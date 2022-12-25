@@ -49,12 +49,12 @@ export const ColorBoxesContainer = styled(`main`, {
       easing: (theme as Theme).transitions.easing.easeOut,
     }),
 
-    [`@media (max-width: ${theme.breakpoints.values.md + drawerWidth}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.values.md + Number(drawerWidth)}px)`]: {
       gridTemplateColumns: `repeat(4, 1fr)`,
       gridTemplateRows: `repeat(5, 1fr)`,
     },
 
-    [`@media (max-width: ${theme.breakpoints.values.sm + drawerWidth + 100}px)`]: {
+    [`@media (max-width: ${theme.breakpoints.values.sm + Number(drawerWidth) + 100}px)`]: {
       gridTemplateColumns: `repeat(2, 1fr)`,
       gridTemplateRows: `repeat(10, 1fr)`,
     },

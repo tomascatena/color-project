@@ -1,7 +1,7 @@
 import { ColorBoxesContainer } from './DraggableColorGrid.styled';
 import { ColorDefinition } from '@/@types/typings';
 import { SortableContainer } from 'react-sortable-hoc';
-import DraggableColorBox from '@/components/DraggableColorBox/DraggableColorBox';
+import DraggableColorBox from '@/components/DraggableColorGrid/DraggableColorBox/DraggableColorBox';
 import React from 'react';
 
 interface Props {
@@ -23,6 +23,12 @@ interface Props {
   isDrawerOpen: boolean;
 };
 
+/**
+ * <h3>Draggable color grid component</h3>
+ * <p>
+ * This component must be wrapped in a flex container to use the full height of the parent.
+ * </p>
+ */
 const DraggableColorGrid = ({
   colors,
   deleteColor,

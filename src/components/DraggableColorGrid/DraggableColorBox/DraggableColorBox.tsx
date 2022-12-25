@@ -28,6 +28,12 @@ type Props = {
   isDrawerOpen: boolean;
 };
 
+/**
+ * <h3>Draggable color box component</h3>
+ * <p>
+ * This component must be wrapped in a SortableContainer component.
+ * </p>
+ */
 const DraggableColorBox = ({
   color,
   deleteColor,
