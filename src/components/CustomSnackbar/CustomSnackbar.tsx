@@ -17,6 +17,13 @@ type Props = {
   setIsSnackbarOpen: (isSnackbarOpen: boolean) => void;
 };
 
+/**
+ * <h3>Custom Snackbar Component</h3>
+ * <p>
+ * This component is customized to use the Material UI Snackbar component.
+ * It uses the an styled MUI Alert component to render the snackbar.
+ * </p>
+ */
 const CustomSnackbar = ({
   children,
   isSnackbarOpen,
