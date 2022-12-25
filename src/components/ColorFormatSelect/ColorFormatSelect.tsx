@@ -21,6 +21,13 @@ type Props = {
 
 type ColorFormat = keyof typeof COLOR_FORMATS;
 
+/**
+ * <h3>Select to change the color format</h3>
+ * <p>
+ * You will nee to pass the color format, the function to set the color format (either 'hex', 'rgb' or 'rgba')
+ * and the function to set the snackbar open state.
+ * </p>
+ */
 const ColorFormatSelect = ({
   colorFormat,
   setColorFormat,

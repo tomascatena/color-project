@@ -44,8 +44,11 @@ type Props = {
 };
 
 /**
- * Single ColorBox component.<br>
- * You should size the component yourself with the container (e.g. using the CSS Grid, or with the height and width of the parent element).
+ * <h3>Single ColorBox component</h3>
+ * <p>
+ * You should size the component yourself with the container
+ * (e.g. using the CSS Grid, or with the height and width of the parent element).
+ * </p>
  */
 const ColorBox = ({
   backgroundColor,
@@ -65,11 +68,7 @@ const ColorBox = ({
 
   const navigate = useNavigate();
 
-  const tooltipTitle = (
-    <React.Fragment>
-      <Typography variant="body2">See shadows for {colorName.slice(0, -4)}</Typography>
-    </React.Fragment>
-  );
+  const tooltipTitle = <Typography variant="body2">See shadows for {colorName.slice(0, -4)}</Typography>;
 
   const audio = new Audio(copiedSound);
 
