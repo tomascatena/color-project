@@ -23,6 +23,16 @@ module.exports = {
         extensions: config.resolve.extensions,
       }),
     ];
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        `style-loader`,
+        `css-loader`,
+        `sass-loader`,
+      ],
+    });
+
     return config;
   },
 };

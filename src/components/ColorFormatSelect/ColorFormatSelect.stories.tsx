@@ -1,4 +1,4 @@
-import { COLOR_FORMATS, ColorFormat } from '../../constants/colors';
+import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ColorFormatSelect from './ColorFormatSelect';
 import React from 'react';
