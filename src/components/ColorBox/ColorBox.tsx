@@ -83,11 +83,13 @@ const ColorBox = ({
   return (
     <ColorBoxContainer backgroundColor={backgroundColor}>
       <CopyOverlay
+        data-testid="copy-overlay"
         backgroundColor={backgroundColor}
         className={`${isCopied ? `showCopyOverlay` : ``}`}
       />
 
       <CopyMessage
+        data-testid="copy-message"
         isDarkColor={chroma(backgroundColor).luminance() <= 0.5}
         className={`${isCopied ? `showCopyMessage` : ``}`}
       >
