@@ -1,6 +1,9 @@
+import {
+  CircularProgressAnimated,
+  CircularProgressBackground
+} from './CircularLoader.styled';
 import { SxProps, Theme } from '@mui/material';
 import Box from '@mui/material/Box';
-import CircularProgress, { circularProgressClasses } from '@mui/material/CircularProgress';
 import React from 'react';
 
 type Props = {
@@ -29,7 +32,8 @@ type Props = {
 };
 
 /**
- * A circular loader
+ * A circular loader components.<br>
+ * Allows for customization of the duration [ms], size [px] and thickness [px].
  */
 const CircularLoader = ({
   duration = 800,
@@ -39,29 +43,17 @@ const CircularLoader = ({
 }: Props) => {
   return (
     <Box sx={{ position: `relative`, ...sx }}>
-      <CircularProgress
+      <CircularProgressBackground
         variant='determinate'
-        sx={{
-          color: (theme) =>
-            theme.palette.grey[theme.palette.mode === `light` ? 200 : 800],
-        }}
         size={size}
         thickness={thickness}
         value={100}
       />
 
-      <CircularProgress
+      <CircularProgressAnimated
+        duration={duration}
         variant='indeterminate'
         disableShrink
-        sx={{
-          animationDuration: `${duration}ms`,
-          position: `absolute`,
-          left: 0,
-
-          [`& .${circularProgressClasses.circle}`]: {
-            strokeLinecap: `round`,
-          },
-        }}
         size={size}
         thickness={thickness}
       />

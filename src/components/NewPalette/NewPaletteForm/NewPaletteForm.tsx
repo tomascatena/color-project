@@ -17,6 +17,7 @@ import { ColorDefinition } from '@/@types/typings';
 import { pickRandomHexColor } from '@/utils/pickRandomHexColor/pickRandomHexColor';
 import CustomDialog from '@/components/CustomDialog/CustomDialog';
 import React from 'react';
+import chroma from 'chroma-js';
 
 type Props = {
   /**
@@ -204,6 +205,7 @@ const NewPaletteForm = ({
           fullWidth
           type='submit'
           variant='contained'
+          isDarkColor={chroma(currentColor).luminance() <= 0.35}
         >
           {isPaletteFull ? `Palette Full` : `Add Color`}
         </AddColorButton>

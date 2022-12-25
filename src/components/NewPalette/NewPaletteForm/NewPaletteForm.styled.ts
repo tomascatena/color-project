@@ -83,12 +83,20 @@ interface AddColorButtonProps {
    * Background color of the button
    */
   backgroundColor: string;
+  /**
+   * Weather the color is dark.
+   */
+  isDarkColor: boolean;
 }
 
 export const AddColorButton = styled(Button, {
-  shouldForwardProp: (prop) => prop !== `backgroundColor`,
-})<AddColorButtonProps>(({ backgroundColor }) => ({
+  shouldForwardProp: (prop) => prop !== `backgroundColor` && prop !== `isDarkColor`,
+})<AddColorButtonProps>(({
   backgroundColor,
+  isDarkColor
+}) => ({
+  backgroundColor,
+  color: isDarkColor ? `#fff` : `#000`,
 
   "&:hover": {
     backgroundColor,
