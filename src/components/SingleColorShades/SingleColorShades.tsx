@@ -8,10 +8,6 @@ import React from 'react';
 
 type Props = {
   /**
-   * Palette data, includes palette name, id, emoji, and colors
-   */
-  palette: ColorPalette;
-  /**
    * Id of the color
    */
   colorId: string;
@@ -20,11 +16,23 @@ type Props = {
    */
   colorFormat: ColorFormat;
   /**
+   * Palette data, includes palette name, id, emoji, and colors
+   */
+  palette: ColorPalette;
+  /**
    * Weather to play sound or not
    */
   shouldPlaySound: boolean;
 };
 
+/**
+ * <h3>Single Color Shades Component</h3>
+ * <p>
+ * This component is used to render the shades of a single color.
+ * It will render a ColorBox component for each shade (9 shades, from 100 to 900),
+ * plus a GoBackBox component to go back to the palette in which the color belongs.
+ * </p>
+ */
 const SingleColorShades = ({
   palette,
   colorId,
