@@ -1,8 +1,8 @@
 import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
 import { ColorPalette } from '@/@types/typings';
 import { SingleColorPageContainer } from './SingleColorPage.styled';
-import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
+import PaletteFooter from '@/components/PaletteFooter/PaletteFooter';
 import React from 'react';
 import SingleColorShades from '@/components/SingleColorShades/SingleColorShades';
 
@@ -44,7 +44,7 @@ const ColorShadesPage = ({
         shouldPlaySound={shouldPlaySound}
       />
 
-      <Footer palette={palette} />
+      <PaletteFooter palette={palette} />
     </SingleColorPageContainer>
   );
 };

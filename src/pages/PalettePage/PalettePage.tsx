@@ -2,9 +2,9 @@ import { COLOR_FORMATS, ColorFormat } from '@/constants/colors';
 import { ColorPalette } from '@/@types/typings';
 import { PalettePageContainer } from './PalettePage.styled';
 import { generatePalette } from '@/utils/colorHelpers/colorHelpers';
-import Footer from '@/components/Footer/Footer';
 import Navbar from '@/components/Navbar/Navbar';
 import Palette from '@/components/Palette/Palette';
+import PaletteFooter from '@/components/PaletteFooter/PaletteFooter';
 import React from 'react';
 import useGetDeviceSeize from '@/hooks/useGetDeviceSize';
 
@@ -38,7 +38,7 @@ const HomePage = ({ palette }: Props) => {
         shouldPlaySound={shouldPlaySound}
       />
 
-      <Footer palette={palette} />
+      <PaletteFooter palette={palette} />
     </PalettePageContainer>
   );
 };

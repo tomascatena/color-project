@@ -1,5 +1,5 @@
 import { ColorPalette } from '@/@types/typings';
-import { CopyrightText, FooterContainer, PaletteDescription } from './Footer.styled';
+import { CopyrightText, FooterContainer, PaletteDescription } from './PaletteFooter.styled';
 import { Emoji } from 'emoji-mart';
 import React from 'react';
 
