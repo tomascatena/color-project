@@ -16,6 +16,12 @@ type Props = {
   paletteId: string;
 };
 
+/**
+ * <h3>Component with the link to navigate back to the palette</h3>
+ * <p>
+ * The container component must specify the height and width.
+ * </p>
+ */
 const GoBackBox = ({
   backgroundColor,
   paletteId,

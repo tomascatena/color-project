@@ -17,7 +17,8 @@ import React from 'react';
 
 type Props = {
   /**
-   * Function to handle click event
+   * Function to handle click event.<br>
+   * It can be used to navigate to the palette page.
    */
   handleClick?: () => void;
   /**
@@ -30,6 +31,12 @@ type Props = {
   removePalette: (paletteId: string) => void;
 };
 
+/**
+ * <h3>Mini Palette Component</h3>
+ * <p>
+ * The container component must specify the dimensions, either assigning the height and width or using the CSS Grid.
+ * </p>
+ */
 const MiniPalette = ({
   handleClick,
   palette,
