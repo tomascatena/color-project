@@ -41,6 +41,7 @@ export const MiniPaletteContainer = styled(`div`)(() => ({
   overflow: `hidden`,
   position: `relative`,
   transition: `all .2s ease-in-out`,
+  border: `1px solid gray`,
 
   "&:hover": {
     cursor: `pointer`,

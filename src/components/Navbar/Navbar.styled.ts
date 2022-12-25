@@ -43,6 +43,10 @@ export const SoundSelector = styled(`div`)(({ theme }) => ({
   fontWeight: 500,
   marginRight: theme.spacing(2),
 
+  '&:hover': {
+    cursor: `pointer`,
+  },
+
   [theme.breakpoints.down(`md`)]: {
     display: `none`,
   },

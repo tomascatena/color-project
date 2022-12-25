@@ -36,7 +36,7 @@ export const globalTypes = {
   theme: {
     title: `Theme`,
     description: `Global theme for components`,
-    defaultValue: `dark`,
+    defaultValue: `light`,
     toolbar: {
       icon: `lightning`,
       items: [`dark`, `light`],

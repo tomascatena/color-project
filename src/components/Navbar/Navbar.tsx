@@ -1,6 +1,11 @@
 import { ColorFormat } from '@/constants/colors';
 import { IconButton } from '@mui/material';
-import { NavbarContainer, NavbarTitle, SoundSelector, StyledLink } from './Navbar.styled';
+import {
+  NavbarContainer,
+  NavbarTitle,
+  SoundSelector,
+  StyledLink
+} from './Navbar.styled';
 import ColorFormatSelect from '../ColorFormatSelect/ColorFormatSelect';
 import CustomSnackbar from '@/components/CustomSnackbar/CustomSnackbar';
 import React from 'react';
@@ -32,17 +37,17 @@ type Props = {
    */
   setLevel?: (level: number) => void;
   /**
-   * Title to display
-   */
-  title?: string;
+   * Function to set the sound
+  */
+  setShouldPlaySound: (shouldPlaySound: boolean) => void;
   /**
-   * Weather to play sound or not
-   */
+  * Weather to play sound or not
+  */
   shouldPlaySound: boolean;
   /**
-   * Function to set the sound
-   */
-  setShouldPlaySound: (shouldPlaySound: boolean) => void;
+  * Title to display
+  */
+  title?: string;
 };
 
 const Navbar = ({
