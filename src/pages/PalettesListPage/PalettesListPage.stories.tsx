@@ -6,6 +6,11 @@ import seedPalettes from '@/data/seedPalettes';
 export default {
   title: `Pages/PalettesListPage`,
   component: PalettesListPage,
+  parameters: {
+    previewTabs: {
+      'storybook/docs/panel': { hidden: true }
+    },
+  },
 } as ComponentMeta<typeof PalettesListPage>;
 
 const Template: ComponentStory<typeof PalettesListPage> = (args) => <PalettesListPage {...args} />;

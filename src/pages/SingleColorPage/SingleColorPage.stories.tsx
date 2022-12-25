@@ -16,6 +16,11 @@ export default {
       },
     },
   },
+  parameters: {
+    previewTabs: {
+      'storybook/docs/panel': { hidden: true }
+    },
+  },
 } as ComponentMeta<typeof SingleColorPage>;
 
 const Template: ComponentStory<typeof SingleColorPage> = (args) => <SingleColorPage {...args} />;
