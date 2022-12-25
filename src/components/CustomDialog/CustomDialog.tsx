@@ -13,6 +13,12 @@ type Props = {
   setIsDialogOpen: (value: boolean) => void;
 };
 
+/**
+ * <h3>Custom Dialog Component</h3>
+ * <p>
+ * This component is a wrapper around the Material UI Dialog component.<br>
+ * </p>
+ */
 const CustomDialog = ({
   dialogActions,
   dialogContent,

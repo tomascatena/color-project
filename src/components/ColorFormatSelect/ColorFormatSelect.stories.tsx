@@ -20,4 +20,4 @@ const Template: ComponentStory<typeof ColorFormatSelect> = () => {
   );
 };
 
-export const DarkBox = Template.bind({});
+export const Default = Template.bind({});
