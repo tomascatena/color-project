@@ -1,5 +1,5 @@
 import { Box, ThemeProvider } from '@mui/material';
-import { BrowserRouter, } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import darkTheme from '../src/themes/darkTheme';
@@ -46,9 +46,9 @@ export const globalTypes = {
 
 const withReactRouter = (Story, context) => {
   return (
-    <BrowserRouter>
+    <MemoryRouter>
       <Story {...context} />
-    </BrowserRouter>
+    </MemoryRouter>
   );
 };
 

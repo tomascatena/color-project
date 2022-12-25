@@ -23,6 +23,13 @@ type Props = {
   shouldPlaySound: boolean;
 };
 
+/**
+ * <h3>Palette Component</h3>
+ * <p>
+ * Renders a palette of colors.<br>
+ * The palette is generated from the palette data passed in and for the given level.
+ * </p>
+ */
 const Palette = ({
   palette,
   level,
