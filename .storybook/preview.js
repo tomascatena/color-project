@@ -1,4 +1,5 @@
 import { Box, ThemeProvider } from '@mui/material';
+import { BrowserRouter, } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
 import darkTheme from '../src/themes/darkTheme';
@@ -14,22 +15,21 @@ export const parameters = {
   },
   layout: `fullscreen`,
   options: {
-    storySort: (a, b) =>
-      a[1].kind === b[1].kind ? 0 : a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
+    storySort: (story, nextStory) => {
+      const storyTitle = story[1].kind;
+      const nextStoryTitle = nextStory[1].kind;
+
+      const storyId = story[1].id;
+      const nextStoryId = nextStory[1].id;
+
+      if (storyTitle === nextStoryTitle) {
+        return 0;
+      } else {
+        return storyId.localeCompare(nextStoryId, undefined, { numeric: true });
+      }
+    },
   },
-  backgrounds: {
-    default: `dark`,
-    values: [
-      {
-        name: `dark`,
-        value: `#121212`,
-      },
-      {
-        name: `light`,
-        value: `#fff`,
-      },
-    ],
-  },
+  backgrounds: { disabled: true },
 };
 
 export const globalTypes = {
@@ -40,13 +40,30 @@ export const globalTypes = {
     toolbar: {
       icon: `lightning`,
       items: [`dark`, `light`],
-      showName: true,
     },
   },
 };
 
+const withReactRouter = (Story, context) => {
+  return (
+    <BrowserRouter>
+      <Story {...context} />
+    </BrowserRouter>
+  );
+};
+
 const withMUIThemeProvider = (Story, context) => {
   const theme = context.globals.theme === `light` ? lightTheme : darkTheme;
+
+  context.parameters.backgrounds = {
+    ...context.parameters.backgrounds,
+    values: [
+      {
+        name: context.globals.theme,
+        value: theme.palette.background.default,
+      },
+    ],
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,7 +73,6 @@ const withMUIThemeProvider = (Story, context) => {
         sx={{
           backgroundColor: theme.palette.background.default,
           padding: 3,
-          minHeight: `100vh`,
         }}
       >
         <Story {...context} />
@@ -66,5 +82,6 @@ const withMUIThemeProvider = (Story, context) => {
 };
 
 export const decorators = [
+  withReactRouter,
   withMUIThemeProvider
 ];

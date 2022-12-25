@@ -43,6 +43,10 @@ type Props = {
   shouldPlaySound: boolean;
 };
 
+/**
+ * Single ColorBox component.<br>
+ * You should size the component yourself with the container (e.g. using the CSS Grid, or with the height and width of the parent element).
+ */
 const ColorBox = ({
   backgroundColor,
   colorName,
