@@ -3,7 +3,7 @@ import CustomBackdrop from './CustomBackdrop';
 import React from 'react';
 
 export default {
-  title: `UI/CustomBackdrop`,
+  title: `UI-Elements/CustomBackdrop`,
   component: CustomBackdrop,
 } as ComponentMeta<typeof CustomBackdrop>;
 
@@ -12,5 +12,9 @@ const Template: ComponentStory<typeof CustomBackdrop> = (args) => <CustomBackdro
 export const Default = Template.bind({});
 
 Default.args = {
-  isOpen: true,
+  isOpen: false,
+  loaderSize: 100,
+  loaderThickness: 4,
+  message: `Loading... Please wait.`,
+  textVariant: `h4`,
 };

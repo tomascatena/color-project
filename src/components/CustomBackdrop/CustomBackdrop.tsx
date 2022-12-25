@@ -33,7 +33,7 @@ type Props = {
 };
 
 /**
- * A custom backdrop component
+ * <h3>A custom backdrop component</h3>
  */
 const CustomBackdrop = ({
   isOpen,
