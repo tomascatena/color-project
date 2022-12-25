@@ -5,13 +5,13 @@ import React from 'react';
 
 type Props = {
   /**
-   * Function to set the shade level
-   */
-  setLevel: (level: number) => void;
-  /**
     * Current shade level
     */
   level: number;
+  /**
+   * Function to set the shade level
+   */
+  setLevel: (level: number) => void;
 };
 
 const ShadeLevelSlider = ({ setLevel, level }: Props) => {
