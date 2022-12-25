@@ -28,6 +28,12 @@ type Props = {
   setIsDrawerOpen: (open: boolean) => void;
 };
 
+/**
+ * <h3>Custom Drawer Component</h3>
+ * <p>
+ * This component is a wrapper around the Material UI Drawer component.
+ * </p>
+ */
 const CustomDrawer = ({
   children,
   drawerWidth,

@@ -3,7 +3,7 @@ import CircularLoader from './CircularLoader';
 import React from 'react';
 
 export default {
-  title: `UI-Elements/CircularLoader`,
+  title: `Components/CircularLoader`,
   component: CircularLoader,
 } as ComponentMeta<typeof CircularLoader>;
 

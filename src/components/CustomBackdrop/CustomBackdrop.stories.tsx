@@ -3,7 +3,7 @@ import CustomBackdrop from './CustomBackdrop';
 import React from 'react';
 
 export default {
-  title: `UI-Elements/CustomBackdrop`,
+  title: `Components/CustomBackdrop`,
   component: CustomBackdrop,
 } as ComponentMeta<typeof CustomBackdrop>;
 
