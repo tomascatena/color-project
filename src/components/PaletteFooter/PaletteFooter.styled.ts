@@ -17,7 +17,7 @@ export const FooterContainer = styled(`footer`)(({ theme }) => ({
   },
 }));
 
-export const PaletteDescription = styled(`p`)(({ theme }) => ({
+export const PaletteDescription = styled(`span`)(({ theme }) => ({
   alignItems: `center`,
   display: `flex`,
   gap: theme.spacing(2),

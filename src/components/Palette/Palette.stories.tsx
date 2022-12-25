@@ -30,8 +30,8 @@ const Template: ComponentStory<typeof Palette> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  shouldPlaySound: true,
-  level: 500,
   colorFormat: `hex`,
+  level: 500,
   palette: MOCK_PALETTE,
+  shouldPlaySound: true,
 };
