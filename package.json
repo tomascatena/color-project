@@ -41,6 +41,7 @@
     "react-router-dom": "^6.3.0",
     "react-sortable-hoc": "^2.0.0",
     "react-transition-group": "^4.4.5",
+    "sass": "^1.57.1",
     "use-debounce": "^8.0.4"
   },
   "devDependencies": {
@@ -96,7 +97,6 @@
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
     "lint-staged": "^13.0.3",
-    "node-sass": "^7.0.3",
     "raw-loader": "^4.0.2",
     "sass-loader": "^13.1.0",
     "terser-webpack-plugin": "^5.3.5",
