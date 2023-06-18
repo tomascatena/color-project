@@ -1,22 +1,23 @@
 {
-  "name": "color-project",
+  "name": "@pelusa/color-project",
   "author": "Tomás Catena",
   "license": "MIT",
   "version": "0.1.0",
   "publishConfig": {
     "public": true
   },
-  "description": "React/Typescript Color Palette Project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomascatena/color-project.git"
+  },
+  "description": "React Typescript Color Palette Project",
   "main": "src/index.tsx",
   "scripts": {
     "prepublishOnly": "npm run lint && npm run test && npm run build",
     "start": "webpack serve --config config/webpack.dev.ts",
-    "dev": "webpack serve --config config/webpack.dev.ts",
     "build": "webpack --config config/webpack.prod.ts",
     "build:analyze": "webpack --config config/webpack.prod.ts --env WEBPACK_ANALYZE",
-    "lint": "eslint \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" --ignore-pattern node_modules/",
-    "lint:fix": "eslint \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" --ignore-pattern node_modules/ --fix",
-    "lint:quiet": "eslint \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" --ignore-pattern node_modules/ --quiet",
+    "lint": "eslint \"**/*.{js,ts,tsx}\" --ignore-pattern node_modules/",
     "lint-staged": "lint-staged --config lint-staged.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -128,5 +129,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }  
 }

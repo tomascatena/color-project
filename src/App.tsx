@@ -44,57 +44,49 @@ const App = () => {
   const location = useLocation();
 
   return (
-    <Routes location={location}>
-      <Route
-        path='*'
-        element={
-          <TransitionGroup>
-            <CSSTransition
-              key={location.key}
-              timeout={500}
-              classNames='page'
-            >
-              <Routes location={location}>
-                <Route
-                  path="/"
-                  element={
-                    <PalettesListPage
-                      removePalette={removePalette}
-                      palettes={palettes}
-                    />
-                  }
-                />
+    <div className='page-wrapper'>
+      <TransitionGroup>
+        <CSSTransition
+          key={location.key}
+          timeout={500}
+          classNames='page'
+        >
+          <div className="page" >
+            <Routes location={location}>
+              <Route
+                path="/"
+                element={
+                  <PalettesListPage
+                    removePalette={removePalette}
+                    palettes={palettes}
+                  />
+                }
+              />
 
-                <Route
-                  path="/palettes/:paletteId"
-                  element={
-                    <PalettePageRoute palettes={palettes} />
-                  }
-                />
+              <Route
+                path="/palettes/:paletteId"
+                element={<PalettePageRoute palettes={palettes} />}
+              />
 
-                <Route
-                  path="/palettes/:paletteId/:colorId"
-                  element={
-                    <SingleColorPageRoute palettes={palettes} />
-                  }
-                />
+              <Route
+                path="/palettes/:paletteId/:colorId"
+                element={<SingleColorPageRoute palettes={palettes} />}
+              />
 
-                <Route
-                  path="/new-palette"
-                  element={
-                    <NewPalettePage
-                      palettes={palettes}
-                      savePalette={savePalette}
-                    />
-                  }
-                />
-              </Routes>
-            </CSSTransition>
-          </TransitionGroup>
-        }
-      >
-      </Route>
-    </Routes>
+              <Route
+                path="/new-palette"
+                element={
+                  <NewPalettePage
+                    palettes={palettes}
+                    savePalette={savePalette}
+                  />
+                }
+              />
+            </Routes>
+          </div>
+        </CSSTransition>
+      </TransitionGroup>
+    </div>
   );
 };
 
