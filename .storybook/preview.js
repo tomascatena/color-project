@@ -2,8 +2,7 @@ import { Box, ThemeProvider } from '@mui/material';
 import { MemoryRouter } from 'react-router-dom';
 import CssBaseline from '@mui/material/CssBaseline';
 import React from 'react';
-import darkTheme from '../src/themes/darkTheme';
-import lightTheme from '../src/themes/lightTheme';
+import themes from '@/themes/themeConfig';
 
 export const parameters = {
   actions: { argTypesRegex: `^on[A-Z].*` },
@@ -39,7 +38,7 @@ export const globalTypes = {
     defaultValue: `light`,
     toolbar: {
       icon: `lightning`,
-      items: [`dark`, `light`],
+      items: Object.keys(themes), // This will be ['dark', 'light']
     },
   },
 };
@@ -53,7 +52,8 @@ const withReactRouter = (Story, context) => {
 };
 
 const withMUIThemeProvider = (Story, context) => {
-  const theme = context.globals.theme === `light` ? lightTheme : darkTheme;
+  const themeName = context.globals.theme;
+  const theme = themes[themeName]; // This will choose the correct theme based on the name
 
   context.parameters.backgrounds = {
     ...context.parameters.backgrounds,

@@ -6,7 +6,7 @@ import path from 'path';
 
 const prodConfig: Configuration = {
   mode: `production`,
-  devtool: false,
+  devtool: `source-map`,
   output: {
     assetModuleFilename: `assets/[contenthash][ext]`,
     chunkFilename: `[id].[contenthash].js`,
@@ -46,6 +46,10 @@ const prodConfig: Configuration = {
     hints: `warning`,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
+  },
+  externals: {
+    react: `React`,
+    'react-dom': `ReactDOM`,
   },
 };
 

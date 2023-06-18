@@ -9,12 +9,13 @@ import {
   Routes,
   useLocation
 } from 'react-router-dom';
-import NewPalettePage from '@/pages/NewPalettePage/NewPalettePage';
-import PalettePageRoute from '@/routes/PalettePageRoute';
-import PalettesListPage from '@/pages/PalettesListPage/PalettesListPage';
-import React from 'react';
-import SingleColorPageRoute from '@/routes/SingleColorPageRoute';
+import React, { Suspense, lazy } from 'react';
 import seedPalettes from '@/data/seedPalettes';
+
+const NewPalettePage = lazy(() => import(`@/pages/NewPalettePage/NewPalettePage`));
+const PalettePageRoute = lazy(() => import(`@/routes/PalettePageRoute`));
+const PalettesListPage = lazy(() => import(`@/pages/PalettesListPage/PalettesListPage`));
+const SingleColorPageRoute = lazy(() => import(`@/routes/SingleColorPageRoute`));
 
 const App = () => {
   const savedPalettes = JSON.parse(localStorage.getItem(`palettes`) || `[]`);
@@ -51,38 +52,40 @@ const App = () => {
           timeout={500}
           classNames='page'
         >
-          <div className="page" >
-            <Routes location={location}>
-              <Route
-                path="/"
-                element={
-                  <PalettesListPage
-                    removePalette={removePalette}
-                    palettes={palettes}
-                  />
-                }
-              />
+          <div className="page">
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes location={location}>
+                <Route
+                  path="/"
+                  element={
+                    <PalettesListPage
+                      removePalette={removePalette}
+                      palettes={palettes}
+                    />
+                  }
+                />
 
-              <Route
-                path="/palettes/:paletteId"
-                element={<PalettePageRoute palettes={palettes} />}
-              />
+                <Route
+                  path="/palettes/:paletteId"
+                  element={<PalettePageRoute palettes={palettes} />}
+                />
 
-              <Route
-                path="/palettes/:paletteId/:colorId"
-                element={<SingleColorPageRoute palettes={palettes} />}
-              />
+                <Route
+                  path="/palettes/:paletteId/:colorId"
+                  element={<SingleColorPageRoute palettes={palettes} />}
+                />
 
-              <Route
-                path="/new-palette"
-                element={
-                  <NewPalettePage
-                    palettes={palettes}
-                    savePalette={savePalette}
-                  />
-                }
-              />
-            </Routes>
+                <Route
+                  path="/new-palette"
+                  element={
+                    <NewPalettePage
+                      palettes={palettes}
+                      savePalette={savePalette}
+                    />
+                  }
+                />
+              </Routes>
+            </Suspense>
           </div>
         </CSSTransition>
       </TransitionGroup>
