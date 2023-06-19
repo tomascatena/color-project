@@ -1,7 +1,4 @@
-import {
-  Palette,
-  getContrastRatio
-} from '@mui/material';
+import { Palette, getContrastRatio } from '@mui/material';
 
 export const lightPalette: Palette = {
   mode: `light`,

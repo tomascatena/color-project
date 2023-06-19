@@ -1,8 +1,4 @@
-import {
-  ColorDefinition,
-  ColorPalette,
-  ColorPaletteWithShades
-} from '@/@types/typings';
+import { ColorDefinition, ColorPalette, ColorPaletteWithShades } from '@/@types/typings';
 import { LEVELS } from '@/constants/colors';
 import chroma from 'chroma-js';
 
@@ -12,10 +8,7 @@ import chroma from 'chroma-js';
  * @param end The end of the range
  * @returns An array of colors
  */
-const getRange = (
-  hexColor: string,
-  end: string = `#fff`
-) => {
+export const getRange = (hexColor: string, end: string = `#fff`) => {
   return [
     chroma(hexColor).darken(1.4).hex(),
     hexColor,
@@ -25,17 +18,16 @@ const getRange = (
 
 /**
  * Function to generate a scale of colors
- * @param hexColor - The color to generate the shades from
- * @param numberOfColors - The number of shades to generate
+ * @param hexColor The color to generate the shades from
+ * @param numberOfColors The number of shades to generate
  * @returns - An array of shades
  */
-const generateScale = (
-  hexColor: string,
-  numberOfColors: number
-) => chroma
-  .scale(getRange(hexColor))
-  .mode(`lab`)
-  .colors(numberOfColors);
+export const generateScale = (hexColor: string, numberOfColors: number) => {
+  return chroma
+    .scale(getRange(hexColor))
+    .mode(`lab`)
+    .colors(numberOfColors);
+};
 
 /**
  * Function to generate a palette of colors
@@ -58,13 +50,17 @@ export const generatePalette = (starterPalette: ColorPalette) => {
     const scale = generateScale(color, 10).reverse();
 
     for (const index in scale) {
-      newPalette.colors[LEVELS[index]].push({
-        hex: scale[index],
+      const level = LEVELS[index];
+      const hex = scale[index];
+      const rgb = chroma(hex).css();
+
+      newPalette.colors[level].push({
+        hex,
         id: name.toLowerCase().replace(/ /g, `-`),
-        level: LEVELS[index],
-        name: `${name} ${LEVELS[index]}`,
-        rgb: chroma(scale[index]).css(),
-        rgba: chroma(scale[index]).css().replace(`rgb`, `rgba`).replace(`)`, `,1.0)`),
+        level,
+        name: `${name} ${level}`,
+        rgb,
+        rgba: rgb.replace(`rgb`, `rgba`).replace(`)`, `,1.0)`),
       });
     }
   });

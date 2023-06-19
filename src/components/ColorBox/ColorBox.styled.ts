@@ -9,9 +9,7 @@ type ColorBoxContainerProps = {
 
 export const ColorBoxContainer = styled(`div`,
   { shouldForwardProp: (prop) => prop !== `backgroundColor` }
-)<ColorBoxContainerProps>(({
-  backgroundColor,
-}) => ({
+)<ColorBoxContainerProps>(({ backgroundColor, }) => ({
   backgroundColor,
   display: `inline-block`,
   height: `100%`,
