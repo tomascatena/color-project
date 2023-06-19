@@ -2,6 +2,7 @@ import './App.scss';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ColorPalette } from '@/@types/typings';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import CustomBackdrop from '@/components/CustomBackdrop/CustomBackdrop';
 import React, { Suspense, lazy } from 'react';
 import seedPalettes from '@/data/seedPalettes';
 
@@ -46,7 +47,14 @@ const App = () => {
           classNames='page'
         >
           <div className="page">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense
+              fallback={
+                <CustomBackdrop
+                  isOpen
+                  message='Loading color palettes...'
+                />
+              }
+            >
               <Routes location={location}>
                 <Route
                   path="/"

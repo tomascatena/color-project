@@ -13,7 +13,8 @@ const useClickOutside = (ref: React.RefObject<HTMLElement>, callback: () => void
     return () => {
       document.removeEventListener(`mousedown`, handleClick);
     };
-  });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty array as useEffect's second argument for cleanup
 };
 
 export default useClickOutside;
