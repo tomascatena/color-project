@@ -25,15 +25,19 @@ Provide some instructions and descriptions of how to use the application feature
 ## Project Structure
 
 ```
+config\             # Webpack configuration files
+dist\               # Compiled files
+jest\               # Jest mocks
+public\             # Public files
 src\
- |--assets\         # Globally available assets like images, svgs, videos, etc
+ |--@types\         # Custom types for TypeScript
  |--components\     # Components used in the project
- |--constants\      # Constants like API Endpoints, routes, etc
+ |--constants\      # Color levels and formats
+ |--data\           # Seed palettes
  |--hooks\          # Custom React hooks
  |--pages\          # All the pages of the project
- |--store\          # Redux store
  |--themes\         # MUI themes
- |--typings\        # Types
+ |--utils\          # Utility functions
  |--App.js          # React app
  |--index.js        # App entry point
 ```
@@ -50,6 +54,9 @@ src\
 
 ## Testing
 To run tests, execute the following command: `npm run test`
+
+## Storybook
+To run Storybook, execute the following command: `npm run storybook`
 
 ## Inspirations
 - [React Colors Project by Colt Steele](https://github.com/Colt/react-colors)
