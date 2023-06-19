@@ -27,7 +27,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-      
+
+      - name: Use latest npm
+        run: npm install -g npm@latest
+
       # Cache dependencies
       - name: Cache Node.js modules
         uses: actions/cache@v2
@@ -41,10 +44,13 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      
-      - name: Install Dependencies
-        run: npm ci # use `npm ci` instead of `npm install` for faster and more reliable dependency installs
-      
+
+      # Clear package-lock.json and node_modules
+      - name: Clear package-lock.json and node_modules
+        run: |
+          rm -rf package-lock.json node_modules
+          npm install
+
       - name: Run Linter
         run: npm run lint
       
@@ -53,8 +59,7 @@ jobs:
       
       - name: Build
         run: npm run build
-      
-      # Optionally upload artifact
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:

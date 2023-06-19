@@ -1,24 +1,26 @@
 # Color Palettes
 
-## Available Scripts
+## Table of Contents
+- [Project Description](#project-description)
+- [Installation and Setup](#installation-and-setup)
+- [Using the Application](#using-the-application)
+- [Project Structure](#project-structure)
+- [Technology Stack](#technology-stack)
+- [Testing](#testing)
+- [Inspirations](#inspirations)
+- [License](#license)
 
-In the project directory, you can run:
+## Project Description
+Color Palettes is a React application that helps users to ... (include a brief description of what the project does)
 
-### `npm start`
+## Installation and Setup
+1. Clone the repository: `git clone https://github.com/tomascatena/color-project.git`
+2. Navigate to the project directory: `cd color-project`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Using the Application
+Provide some instructions and descriptions of how to use the application features.
 
 ## Project Structure
 
@@ -36,8 +38,23 @@ src\
  |--index.js        # App entry point
 ```
 
-## Inspirations
+## Technology Stack
+- React
+- TypeScript
+- Material UI
+- Jest
+- React Testing Library
+- Eslint
+- Storybook
+- Webpack
 
+## Testing
+To run tests, execute the following command: `npm run test`
+
+## Inspirations
 - [React Colors Project by Colt Steele](https://github.com/Colt/react-colors)
 - [Flat UI Colors](https://flatuicolors.com/palette/defo)
 - [Material UI Colors](https://materialuicolors.co/?utm_source=launchers)
+
+## License
+This project is licensed under the terms of the MIT license.
