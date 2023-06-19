@@ -40,8 +40,15 @@ const NewPaletteForm = ({
   const [helperText, setHelperText] = React.useState(``);
   const [isDialogOpen, setIsDialogOpen] = React.useState(false);
 
+  const setRandomHexColor = async (colors: ColorDefinition[]) => {
+    const { hexColor, colorName } = await pickRandomHexColor(colors);
+
+    setCurrentColor(hexColor);
+    setNewColorName(colorName);
+  };
+
   React.useEffect(() => {
-    pickRandomHexColor(colors, setNewColorName, setCurrentColor);
+    setRandomHexColor(colors);
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const isPaletteFull = colors.length >= 20;
@@ -166,7 +173,7 @@ const NewPaletteForm = ({
         <Button
           variant='contained'
           color='primary'
-          onClick={() => pickRandomHexColor(colors, setNewColorName, setCurrentColor)}
+          onClick={() => setRandomHexColor(colors)}
         >
           Random Color
         </Button>
