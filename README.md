@@ -7,6 +7,7 @@
 - [Project Structure](#project-structure)
 - [Technology Stack](#technology-stack)
 - [Testing](#testing)
+- [Storybook](#storybook)
 - [Inspirations](#inspirations)
 - [License](#license)
 
