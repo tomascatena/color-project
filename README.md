@@ -28,7 +28,6 @@ Provide some instructions and descriptions of how to use the application feature
 ```
 config\             # Webpack configuration files
 dist\               # Compiled files
-jest\               # Jest mocks
 public\             # Public files
 src\
  |--@types\         # Custom types for TypeScript
@@ -47,8 +46,6 @@ src\
 - React
 - TypeScript
 - Material UI
-- Jest
-- React Testing Library
 - Eslint
 - Storybook
 - Webpack

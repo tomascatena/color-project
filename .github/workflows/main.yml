@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
-      - 'config/**'
-      - 'public/**'
-      - 'package.json'
-      - '.github/workflows/**'
-      - '.husky/**'
+      - "src/**"
+      - "config/**"
+      - "public/**"
+      - "package.json"
+      - ".github/workflows/**"
+      - ".husky/**"
 
 jobs:
   build:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
-      
+
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -47,20 +47,17 @@ jobs:
 
       # Clear package-lock.json and node_modules
       - name: Clear package-lock.json and node_modules
-        run:  rm -rf package-lock.json node_modules
+        run: rm -rf package-lock.json node_modules
 
       - name: Install Dependencies
         run: npm install
-      
+
       - name: Run Linter
         run: npm run lint
-      
-      - name: Run Jest Tests
-        run: npm run test
-      
+
       - name: Build
         run: npm run build
-      
+
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v2
         with:
